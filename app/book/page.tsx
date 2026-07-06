@@ -13,7 +13,7 @@ import { Plume } from "@/components/site/Plume";
  */
 const BOOKING_URL =
   (process.env.NEXT_PUBLIC_BOOKING_URL as string | undefined) ??
-  "https://ivoryatelier.zohobookings.com.au/portal-embed#/35653000000044005";
+  "https://ivoryatelier.zohobookings.com.au/#/35653000000044005";
 
 export default function Book() {
   return (
@@ -58,38 +58,26 @@ export default function Book() {
           </p>
         </aside>
 
-        {/* Right — embed */}
-        <div className="relative">
-          <div className="overflow-hidden rounded-md bg-transparent min-h-[600px]" id="inline-container">
-            {/* Zoho widget injects here */}
+        {/* Right — external link */}
+        <div className="relative flex flex-col items-center justify-center rounded-sm bg-alabaster p-12 text-center shadow-[0_40px_80px_-40px_rgba(51,38,29,0.35)] min-h-[500px] border border-espresso/15">
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-brass/10 text-brass mb-8">
+            <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
           </div>
-          
-          <Script 
-            src="https://bookings.nimbuspop.com/assets/embed.js" 
-            strategy="lazyOnload"
-            onLoad={() => {
-              if (typeof window !== "undefined" && (window as any).Bookings) {
-                (window as any).Bookings.inlineEmbed({
-                  url: BOOKING_URL,
-                  parent: "#inline-container",
-                  height: "850px"
-                });
-              }
-            }}
-          />
-
-          <p className="label mt-6 text-center text-espresso/45">
-            Having trouble loading the calendar?{" "}
-            <a
-              href="https://ivoryatelier.zohobookings.com.au/#/35653000000044005"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="border-b border-espresso/40 pb-0.5 text-espresso hover:border-brass hover:text-brass"
-            >
-              Book securely here
-            </a>
-            .
+          <h2 className="font-display text-3xl text-espresso mb-4">Schedule Your Visit</h2>
+          <p className="text-espresso/70 mb-10 max-w-sm">
+            You will be redirected to our secure booking portal to select your preferred service and time.
           </p>
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="group flex items-center justify-center gap-3 bg-espresso px-8 py-4 text-sm tracking-widest text-ivory transition-colors hover:bg-brass w-full max-w-xs"
+          >
+            <span>OPEN BOOKING PORTAL</span>
+            <span className="transition-transform group-hover:translate-x-1">→</span>
+          </a>
         </div>
       </div>
     </section>
