@@ -57,39 +57,26 @@ export default function Book() {
 
         {/* Right — embed */}
         <div className="relative">
-          <div className="overflow-hidden rounded-sm border border-espresso/15 bg-alabaster shadow-[0_40px_80px_-40px_rgba(51,38,29,0.35)]">
-            <div className="flex items-center justify-between border-b border-espresso/10 bg-ivory px-5 py-3">
-              <div className="flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-brass/70" />
-                <span className="h-2 w-2 rounded-full bg-sage/60" />
-                <span className="h-2 w-2 rounded-full bg-sand" />
-              </div>
-              <p className="label text-espresso/50">Secure Scheduling</p>
-            </div>
+          <div className="overflow-hidden rounded-md bg-transparent">
             <iframe
               title="Book a consultation with Ivory Atelier"
               src={BOOKING_URL}
-              className="block h-[820px] w-full border-0 bg-alabaster"
+              className="block min-h-[850px] w-full border-0 bg-transparent"
               loading="lazy"
               allow="camera; microphone; fullscreen"
             />
           </div>
 
-          <p className="label mt-6 text-espresso/45">
-            Powered by a secure third-party scheduling service. If the calendar
-            does not load,{" "}
+          <p className="label mt-6 text-center text-espresso/45">
+            Having trouble loading the calendar?{" "}
             <a
               href={BOOKING_URL}
               target="_blank"
               rel="noreferrer noopener"
               className="border-b border-espresso/40 pb-0.5 text-espresso hover:border-brass hover:text-brass"
             >
-              open it in a new tab
+              Book securely here
             </a>
-            . Or return to the{" "}
-            <Link href="/" className="border-b border-espresso/40 pb-0.5 text-espresso hover:border-brass hover:text-brass">
-              atelier
-            </Link>
             .
           </p>
         </div>
