@@ -142,9 +142,9 @@ export default function Home() {
                   height={1500}
                   className="aspect-[4/5] w-full object-cover contrast-[1.05] sepia-[0.1] brightness-[0.95] transition-all duration-[1200ms] ease-out group-hover:scale-[1.04] group-hover:sepia-0 group-hover:brightness-100"
                 />
-                <span className="absolute left-4 top-4 label rounded-full bg-alabaster/85 px-3 py-1 text-espresso backdrop-blur-sm">
+                {/* <span className="absolute left-4 top-4 label rounded-full bg-alabaster/85 px-3 py-1 text-espresso backdrop-blur-sm">
                   {s.tag}
-                </span>
+                </span> */}
               </div>
               <div className="mt-6 flex items-baseline justify-between gap-4">
                 <h3 className="font-display text-3xl text-espresso">{s.title}</h3>

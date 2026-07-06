@@ -4,21 +4,21 @@ import { Plume } from "@/components/site/Plume";
 
 const menu = {
   Coffee: [
-    { n: "Single-origin filter", d: "Slow-poured, rotated seasonally", p: "₹ 240" },
-    { n: "Cortado", d: "Two parts espresso, one part warmed milk", p: "₹ 260" },
-    { n: "Rose cardamom latte", d: "The house signature", p: "₹ 320" },
-    { n: "Iced long black", d: "Ethiopia · Yirgacheffe", p: "₹ 280" },
+    { n: "Single-origin filter", d: "Slow-poured, rotated seasonally" },
+    { n: "Cortado", d: "Two parts espresso, one part warmed milk" },
+    { n: "Rose cardamom latte", d: "The house signature" },
+    { n: "Iced long black", d: "Ethiopia · Yirgacheffe" },
   ],
   Tea: [
-    { n: "Assam second flush", d: "Steeped 4 minutes", p: "₹ 220" },
-    { n: "Kashmiri kahwa", d: "Saffron, almond, cardamom", p: "₹ 260" },
-    { n: "Chamomile & fennel", d: "Caffeine-free, warming", p: "₹ 200" },
+    { n: "Assam second flush", d: "Steeped 4 minutes" },
+    { n: "Kashmiri kahwa", d: "Saffron, almond, cardamom" },
+    { n: "Chamomile & fennel", d: "Caffeine-free, warming" },
   ],
   Kitchen: [
-    { n: "Saffron tea cake", d: "With clotted cream", p: "₹ 340" },
-    { n: "Pistachio financier", d: "Baked each morning", p: "₹ 280" },
-    { n: "Ivory shortbread", d: "Butter, salt, restraint", p: "₹ 220" },
-    { n: "Toast, cultured butter & honey", d: "Sourdough, warm", p: "₹ 260" },
+    { n: "Saffron tea cake", d: "With clotted cream" },
+    { n: "Pistachio financier", d: "Baked each morning" },
+    { n: "Ivory shortbread", d: "Butter, salt, restraint" },
+    { n: "Toast, cultured butter & honey", d: "Sourdough, warm" },
   ],
 };
 
@@ -70,11 +70,10 @@ export default function Cafe() {
                 <ul className="mt-6 space-y-6">
                   {items.map((it) => (
                     <li key={it.n}>
-                      <div className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-3">
-                        <p className="min-w-0 font-display text-xl text-espresso">
+                      <div>
+                        <p className="font-display text-xl text-espresso">
                           {it.n}
                         </p>
-                        <p className="font-display italic text-brass">{it.p}</p>
                       </div>
                       <p className="label mt-1 normal-case tracking-normal text-espresso/55">
                         {it.d}
