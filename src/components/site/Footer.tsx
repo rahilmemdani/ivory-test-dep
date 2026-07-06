@@ -44,10 +44,12 @@ export function Footer() {
           <div>
             <h4 className="label text-brass">Address</h4>
             <address className="mt-5 space-y-1 not-italic text-ivory/75">
-              <p>Ivory Atelier House</p>
-              <p>Bandra West, Mumbai</p>
-              <p className="pt-3">hello@ivoryatelier.in</p>
-              <p>+91 00000 00000</p>
+              <a href="https://maps.google.com/?q=Ivory+Atelier+House,Bandra+West,Mumbai" target="_blank" rel="noopener noreferrer" className="block hover:text-brass transition-colors">
+                <p>Ivory Atelier House</p>
+                <p>Bandra West, Mumbai</p>
+              </a>
+              <a href="mailto:hello@ivoryatelier.in" className="block pt-3 hover:text-brass transition-colors">hello@ivoryatelier.in</a>
+              <a href="tel:+910000000000" className="block hover:text-brass transition-colors">+91 00000 00000</a>
             </address>
           </div>
         </div>

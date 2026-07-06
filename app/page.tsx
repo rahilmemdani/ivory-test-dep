@@ -80,7 +80,11 @@ export default function Home() {
               </div>
               <div>
                 <dt className="label text-espresso/50">Address</dt>
-                <dd className="mt-2 font-display text-xl text-espresso">Bandra W.</dd>
+                <dd className="mt-2 font-display text-xl text-espresso">
+                  <a href="https://maps.google.com/?q=Ivory+Atelier+House,Bandra+West,Mumbai" target="_blank" rel="noopener noreferrer" className="hover:text-brass transition-colors">
+                    Bandra W.
+                  </a>
+                </dd>
               </div>
               <div>
                 <dt className="label text-espresso/50">Est.</dt>
