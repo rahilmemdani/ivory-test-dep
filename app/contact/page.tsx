@@ -30,15 +30,55 @@ export default function Contact() {
           <Plume className="h-10 w-10 text-brass" />
           <dl className="mt-8 space-y-8">
             {[
-              { k: "Address", v: ["Ivory Atelier House", "Off Waterfield Road", "Bandra West, Mumbai 400050"] },
-              { k: "Hours", v: ["Tuesday — Sunday", "10:00 — 20:00", "Monday, by appointment"] },
-              { k: "Write", v: ["hello@ivoryatelier.in", "press@ivoryatelier.in"] },
-              { k: "Call", v: ["+91 00000 00000"] },
+              {
+                k: "Address",
+                v: [
+                  { text: "Ivory Atelier House" },
+                  { text: "Off Waterfield Road" },
+                  { text: "Bandra West, Mumbai 400050" },
+                ],
+                href: "https://maps.google.com/?q=Ivory+Atelier+House,Off+Waterfield+Road,Bandra+West,Mumbai+400050"
+              },
+              {
+                k: "Hours",
+                v: [
+                  { text: "Tuesday — Sunday" },
+                  { text: "10:00 — 20:00" },
+                  { text: "Monday, by appointment" },
+                ],
+              },
+              {
+                k: "Write",
+                v: [
+                  { text: "hello@ivoryatelier.in", href: "mailto:hello@ivoryatelier.in" },
+                  { text: "press@ivoryatelier.in", href: "mailto:press@ivoryatelier.in" },
+                ],
+              },
+              {
+                k: "Call",
+                v: [
+                  { text: "+91 00000 00000", href: "tel:+910000000000" },
+                ],
+              },
             ].map((row) => (
               <div key={row.k} className="grid grid-cols-[100px_1fr] items-baseline gap-6 border-t border-espresso/10 pt-6">
                 <dt className="label text-brass">{row.k}</dt>
                 <dd className="space-y-1 font-display text-lg text-espresso">
-                  {row.v.map((line) => <p key={line}>{line}</p>)}
+                  {row.href ? (
+                    <a href={row.href} target="_blank" rel="noopener noreferrer" className="block hover:text-brass transition-colors">
+                      {row.v.map((line, i) => <p key={i}>{line.text}</p>)}
+                    </a>
+                  ) : (
+                    row.v.map((line, i) => (
+                      'href' in line ? (
+                        <a key={i} href={line.href} className="block hover:text-brass transition-colors">
+                          {line.text}
+                        </a>
+                      ) : (
+                        <p key={i}>{line.text}</p>
+                      )
+                    ))
+                  )}
                 </dd>
               </div>
             ))}
