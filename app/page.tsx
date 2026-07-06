@@ -39,8 +39,8 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative isolate flex min-h-screen flex-col justify-center overflow-hidden pt-28 sm:pt-32">
-        <div className="mx-auto grid max-w-[1400px] gap-10 px-5 pb-16 sm:px-10 md:grid-cols-[1.05fr_1fr] md:gap-16 md:pb-24">
+      <section className="relative isolate flex flex-col justify-center overflow-hidden pt-32 sm:pt-40">
+        <div className="mx-auto grid max-w-[1400px] gap-10 px-5 pb-12 sm:px-10 md:grid-cols-[1.05fr_1fr] md:gap-16 md:pb-16">
           <div className="flex flex-col justify-center">
             <div className="flex items-center gap-3 text-brass animate-fade-in">
               <span className="hairline block w-10" />
@@ -110,7 +110,7 @@ export default function Home() {
 
 
       {/* SERVICES */}
-      <section className="mx-auto flex min-h-screen max-w-[1400px] flex-col justify-center px-5 py-24 sm:px-10 sm:py-32">
+      <section className="mx-auto flex max-w-[1400px] flex-col justify-center px-5 py-16 sm:px-10 sm:py-20">
         <header className="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
           <div>
             <p className="label text-brass">The Craft — 03 disciplines</p>
@@ -157,8 +157,8 @@ export default function Home() {
       </section>
 
       {/* PRINCIPLES / SPACE SPLIT */}
-      <section className="flex min-h-screen flex-col justify-center bg-espresso text-ivory">
-        <div className="mx-auto grid max-w-[1400px] gap-14 px-5 py-24 sm:px-10 sm:py-32 md:grid-cols-[1fr_1.1fr] md:gap-20">
+      <section className="flex flex-col justify-center bg-espresso text-ivory">
+        <div className="mx-auto grid max-w-[1400px] gap-14 px-5 py-16 sm:px-10 sm:py-20 md:grid-cols-[1fr_1.1fr] md:gap-20">
           <div className="relative">
             <img
               src={spaceImg.src}
@@ -193,7 +193,7 @@ export default function Home() {
       </section>
 
       {/* CAFÉ TEASER */}
-      <section className="mx-auto flex min-h-screen max-w-[1400px] flex-col justify-center px-5 py-24 sm:px-10 sm:py-32">
+      <section className="mx-auto flex max-w-[1400px] flex-col justify-center px-5 py-16 sm:px-10 sm:py-20">
         <div className="grid items-center gap-14 md:grid-cols-2">
           <div className="order-2 md:order-1">
             <p className="label text-brass">The Café — the heart</p>
@@ -228,7 +228,7 @@ export default function Home() {
       </section>
 
       {/* PROMISE + CLOSING — merged */}
-      <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-alabaster px-5 py-28 text-center sm:px-10">
+      <section className="relative flex flex-col items-center justify-center overflow-hidden bg-alabaster px-5 py-20 text-center sm:px-10 sm:py-24">
         <Plume className="mx-auto h-16 w-16 text-brass opacity-60" />
 
         <blockquote className="relative mt-10 max-w-3xl font-display text-3xl leading-[1.2] text-espresso sm:text-5xl">
