@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import Script from "next/script";
 import { Plume } from "@/components/site/Plume";
 
 
@@ -10,7 +13,7 @@ import { Plume } from "@/components/site/Plume";
  */
 const BOOKING_URL =
   (process.env.NEXT_PUBLIC_BOOKING_URL as string | undefined) ??
-  "https://ivoryatelier.zohobookings.com.au/#/35653000000044005";
+  "https://ivoryatelier.zohobookings.com.au/portal-embed#/ivoryatelier";
 
 export default function Book() {
   return (
@@ -57,20 +60,28 @@ export default function Book() {
 
         {/* Right — embed */}
         <div className="relative">
-          <div className="overflow-hidden rounded-md bg-transparent">
-            <iframe
-              title="Book a consultation with Ivory Atelier"
-              src={BOOKING_URL}
-              className="block min-h-[850px] w-full border-0 bg-transparent"
-              loading="lazy"
-              allow="camera; microphone; fullscreen"
-            />
+          <div className="overflow-hidden rounded-md bg-transparent min-h-[600px]" id="inline-container">
+            {/* Zoho widget injects here */}
           </div>
+          
+          <Script 
+            src="https://bookings.nimbuspop.com/assets/embed.js" 
+            strategy="lazyOnload"
+            onLoad={() => {
+              if (typeof window !== "undefined" && (window as any).Bookings) {
+                (window as any).Bookings.inlineEmbed({
+                  url: BOOKING_URL,
+                  parent: "#inline-container",
+                  height: "850px"
+                });
+              }
+            }}
+          />
 
           <p className="label mt-6 text-center text-espresso/45">
             Having trouble loading the calendar?{" "}
             <a
-              href={BOOKING_URL}
+              href="https://ivoryatelier.zohobookings.com.au/#/35653000000044005"
               target="_blank"
               rel="noreferrer noopener"
               className="border-b border-espresso/40 pb-0.5 text-espresso hover:border-brass hover:text-brass"
