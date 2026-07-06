@@ -10,7 +10,7 @@ import { Plume } from "@/components/site/Plume";
  */
 const BOOKING_URL =
   (process.env.NEXT_PUBLIC_BOOKING_URL as string | undefined) ??
-  "https://calendly.com/ivory-atelier/consultation";
+  "https://ivoryatelier.zohobookings.com.au";
 
 export default function Book() {
   return (
