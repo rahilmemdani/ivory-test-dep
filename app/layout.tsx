@@ -3,6 +3,7 @@ import "../src/styles.css";
 import { Nav } from "../src/components/site/Nav";
 import { Footer } from "../src/components/site/Footer";
 import { BookButton } from "../src/components/site/BookButton";
+import { Loader } from "../src/components/site/Loader";
 
 export const metadata: Metadata = {
   title: "Ivory Atelier — A quieter kind of beautiful.",
@@ -46,6 +47,7 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <Loader />
         <div className="flex min-h-screen flex-col bg-background text-foreground">
           <Nav />
           <main className="flex-1">

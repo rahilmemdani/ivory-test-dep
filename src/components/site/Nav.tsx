@@ -74,12 +74,13 @@ export function Nav() {
               {l.label}
             </Link>
           ))}
-          <Link
-            href="/book"
+          <a
+            href="https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
+            target="_blank" rel="noopener noreferrer"
             className="label rounded-full border border-espresso/60 px-5 py-2.5 text-espresso transition-colors hover:border-brass hover:bg-espresso hover:text-alabaster"
           >
             Book
-          </Link>
+          </a>
         </nav>
 
         <button
@@ -121,14 +122,15 @@ export function Nav() {
               <span className="label text-espresso/40">→</span>
             </Link>
           ))}
-          <Link
-            href="/book"
+          <a
+            href="https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
+            target="_blank" rel="noopener noreferrer"
             onClick={() => setOpen(false)}
             className="mt-4 flex items-center justify-between rounded-full bg-espresso px-5 py-4 text-alabaster"
           >
             <span className="font-display text-xl italic">Book Consultation</span>
             <Plume className="h-6 w-6 text-brass" />
-          </Link>
+          </a>
         </nav>
       </div>
     </header>

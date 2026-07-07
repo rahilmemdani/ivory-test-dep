@@ -17,7 +17,7 @@ const BOOKING_URL =
 
 export default function Book() {
   return (
-    <section className="mx-auto max-w-[1400px] px-5 pb-24 pt-36 sm:px-10 sm:pt-44 sm:pb-32">
+    <section className="mx-auto max-w-[1400px] px-5 pb-16 pt-28 sm:px-10 sm:pt-36 sm:pb-24">
       <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
         {/* Left — narrative */}
         <aside className="lg:sticky lg:top-32 lg:self-start">
@@ -59,24 +59,23 @@ export default function Book() {
         </aside>
 
         {/* Right — external link */}
-        <div className="relative flex flex-col items-center justify-center rounded-sm bg-alabaster p-12 text-center shadow-[0_40px_80px_-40px_rgba(51,38,29,0.35)] min-h-[500px] border border-espresso/15">
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-brass/10 text-brass mb-8">
-            <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-          </div>
-          <h2 className="font-display text-3xl text-espresso mb-4">Schedule Your Visit</h2>
-          <p className="text-espresso/70 mb-10 max-w-sm">
+        <div className="relative flex flex-col items-center justify-center rounded-sm gradient-ivory p-12 text-center shadow-[0_40px_80px_-40px_rgba(51,38,29,0.2)] min-h-[500px] border border-espresso/10 overflow-hidden group">
+          <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none mix-blend-overlay"></div>
+          
+          <Plume className="mx-auto h-16 w-16 text-brass/80 mb-8 animate-float" />
+          
+          <h2 className="font-display text-4xl text-espresso mb-4 font-medium tracking-tight">Schedule Your Visit</h2>
+          <p className="text-espresso/70 mb-10 max-w-sm leading-relaxed text-lg">
             You will be redirected to our secure booking portal to select your preferred service and time.
           </p>
           <a
             href={BOOKING_URL}
             target="_blank"
             rel="noreferrer noopener"
-            className="group flex items-center justify-center gap-3 bg-espresso px-8 py-4 text-sm tracking-widest text-ivory transition-colors hover:bg-brass w-full max-w-xs"
+            className="group/btn relative flex items-center justify-center gap-3 bg-espresso px-8 py-5 text-sm tracking-[0.2em] uppercase text-ivory transition-all duration-500 hover:bg-ink hover:text-brass w-full max-w-sm rounded-none overflow-hidden border border-transparent hover:border-brass/30 shadow-lg hover:shadow-[0_10px_30px_-10px_rgba(168,138,86,0.3)]"
           >
-            <span>OPEN BOOKING PORTAL</span>
-            <span className="transition-transform group-hover:translate-x-1">→</span>
+            <span className="relative z-10 transition-transform duration-500 group-hover/btn:-translate-x-2">OPEN BOOKING PORTAL</span>
+            <span className="relative z-10 transition-transform duration-500 group-hover/btn:translate-x-2 opacity-70">→</span>
           </a>
         </div>
       </div>

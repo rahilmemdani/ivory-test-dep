@@ -37,7 +37,7 @@ export function Footer() {
               <li><Link href="/services" className="hover:text-brass">Hair</Link></li>
               <li><Link href="/services" className="hover:text-brass">Nails</Link></li>
               <li><Link href="/services" className="hover:text-brass">Beauty</Link></li>
-              <li><Link href="/book" className="hover:text-brass">Book a Consultation</Link></li>
+              <li><a href="https://ivoryatelier.zohobookings.com.au/#/ivoryatelier" target="_blank" rel="noopener noreferrer" className="hover:text-brass">Book a Consultation</a></li>
             </ul>
           </div>
 

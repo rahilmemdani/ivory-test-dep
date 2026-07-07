@@ -4,7 +4,7 @@ import { Plume } from "@/components/site/Plume";
 
 export default function Contact() {
   return (
-    <section className="mx-auto max-w-[1400px] px-5 pb-24 pt-36 sm:px-10 sm:pt-44 sm:pb-32">
+    <section className="mx-auto max-w-[1400px] px-5 pb-16 pt-28 sm:px-10 sm:pt-36 sm:pb-24">
       <div className="grid gap-14 md:grid-cols-[1fr_1fr]">
         <div>
           <p className="label text-brass">The address</p>
@@ -17,13 +17,14 @@ export default function Contact() {
             The kettle is on. If you'd like to visit, book a consultation and we'll
             hold a seat — coffee first, always.
           </p>
-          <Link
-            href="/book"
-            className="mt-10 inline-flex items-center gap-4 rounded-full bg-espresso px-7 py-4 text-alabaster transition-colors hover:bg-ink"
+          <a
+            href="https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
+            target="_blank" rel="noopener noreferrer"
+            className="group mt-10 inline-flex items-center gap-4 rounded-none bg-espresso px-8 py-4 text-ivory transition-all duration-500 hover:bg-ink hover:text-brass shadow-lg hover:shadow-[0_10px_30px_-10px_rgba(168,138,86,0.2)] border border-transparent hover:border-brass/30"
           >
-            <span className="font-display text-lg italic">Book a consultation</span>
-            <span className="grid h-8 w-8 place-items-center rounded-full bg-brass/20 text-brass">→</span>
-          </Link>
+            <span className="font-display text-lg italic tracking-wide">Book a consultation</span>
+            <span className="relative z-10 transition-transform duration-500 group-hover:translate-x-2 text-brass">→</span>
+          </a>
         </div>
 
         <div className="rounded-sm border border-espresso/15 bg-alabaster p-8 sm:p-12">

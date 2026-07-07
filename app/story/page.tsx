@@ -6,51 +6,61 @@ import { Plume } from "@/components/site/Plume";
 export default function Story() {
   return (
     <>
-      <section className="mx-auto max-w-[1400px] px-5 pb-16 pt-36 sm:px-10 sm:pt-44">
-        <p className="label text-brass">03 · Brand Story</p>
-        <h1 className="mt-6 font-display text-[clamp(3rem,8vw,7rem)] leading-[0.95] text-espresso">
-          An atelier,
-          <br />
-          <span className="italic text-brass">not a salon.</span>
-        </h1>
+      <section className="mx-auto max-w-[1400px] px-5 pb-12 pt-28 sm:px-10 sm:pt-36">
+        <header className="max-w-4xl relative z-10">
+          <div className="flex items-center gap-6 mb-10">
+            <Plume className="h-10 w-10 text-brass animate-float" />
+            <p className="label text-brass tracking-[0.3em]">03 · Brand Story</p>
+          </div>
+          <h1 className="font-display text-[clamp(4rem,10vw,8.5rem)] leading-[0.85] text-espresso tracking-tight">
+            An atelier,
+            <br />
+            <span className="italic text-brass font-light">not a salon.</span>
+          </h1>
+        </header>
       </section>
 
-      <section className="mx-auto grid max-w-[1200px] gap-12 px-5 pb-24 sm:px-10 md:grid-cols-[1fr_1.2fr] md:gap-20 md:pb-32">
-        <figure className="relative">
-          <img
-            src={heroInterior.src}
-            alt="Interior of Ivory Atelier — warm light, marble, brass and eucalyptus."
-            width={1600}
-            height={1920}
-            loading="lazy"
-            className="w-full rounded-t-[200px] rounded-b-sm object-cover"
-          />
-        </figure>
-        <div className="flex flex-col justify-center">
-          <p className="font-display text-3xl leading-relaxed text-espresso">
-            Ivory Atelier began with a small discomfort — that looking after
-            yourself had become loud, rushed and transactional. We wanted the
-            opposite.
-          </p>
-          <div className="hairline my-10 max-w-[80px]" />
-          <p className="text-espresso/75">
-            A house where beauty is practised as craft and guests are received as
-            guests: unhurried rooms, honest materials, exceptional coffee, and
-            hands that know their work.
-          </p>
-          <p className="mt-6 text-espresso/75">
-            <em className="font-display text-lg">Ivory</em>, for warmth and for
-            things that outlast fashion. <em className="font-display text-lg">Atelier</em>,
-            for the workshop of a maker. Together — a sanctuary where design,
-            wellbeing and hospitality meet, and every detail is quietly,
-            deliberately considered.
-          </p>
+      <section className="mx-auto max-w-[1400px] px-5 pb-16 sm:px-10 md:pb-24">
+        <div className="grid gap-16 md:grid-cols-[1fr_1.3fr] items-start">
+          <div className="order-2 md:order-1 md:pr-12 md:sticky md:top-40">
+            <div className="hairline w-24 mb-12" />
+            <p className="font-display text-3xl sm:text-4xl leading-[1.3] text-espresso">
+              Ivory Atelier began with a small discomfort — that looking after
+              yourself had become loud, rushed and transactional. <br /><br /><span className="italic text-brass">We wanted the opposite.</span>
+            </p>
+            <div className="mt-14 space-y-8 text-lg text-espresso/70 leading-relaxed font-light">
+              <p>
+                A house where beauty is practised as craft and guests are received as
+                guests: unhurried rooms, honest materials, exceptional coffee, and
+                hands that know their work.
+              </p>
+              <p>
+                <em className="font-display text-2xl text-espresso not-italic mr-1">Ivory,</em> for warmth and for
+                things that outlast fashion. <em className="font-display text-2xl text-espresso not-italic mx-1">Atelier,</em>
+                for the workshop of a maker.
+              </p>
+              <p>
+                Together — a sanctuary where design, wellbeing and hospitality meet, and every detail is quietly,
+                deliberately considered.
+              </p>
+            </div>
+          </div>
+          <figure className="order-1 md:order-2 relative w-full h-[50vh] md:h-[85vh] rounded-sm overflow-hidden group shadow-2xl">
+            <img
+              src={heroInterior.src}
+              alt="Interior of Ivory Atelier — warm light, marble, brass and eucalyptus."
+              width={1600}
+              height={1920}
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover contrast-[1.05] sepia-[0.1] brightness-[0.95] transition-all duration-[2000ms] ease-out group-hover:scale-[1.03] group-hover:sepia-0 group-hover:brightness-100"
+            />
+          </figure>
         </div>
       </section>
 
       {/* PLUME MEANING */}
       <section className="bg-espresso text-ivory">
-        <div className="mx-auto max-w-[1400px] px-5 py-24 sm:px-10 sm:py-32">
+        <div className="mx-auto max-w-[1400px] px-5 py-16 sm:px-10 sm:py-24">
           <div className="grid gap-14 md:grid-cols-[auto_1fr] md:gap-20">
             <Plume className="h-40 w-40 shrink-0 text-brass md:h-64 md:w-64" />
             <div>
@@ -82,7 +92,7 @@ export default function Story() {
       </section>
 
       {/* POSITIONING */}
-      <section className="mx-auto max-w-[1400px] px-5 py-24 sm:px-10 sm:py-32">
+      <section className="mx-auto max-w-[1400px] px-5 py-16 sm:px-10 sm:py-24">
         <p className="label text-brass">04 · Positioning</p>
         <h2 className="mt-6 max-w-4xl font-display text-5xl leading-tight text-espresso sm:text-7xl">
           Closer to a{" "}
@@ -104,7 +114,7 @@ export default function Story() {
       </section>
 
       {/* AMBIENT IMG */}
-      <section className="mx-auto max-w-[1600px] px-5 pb-24 sm:px-10 sm:pb-32">
+      <section className="mx-auto max-w-[1600px] px-5 pb-16 sm:px-10 sm:pb-24">
         <img
           src={spaceImg.src}
           alt="Arched interior of the atelier."

@@ -39,48 +39,45 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative isolate flex flex-col justify-center overflow-hidden pt-32 sm:pt-40">
-        <div className="mx-auto grid max-w-[1400px] gap-10 px-5 pb-12 sm:px-10 md:grid-cols-[1.05fr_1fr] md:gap-16 md:pb-16">
-          <div className="flex flex-col justify-center">
-            <div className="flex items-center gap-3 text-brass animate-fade-in">
-              <span className="hairline block w-10" />
-              <span className="label">2026 · Volume I · Mumbai</span>
-            </div>
-            <h1 className="mt-8 font-display text-[clamp(3rem,9vw,7.5rem)] leading-[0.95] tracking-[-0.02em] text-espresso animate-fade-up [animation-delay:200ms]">
-              A quieter <br />
+      <section className="relative isolate flex flex-col justify-center overflow-hidden min-h-[100dvh] pt-28 sm:pt-32 pb-16">
+        <div className="mx-auto w-full max-w-[1400px] flex flex-col lg:grid gap-12 px-5 sm:px-10 lg:grid-cols-[1.1fr_1fr] lg:gap-20 lg:items-center">
+          <div className="flex flex-col justify-center items-center text-center lg:items-start lg:text-left order-1 lg:order-1">
+            <h1 className="font-display text-5xl sm:text-6xl lg:text-[clamp(2.75rem,8vw,7.5rem)] leading-[0.95] tracking-[-0.02em] text-espresso animate-fade-up [animation-delay:200ms]">
+              A quieter <br className="hidden lg:block"/>
               <span className="italic text-brass">kind of</span> beautiful.
             </h1>
-            <p className="mt-8 max-w-xl text-lg leading-relaxed text-espresso/75 sm:text-xl animate-fade-up [animation-delay:400ms]">
+            <p className="mt-6 md:mt-8 max-w-xl text-base leading-relaxed text-espresso/75 sm:text-xl animate-fade-up [animation-delay:400ms]">
               Ivory Atelier is a house for hair, nails and beauty — practised as
               craft, received as guests. Under one calm roof, with a café at its
               heart.
             </p>
-            <div className="mt-10 flex flex-wrap items-center gap-4 animate-fade-up [animation-delay:600ms]">
-              <Link
-                href="/book"
-                className="group inline-flex items-center gap-4 rounded-full bg-espresso px-7 py-4 text-alabaster transition-colors hover:bg-ink"
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start w-full sm:w-auto gap-6 lg:gap-6 animate-fade-up [animation-delay:600ms]">
+              <a
+                href="https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
+                target="_blank" rel="noopener noreferrer"
+                className="group/btn relative inline-flex w-full sm:w-auto justify-center items-center gap-4 md:gap-6 rounded-none bg-espresso px-8 py-5 text-ivory transition-all duration-500 hover:bg-ink hover:text-brass shadow-lg hover:shadow-[0_10px_30px_-10px_rgba(168,138,86,0.2)] border border-transparent hover:border-brass/30"
               >
-                <span className="font-display text-lg italic">Book a consultation</span>
-                <span className="grid h-8 w-8 place-items-center rounded-full bg-brass/20 text-brass transition-transform group-hover:translate-x-1">
+                <span className="font-display text-xl italic tracking-wide">Book a consultation</span>
+                <span className="relative z-10 transition-transform duration-500 group-hover/btn:translate-x-2 text-brass">
                   →
                 </span>
-              </Link>
+              </a>
               <Link
                 href="/services"
-                className="label border-b border-espresso/40 pb-1 text-espresso/70 hover:border-brass hover:text-brass"
+                className="label border-b border-espresso/30 pb-1.5 text-espresso/70 transition-colors hover:border-brass hover:text-brass tracking-[0.25em]"
               >
                 View the craft
               </Link>
             </div>
 
-            <dl className="mt-16 grid max-w-md grid-cols-3 gap-6 border-t border-espresso/15 pt-8">
+            <dl className="mt-10 md:mt-16 hidden lg:grid max-w-md grid-cols-3 gap-4 md:gap-6 border-t border-espresso/15 pt-6 md:pt-8 animate-fade-up [animation-delay:800ms]">
               <div>
                 <dt className="label text-espresso/50">Hours</dt>
-                <dd className="mt-2 font-display text-xl text-espresso">10 – 8</dd>
+                <dd className="mt-1 md:mt-2 font-display text-lg md:text-xl text-espresso">10 – 8</dd>
               </div>
               <div>
                 <dt className="label text-espresso/50">Address</dt>
-                <dd className="mt-2 font-display text-xl text-espresso">
+                <dd className="mt-1 md:mt-2 font-display text-lg md:text-xl text-espresso">
                   <a href="https://maps.google.com/?q=Ivory+Atelier+House,Bandra+West,Mumbai" target="_blank" rel="noopener noreferrer" className="hover:text-brass transition-colors">
                     Bandra W.
                   </a>
@@ -88,23 +85,24 @@ export default function Home() {
               </div>
               <div>
                 <dt className="label text-espresso/50">Est.</dt>
-                <dd className="mt-2 font-display text-xl text-espresso">MMXXVI</dd>
+                <dd className="mt-1 md:mt-2 font-display text-lg md:text-xl text-espresso">MMXXVI</dd>
               </div>
             </dl>
           </div>
 
-          <figure className="relative">
-            <div className="relative overflow-hidden rounded-t-[240px] rounded-b-md bg-sand/40 shadow-[0_40px_80px_-40px_rgba(51,38,29,0.4)]">
+          <figure className="relative order-2 lg:order-2 mt-8 lg:mt-0 lg:pl-8 w-full max-w-[400px] lg:max-w-none mx-auto animate-fade-in [animation-delay:800ms]">
+            <div className="relative overflow-hidden rounded-t-[200px] lg:rounded-t-[280px] rounded-b-sm bg-sand/40 shadow-2xl">
               <img
                 src={heroInterior.src}
                 alt="The Ivory Atelier reception — marble, brass and warm light."
                 width={1600}
                 height={1920}
-                className="h-[70vh] min-h-[520px] w-full object-cover md:h-[78vh] contrast-[1.05] sepia-[0.1] brightness-[0.95] hover:sepia-0 hover:brightness-100 transition-all duration-[1500ms] ease-out"
+                className="w-full aspect-[4/5] lg:max-h-[75vh] object-cover contrast-[1.05] sepia-[0.1] brightness-[0.95] hover:sepia-0 hover:brightness-100 hover:scale-[1.02] transition-all duration-[2000ms] ease-out"
               />
-              <Plume className="pointer-events-none absolute left-6 top-6 h-10 w-10 text-brass/90 mix-blend-screen" />
+              <div className="absolute inset-0 bg-gradient-to-t from-espresso/40 to-transparent mix-blend-multiply opacity-40 pointer-events-none transition-opacity duration-1000"></div>
+              <Plume className="pointer-events-none absolute left-6 top-6 lg:left-8 lg:top-8 h-10 w-10 text-brass/90 mix-blend-screen" />
             </div>
-            <figcaption className="label mt-4 text-espresso/50">
+            <figcaption className="label mt-3 md:mt-4 text-espresso/50 text-right md:text-left">
               The house — reception, quietly.
             </figcaption>
           </figure>
@@ -114,7 +112,7 @@ export default function Home() {
 
 
       {/* SERVICES */}
-      <section className="mx-auto flex max-w-[1400px] flex-col justify-center px-5 py-16 sm:px-10 sm:py-20">
+      <section className="mx-auto flex max-w-[1400px] flex-col justify-center px-5 py-12 sm:px-10 sm:py-16">
         <header className="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
           <div>
             <p className="label text-brass">The Craft — 03 disciplines</p>
@@ -136,9 +134,9 @@ export default function Home() {
           {services.map((s) => (
             <article
               key={s.title}
-              className="group flex flex-col min-w-[60vw] max-w-[280px] shrink-0 snap-center sm:min-w-[40vw] md:min-w-0 md:max-w-none md:shrink"
+              className="group flex flex-col min-w-[60vw] max-w-[280px] shrink-0 snap-center sm:min-w-[40vw] md:min-w-0 md:max-w-none md:shrink cursor-pointer p-4 -m-4 rounded-lg transition-colors hover:bg-ivory/50"
             >
-              <div className="relative overflow-hidden rounded-sm bg-sand/30">
+              <div className="relative overflow-hidden rounded-sm bg-sand/20 ring-1 ring-black/5 group-hover:ring-brass/20 transition-all duration-700 shadow-sm group-hover:shadow-md">
                 <img
                   src={s.img.src}
                   alt={s.title}
@@ -146,23 +144,20 @@ export default function Home() {
                   height={1500}
                   className="aspect-[4/5] w-full object-cover contrast-[1.05] sepia-[0.1] brightness-[0.95] transition-all duration-[1200ms] ease-out group-hover:scale-[1.04] group-hover:sepia-0 group-hover:brightness-100"
                 />
-                {/* <span className="absolute left-4 top-4 label rounded-full bg-alabaster/85 px-3 py-1 text-espresso backdrop-blur-sm">
-                  {s.tag}
-                </span> */}
               </div>
-              <div className="mt-6 flex items-baseline justify-between gap-4">
-                <h3 className="font-display text-3xl text-espresso">{s.title}</h3>
-                <Plume className="h-6 w-6 shrink-0 text-brass opacity-70" />
+              <div className="mt-8 flex items-baseline justify-between gap-4 px-2">
+                <h3 className="font-display text-4xl text-espresso tracking-tight">{s.title}</h3>
+                <Plume className="h-6 w-6 shrink-0 text-brass opacity-0 -translate-y-2 transition-all duration-700 ease-out group-hover:opacity-100 group-hover:translate-y-0" />
               </div>
-              <p className="mt-3 text-espresso/70">{s.body}</p>
+              <p className="mt-3 text-espresso/70 px-2 leading-relaxed">{s.body}</p>
             </article>
           ))}
         </div>
       </section>
 
       {/* PRINCIPLES / SPACE SPLIT */}
-      <section className="flex flex-col justify-center bg-espresso text-ivory">
-        <div className="mx-auto grid max-w-[1400px] gap-14 px-5 py-16 sm:px-10 sm:py-20 md:grid-cols-[1fr_1.1fr] md:gap-20">
+      <section className="flex flex-col justify-center gradient-espresso text-ivory">
+        <div className="mx-auto grid max-w-[1400px] gap-14 px-5 py-12 sm:px-10 sm:py-16 md:grid-cols-[1fr_1.1fr] md:gap-20">
           <div className="relative">
             <img
               src={spaceImg.src}
@@ -197,7 +192,7 @@ export default function Home() {
       </section>
 
       {/* CAFÉ TEASER */}
-      <section className="mx-auto flex max-w-[1400px] flex-col justify-center px-5 py-16 sm:px-10 sm:py-20">
+      <section className="mx-auto flex max-w-[1400px] flex-col justify-center px-5 py-12 sm:px-10 sm:py-16">
         <div className="grid items-center gap-14 md:grid-cols-2">
           <div className="order-2 md:order-1">
             <p className="label text-brass">The Café — the heart</p>
@@ -232,34 +227,35 @@ export default function Home() {
       </section>
 
       {/* PROMISE + CLOSING — merged */}
-      <section className="relative flex flex-col items-center justify-center overflow-hidden bg-alabaster px-5 py-20 text-center sm:px-10 sm:py-24">
-        <Plume className="mx-auto h-16 w-16 text-brass opacity-60" />
+      <section className="relative flex flex-col items-center justify-center overflow-hidden gradient-ivory px-5 py-16 text-center sm:px-10 sm:py-20">
+        <Plume className="mx-auto h-16 w-16 text-brass/70 animate-float" />
 
-        <blockquote className="relative mt-10 max-w-3xl font-display text-3xl leading-[1.2] text-espresso sm:text-5xl">
-          <span className="italic text-brass">"</span>
-          <span className="italic">You will leave</span> a little more{" "}
-          <span className="italic">yourself</span> than when you arrived.
-          <span className="italic text-brass">"</span>
-          <cite className="label mt-6 block not-italic text-espresso/40">
+        <blockquote className="relative mt-12 max-w-4xl font-display text-4xl leading-[1.15] text-espresso sm:text-6xl tracking-tight">
+          <span className="italic text-brass font-light">"</span>
+          <span className="italic font-light">You will leave</span> a little more{" "}
+          <span className="italic font-light">yourself</span> than when you arrived.
+          <span className="italic text-brass font-light">"</span>
+          <cite className="label mt-8 block not-italic text-espresso/40 tracking-[0.3em]">
             — The Brand Promise
           </cite>
         </blockquote>
 
-        <div className="my-14 h-px w-16 bg-espresso/20" />
+        <div className="my-20 h-px w-24 bg-espresso/15" />
 
-        <p className="label text-espresso/50">The invitation</p>
-        <h2 className="mt-5 font-display text-5xl leading-tight text-espresso sm:text-7xl">
+        <p className="label text-espresso/50 tracking-[0.25em]">The invitation</p>
+        <h2 className="mt-6 font-display text-6xl leading-tight text-espresso sm:text-7xl tracking-tight">
           Take the afternoon.
           <br />
           <span className="italic text-brass">We'll take care of the rest.</span>
         </h2>
-        <Link
-          href="/book"
-          className="group mt-12 inline-flex items-center gap-4 rounded-full bg-espresso px-8 py-4 text-alabaster transition-colors duration-500 hover:bg-ink"
+        <a
+          href="https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
+          target="_blank" rel="noopener noreferrer"
+          className="group/btn relative mt-14 inline-flex items-center gap-6 rounded-none bg-espresso px-10 py-5 text-ivory transition-all duration-500 hover:bg-ink hover:text-brass shadow-xl hover:shadow-[0_15px_40px_-10px_rgba(168,138,86,0.25)] border border-transparent hover:border-brass/30"
         >
-          <span className="font-display text-lg italic">Book a consultation</span>
-          <span className="grid h-8 w-8 place-items-center rounded-full bg-brass/20 text-brass transition-transform duration-500 group-hover:translate-x-1">→</span>
-        </Link>
+          <span className="font-display text-xl italic tracking-wide">Book a consultation</span>
+          <span className="relative z-10 transition-transform duration-500 group-hover/btn:translate-x-2 text-brass">→</span>
+        </a>
       </section>
     </>
   );

@@ -50,24 +50,14 @@ const disciplines = [
 export default function Services() {
   return (
     <>
-      <section className="mx-auto max-w-[1400px] px-5 pb-16 pt-36 sm:px-10 sm:pt-44">
-        <p className="label text-brass">The Craft</p>
-        <h1 className="mt-6 font-display text-[clamp(3rem,8vw,7rem)] leading-[0.95] text-espresso">
-          Hair. Nails. <span className="italic text-brass">Beauty.</span>
-        </h1>
-        <p className="mt-8 max-w-2xl text-lg text-espresso/75">
-          Three disciplines, one house. Every service is prefaced by a quiet
-          consultation — we start with a coffee, not a form. Prices are indicative;
-          your final quote is written by hand.
-        </p>
-      </section>
+
 
       {disciplines.map((d, i) => (
         <section
           key={d.tag}
           className={`${i % 2 === 1 ? "bg-alabaster" : ""}`}
         >
-          <div className="mx-auto grid max-w-[1400px] gap-12 px-5 py-20 sm:px-10 sm:py-28 md:grid-cols-2 md:gap-16">
+          <div className="mx-auto grid max-w-[1400px] gap-12 px-5 py-16 sm:px-10 sm:py-24 md:grid-cols-2 md:gap-16 pt-28 sm:pt-36">
             <figure
               className={`relative ${i % 2 === 1 ? "md:order-2" : ""}`}
             >
@@ -103,12 +93,13 @@ export default function Services() {
                 ))}
               </dl>
 
-              <Link
-                href="/book"
-                className="label mt-10 inline-block self-start border-b border-espresso/40 pb-1 text-espresso/70 hover:border-brass hover:text-brass"
+              <a
+                href="https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
+                target="_blank" rel="noopener noreferrer"
+                className="label mt-10 inline-block self-start border-b border-espresso/40 pb-1 text-espresso/70 hover:border-brass hover:text-brass tracking-[0.25em]"
               >
                 Book a consultation →
-              </Link>
+              </a>
             </div>
           </div>
         </section>
