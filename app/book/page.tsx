@@ -13,7 +13,7 @@ import { Plume } from "@/components/site/Plume";
  */
 const BOOKING_URL =
   (process.env.NEXT_PUBLIC_BOOKING_URL as string | undefined) ??
-  "https://ivoryatelier.zohobookings.com.au/#/35653000000044005";
+  "https://ivoryatelier.zohobookings.com.au/#/ivoryatelier";
 
 export default function Book() {
   return (
