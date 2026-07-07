@@ -93,7 +93,6 @@ export default function Services() {
 
               <a
                 href="https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
-                target="_blank" rel="noopener noreferrer"
                 className="mt-12 group/btn inline-flex items-center gap-4 border-b border-espresso/30 pb-2 text-espresso hover:border-brass hover:text-brass transition-all self-start"
               >
                 <span className="font-display text-2xl italic tracking-wide">Book a consultation</span>

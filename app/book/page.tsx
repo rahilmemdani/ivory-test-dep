@@ -70,8 +70,6 @@ export default function Book() {
           </p>
           <a
             href={BOOKING_URL}
-            target="_blank"
-            rel="noreferrer noopener"
             className="group/btn relative flex items-center justify-center gap-3 bg-espresso px-8 py-5 text-sm tracking-[0.2em] uppercase text-ivory transition-all duration-500 hover:bg-ink hover:text-brass w-full max-w-sm rounded-none overflow-hidden border border-transparent hover:border-brass/30 shadow-lg hover:shadow-[0_10px_30px_-10px_rgba(168,138,86,0.3)]"
           >
             <span className="relative z-10 transition-transform duration-500 group-hover/btn:-translate-x-2">OPEN BOOKING PORTAL</span>

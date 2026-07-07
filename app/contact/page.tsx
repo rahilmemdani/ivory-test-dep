@@ -19,7 +19,6 @@ export default function Contact() {
           </p>
           <a
             href="https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
-            target="_blank" rel="noopener noreferrer"
             className="group mt-10 inline-flex items-center gap-4 rounded-none bg-espresso px-8 py-4 text-ivory transition-all duration-500 hover:bg-ink hover:text-brass shadow-lg hover:shadow-[0_10px_30px_-10px_rgba(168,138,86,0.2)] border border-transparent hover:border-brass/30"
           >
             <span className="font-display text-lg italic tracking-wide">Book a consultation</span>
@@ -66,7 +65,7 @@ export default function Contact() {
                 <dt className="label text-brass">{row.k}</dt>
                 <dd className="space-y-1 font-display text-lg text-espresso">
                   {row.href ? (
-                    <a href={row.href} target="_blank" rel="noopener noreferrer" className="block hover:text-brass transition-colors">
+                    <a href={row.href} className="block hover:text-brass transition-colors">
                       {row.v.map((line, i) => <p key={i}>{line.text}</p>)}
                     </a>
                   ) : (

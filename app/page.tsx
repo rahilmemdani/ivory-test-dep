@@ -54,7 +54,6 @@ export default function Home() {
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start w-full sm:w-auto gap-6 lg:gap-6 animate-fade-up [animation-delay:600ms]">
               <a
                 href="https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
-                target="_blank" rel="noopener noreferrer"
                 className="group/btn relative inline-flex w-full sm:w-auto justify-center items-center gap-4 md:gap-6 rounded-none bg-espresso px-8 py-5 text-ivory transition-all duration-500 hover:bg-ink hover:text-brass shadow-lg hover:shadow-[0_10px_30px_-10px_rgba(168,138,86,0.2)] border border-transparent hover:border-brass/30"
               >
                 <span className="font-display text-xl italic tracking-wide">Book a consultation</span>
@@ -78,7 +77,7 @@ export default function Home() {
               <div>
                 <dt className="label text-espresso/50">Address</dt>
                 <dd className="mt-1 md:mt-2 font-display text-lg md:text-xl text-espresso">
-                  <a href="https://maps.google.com/?q=Ivory+Atelier+House,Bandra+West,Mumbai" target="_blank" rel="noopener noreferrer" className="hover:text-brass transition-colors">
+                  <a href="https://maps.google.com/?q=Ivory+Atelier+House,Bandra+West,Mumbai" className="hover:text-brass transition-colors">
                     Bandra W.
                   </a>
                 </dd>
@@ -108,8 +107,6 @@ export default function Home() {
           </figure>
         </div>
       </section>
-
-
 
       {/* SERVICES */}
       <section className="mx-auto flex max-w-[1400px] flex-col justify-center px-5 py-12 sm:px-10 sm:py-16">
@@ -250,7 +247,6 @@ export default function Home() {
         </h2>
         <a
           href="https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
-          target="_blank" rel="noopener noreferrer"
           className="group/btn relative mt-14 inline-flex items-center gap-6 rounded-none bg-espresso px-10 py-5 text-ivory transition-all duration-500 hover:bg-ink hover:text-brass shadow-xl hover:shadow-[0_15px_40px_-10px_rgba(168,138,86,0.25)] border border-transparent hover:border-brass/30"
         >
           <span className="font-display text-xl italic tracking-wide">Book a consultation</span>
