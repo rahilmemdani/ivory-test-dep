@@ -3,6 +3,7 @@ import "../src/styles.css";
 import { Nav } from "../src/components/site/Nav";
 import { Footer } from "../src/components/site/Footer";
 import { BookButton } from "../src/components/site/BookButton";
+import { Suspense } from "react";
 import { Loader } from "../src/components/site/Loader";
 
 export const metadata: Metadata = {
@@ -47,7 +48,9 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <Loader />
+        <Suspense fallback={null}>
+          <Loader />
+        </Suspense>
         <div className="flex min-h-screen flex-col bg-background text-foreground">
           <Nav />
           <main className="flex-1">
