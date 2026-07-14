@@ -41,6 +41,18 @@ export function Loader() {
         if (!href) return;
         if (href.startsWith("#") || href.startsWith("tel:") || href.startsWith("mailto:")) return;
 
+        // Skip if same page (same pathname and search params) to prevent loader getting stuck
+        try {
+          const currentUrl = new URL(window.location.href);
+          const targetUrl = new URL(target.href, window.location.href);
+          const normalizePath = (p: string) => p.replace(/\/$/, "");
+          if (normalizePath(currentUrl.pathname) === normalizePath(targetUrl.pathname) && currentUrl.search === targetUrl.search) {
+            return;
+          }
+        } catch (err) {
+          // Fallback if URL parsing fails
+        }
+
         // Prevent immediate navigation
         e.preventDefault();
         e.stopPropagation();
