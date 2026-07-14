@@ -43,7 +43,7 @@ export default function Home() {
         <div className="mx-auto w-full max-w-[1400px] flex flex-col lg:grid gap-12 px-5 sm:px-10 lg:grid-cols-[1.1fr_1fr] lg:gap-20 lg:items-center">
           <div className="flex flex-col justify-center items-center text-center lg:items-start lg:text-left order-1 lg:order-1">
             <h1 className="font-display text-5xl sm:text-6xl lg:text-[clamp(2.75rem,8vw,7.5rem)] leading-[0.95] tracking-[-0.02em] text-espresso animate-fade-up [animation-delay:200ms]">
-              A quieter <br className="hidden lg:block"/>
+              A quieter <br className="hidden lg:block" />
               <span className="italic text-brass">kind of</span> beautiful.
             </h1>
             <p className="mt-6 md:mt-8 max-w-xl text-base leading-relaxed text-espresso/75 sm:text-xl animate-fade-up [animation-delay:400ms]">
