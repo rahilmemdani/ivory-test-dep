@@ -210,31 +210,165 @@ function Highlighted({ text, query }: { text: string; query: string }) {
   );
 }
 
+// ─── Category colour accent ───────────────────────────────────────────────────
+
+const CAT_ACCENT: Record<string, string> = {
+  "Hair": "text-[#8B6B4A]",
+  "Skin Care": "text-[#7A8B6A]",
+  "Nails": "text-[#8A6A7A]",
+};
+
 // ─── Service Card ─────────────────────────────────────────────────────────────
 
-function ServiceCard({ service, query }: { service: Service; query: string }) {
+function ServiceCard({
+  service,
+  query,
+  onSelect,
+}: {
+  service: Service;
+  query: string;
+  onSelect: (s: Service) => void;
+}) {
   return (
-    <a
-      href="https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
-      className="group flex flex-col gap-2 rounded-sm border border-espresso/10 bg-alabaster/50 p-5 hover:border-brass/40 hover:bg-alabaster hover:shadow-md transition-all duration-300"
+    <button
+      onClick={() => onSelect(service)}
+      className="group text-left flex flex-col gap-2 rounded-sm border border-espresso/10 bg-alabaster/50 p-5 hover:border-brass/30 hover:bg-alabaster hover:shadow-[0_4px_20px_-4px_rgba(51,38,29,0.10)] active:scale-[0.98] transition-all duration-200 w-full"
     >
       <div className="flex items-start justify-between gap-3">
-        <p className="font-display text-lg leading-snug text-espresso group-hover:text-brass transition-colors">
+        <p className="font-display text-[1.1rem] leading-snug text-espresso group-hover:text-brass transition-colors duration-200">
           <Highlighted text={service.name} query={query} />
         </p>
-        <span className="shrink-0 mt-0.5 opacity-0 group-hover:opacity-100 translate-x-0 group-hover:translate-x-0.5 transition-all duration-300 text-brass text-lg leading-none">
-          →
+        {/* Tap hint */}
+        <span className="shrink-0 mt-0.5 w-6 h-6 rounded-full border border-espresso/15 flex items-center justify-center text-espresso/25 group-hover:border-brass/40 group-hover:text-brass transition-all duration-200">
+          <svg viewBox="0 0 10 10" fill="none" className="w-2.5 h-2.5">
+            <path d="M2 5h6M5 2l3 3-3 3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
         </span>
       </div>
       {service.desc && (
-        <p className="text-sm text-espresso/45 leading-relaxed">
+        <p className="text-sm text-espresso/40 leading-relaxed">
           <Highlighted text={service.desc} query={query} />
         </p>
       )}
-      <span className="mt-auto pt-2 label text-[0.58rem] tracking-[0.2em] text-espresso/30">
+      <span className={`mt-auto pt-3 label text-[0.58rem] tracking-[0.2em] ${CAT_ACCENT[service.category] ?? "text-espresso/30"}`}>
         {service.subcategory}
       </span>
-    </a>
+    </button>
+  );
+}
+
+// ─── Service Drawer (bottom-sheet modal) ──────────────────────────────────────
+
+function ServiceDrawer({
+  service,
+  onClose,
+}: {
+  service: Service | null;
+  onClose: () => void;
+}) {
+  // Prevent body scroll when open
+  useEffect(() => {
+    if (service) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [service]);
+
+  // Close on Escape
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [onClose]);
+
+  if (!service) return null;
+
+  return (
+    <>
+      {/* Backdrop */}
+      <div
+        className="fixed inset-0 z-40 bg-espresso/30 backdrop-blur-sm"
+        style={{ animation: "fadeIn 0.2s ease" }}
+        onClick={onClose}
+        aria-hidden
+      />
+
+      {/* Drawer */}
+      <div
+        className="fixed inset-x-0 bottom-0 z-50 max-h-[85dvh] overflow-y-auto rounded-t-2xl bg-alabaster shadow-2xl"
+        style={{ animation: "slideUp 0.28s cubic-bezier(0.32,0.72,0,1)" }}
+        role="dialog"
+        aria-modal
+        aria-label={service.name}
+      >
+        {/* Drag handle */}
+        <div className="sticky top-0 flex justify-center pt-3 pb-2 bg-alabaster/90 backdrop-blur-sm">
+          <div className="w-10 h-1 rounded-full bg-espresso/15" />
+        </div>
+
+        <div className="px-6 sm:px-8 pb-10 pt-2">
+          {/* Category breadcrumb */}
+          <p className={`label text-[0.6rem] tracking-[0.25em] ${CAT_ACCENT[service.category] ?? "text-espresso/40"}`}>
+            {service.category} · {service.subcategory}
+          </p>
+
+          {/* Service name */}
+          <h2 className="mt-3 font-display text-3xl sm:text-4xl text-espresso leading-tight">
+            {service.name}
+          </h2>
+
+          {/* Description */}
+          {service.desc && (
+            <p className="mt-4 text-espresso/60 leading-relaxed text-base max-w-lg">
+              {service.desc}
+            </p>
+          )}
+
+          {/* Divider */}
+          <div className="my-7 h-px bg-espresso/10" />
+
+          {/* Info note */}
+          <div className="flex gap-3 items-start p-4 rounded-sm bg-sand/40 border border-espresso/8">
+            <svg viewBox="0 0 20 20" fill="none" className="w-4 h-4 shrink-0 mt-0.5 text-brass">
+              <circle cx="10" cy="10" r="8" stroke="currentColor" strokeWidth="1.5" />
+              <path d="M10 9v5M10 7v.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
+            <p className="text-sm text-espresso/55 leading-relaxed">
+              Our booking system is general — mention <span className="font-medium text-espresso/80">{service.name}</span> when you book and our team will ensure everything is arranged for you.
+            </p>
+          </div>
+
+          {/* CTA */}
+          <a
+            href="https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 flex items-center justify-between gap-4 bg-espresso text-ivory px-7 py-5 hover:bg-ink transition-colors duration-300 group"
+          >
+            <div>
+              <p className="font-display text-xl italic">Book a consultation</p>
+              <p className="label text-[0.62rem] text-ivory/40 tracking-[0.2em] mt-0.5">Opens booking page</p>
+            </div>
+            <span className="text-brass text-xl transition-transform duration-300 group-hover:translate-x-1">→</span>
+          </a>
+
+          {/* Close */}
+          <button
+            onClick={onClose}
+            className="mt-4 w-full py-3.5 border border-espresso/15 text-espresso/50 hover:text-espresso hover:border-espresso/30 transition-all label text-[0.68rem] tracking-[0.2em]"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+
+      <style>{`
+        @keyframes fadeIn { from { opacity:0 } to { opacity:1 } }
+        @keyframes slideUp { from { transform:translateY(100%) } to { transform:translateY(0) } }
+      `}</style>
+    </>
   );
 }
 
@@ -243,6 +377,7 @@ function ServiceCard({ service, query }: { service: Service; query: string }) {
 export default function Services() {
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<Cat>("All");
+  const [selected, setSelected] = useState<Service | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   // Filter
@@ -278,6 +413,7 @@ export default function Services() {
 
   return (
     <>
+      <ServiceDrawer service={selected} onClose={() => setSelected(null)} />
       {/* ── Hero ─────────────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden pt-28 sm:pt-36 pb-16 sm:pb-20">
         {/* Subtle background imagery */}
@@ -298,7 +434,7 @@ export default function Services() {
             <span className="italic text-espresso/45">done properly.</span>
           </h1>
           <p className="mt-5 text-espresso/55 max-w-lg leading-relaxed">
-            Every service Ivory Atelier offers — no rush, no shortcuts. Tap any service to book.
+            Every service Ivory Atelier offers — no rush, no shortcuts. Tap any service to learn more.
           </p>
 
           {/* ── Search bar ──────────────────────────────────────────────────── */}
@@ -379,7 +515,7 @@ export default function Services() {
           // Flat list when searching
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {filtered.map((s) => (
-              <ServiceCard key={`${s.category}/${s.name}`} service={s} query={query} />
+              <ServiceCard key={`${s.category}/${s.name}`} service={s} query={query} onSelect={setSelected} />
             ))}
           </div>
         ) : (
@@ -392,7 +528,7 @@ export default function Services() {
                   <h2 className="font-display text-2xl sm:text-3xl text-espresso leading-none">
                     {subcat}
                   </h2>
-                  <span className="label text-[0.58rem] text-espresso/30 tracking-[0.2em]">
+                  <span className={`label text-[0.58rem] tracking-[0.2em] ${CAT_ACCENT[services[0].category] ?? "text-espresso/30"}`}>
                     {services[0].category.toUpperCase()}
                   </span>
                   <div className="flex-1 h-px bg-espresso/10" />
@@ -400,7 +536,7 @@ export default function Services() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                   {services.map((s) => (
-                    <ServiceCard key={`${s.category}/${s.name}`} service={s} query={query} />
+                    <ServiceCard key={`${s.category}/${s.name}`} service={s} query={query} onSelect={setSelected} />
                   ))}
                 </div>
               </section>
@@ -410,21 +546,26 @@ export default function Services() {
       </div>
 
       {/* ── CTA ──────────────────────────────────────────────────────────────── */}
-      <section className="gradient-espresso">
-        <div className="mx-auto max-w-[1400px] px-5 sm:px-10 py-20 flex flex-col sm:flex-row gap-10 items-start sm:items-center justify-between">
+      <section className="relative overflow-hidden bg-sand/30 border-t border-espresso/10">
+        {/* Decorative brass line */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brass/40 to-transparent" />
+
+        <div className="mx-auto max-w-[1400px] px-5 sm:px-10 py-20 sm:py-24 flex flex-col sm:flex-row gap-10 items-start sm:items-center justify-between">
           <div>
             <Plume className="h-10 w-10 text-brass/60 mb-5" />
-            <h2 className="font-display text-4xl sm:text-5xl text-ivory leading-tight">
+            <h2 className="font-display text-4xl sm:text-5xl text-espresso leading-tight">
               Take the afternoon.{" "}
               <span className="italic text-brass">We'll take care of the rest.</span>
             </h2>
-            <p className="mt-4 text-ivory/45 max-w-md leading-relaxed">
+            <p className="mt-4 text-espresso/50 max-w-md leading-relaxed">
               Not sure what you need? Book a consultation — we'll guide you through it.
             </p>
           </div>
           <a
             href="https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
-            className="shrink-0 group inline-flex items-center gap-4 border border-ivory/20 px-8 sm:px-10 py-5 text-ivory hover:border-brass hover:text-brass transition-all duration-300"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 group inline-flex items-center gap-4 bg-espresso border border-espresso px-8 sm:px-10 py-5 text-ivory hover:bg-ink hover:border-brass/30 hover:text-brass transition-all duration-300"
           >
             <span className="font-display text-xl italic">Book a consultation</span>
             <span className="transition-transform duration-300 group-hover:translate-x-2 text-brass">→</span>
