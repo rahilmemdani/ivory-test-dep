@@ -6,19 +6,68 @@ import { Plume } from "@/components/site/Plume";
 export default function Story() {
   return (
     <>
-      {/* HEADER */}
-      <section className="mx-auto max-w-[1400px] px-5 pb-16 pt-28 sm:px-10 sm:pt-40">
-        <header className="max-w-4xl relative z-10">
-          <div className="flex items-center gap-6 mb-10">
-            <Plume className="h-10 w-10 text-brass animate-float" />
-            <p className="label text-brass tracking-[0.3em] uppercase">03 · Brand Story</p>
+      {/* EDITORIAL COVER HERO */}
+      <section className="w-full pt-[101px]">
+        <div className="relative w-full h-[calc(100vh-104px)] min-h-[640px] overflow-hidden">
+
+          {/* Background Image — let it breathe */}
+          <img
+            src="/images/facade.png"
+            alt="Ivory Atelier House facade"
+            className="absolute inset-0 w-full h-full object-cover object-[center_15%] contrast-[1.1] brightness-[0.75]"
+          />
+
+          {/* Very subtle edge vignettes only — don't touch the centre */}
+          <div className="absolute inset-0 bg-gradient-to-r from-espresso/15 via-transparent to-espresso/15 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-b from-espresso/20 via-transparent to-espresso/55 pointer-events-none" />
+
+          {/* ── TOP EDITORIAL STRIP ── */}
+          <div className="absolute top-0 inset-x-0 z-10 px-6 pt-6 sm:px-12 sm:pt-8">
+            <div className="flex justify-between items-center">
+              <p className="label text-ivory/70 tracking-[0.35em] text-[0.5rem]">VOL. I</p>
+              <div className="h-px flex-1 bg-ivory/20 mx-6" />
+              <p className="label text-ivory/70 tracking-[0.35em] text-[0.5rem]">JUHU · MUMBAI · 2024</p>
+            </div>
           </div>
-          <h1 className="font-display text-[clamp(4rem,10vw,8.5rem)] leading-[0.85] text-espresso tracking-tight">
-            An atelier,
-            <br />
-            <span className="italic text-brass font-light">not a salon.</span>
-          </h1>
-        </header>
+
+          {/* ── LEFT SIDE BAR ── */}
+          <div className="absolute left-5 sm:left-10 top-1/2 -translate-y-1/2 z-10 hidden sm:flex flex-col items-center gap-4">
+            <div className="h-20 w-px bg-ivory/25" />
+            <p className="label text-ivory/60 tracking-[0.35em] text-[0.5rem] [writing-mode:vertical-lr] rotate-180 uppercase drop-shadow-md">
+              Hair · Nails · Beauty · Café
+            </p>
+            <div className="h-20 w-px bg-ivory/25" />
+          </div>
+
+          {/* ── RIGHT SIDE BAR ── */}
+          <div className="absolute right-5 sm:right-10 top-1/2 -translate-y-1/2 z-10 hidden sm:flex flex-col items-center gap-4">
+            <div className="h-16 w-px bg-brass/40" />
+            <Plume className="h-7 w-7 text-brass/80" />
+            <div className="h-16 w-px bg-brass/40" />
+          </div>
+
+          {/* ── BOTTOM EDITORIAL STRIP ── */}
+          <div className="absolute bottom-0 inset-x-0 z-10 flex items-end justify-between px-6 pb-8 sm:px-14 sm:pb-12">
+            {/* Bottom-left — large italic title */}
+            <div>
+              <p className="font-display italic text-ivory text-4xl sm:text-6xl leading-none drop-shadow-2xl tracking-tight">
+                The Story
+              </p>
+              <p className="label text-ivory/70 tracking-[0.4em] text-[0.6rem] mt-3 uppercase drop-shadow-md">
+                IVORY ATELIER
+              </p>
+            </div>
+
+            {/* Bottom-right — tag line */}
+            <div className="max-w-[180px] sm:max-w-[260px] text-right hidden sm:block">
+              <div className="h-px bg-ivory/30 w-full mb-3 ml-auto" />
+              <p className="label text-ivory/60 tracking-[0.2em] text-[0.52rem] leading-loose">
+                A quieter kind of beautiful.
+              </p>
+            </div>
+          </div>
+
+        </div>
       </section>
 
       {/* STORY GRID */}
