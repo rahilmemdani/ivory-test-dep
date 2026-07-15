@@ -46,30 +46,30 @@ export function ServicesCarousel({ services }: { services: Service[] }) {
   };
 
   return (
-    <div className="relative mt-12 w-full">
-      {/* Navigation Arrows (Desktop) */}
-      <div className="hidden md:flex justify-end gap-3 mb-6 pr-4">
-        <button
-          onClick={() => scroll("left")}
-          disabled={!canScrollLeft}
-          className="flex h-12 w-12 items-center justify-center rounded-full border border-espresso/20 text-espresso transition-all hover:bg-espresso hover:text-ivory disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-espresso"
-          aria-label="Previous"
-        >
-          <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">
-            <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </button>
-        <button
-          onClick={() => scroll("right")}
-          disabled={!canScrollRight}
-          className="flex h-12 w-12 items-center justify-center rounded-full border border-espresso/20 text-espresso transition-all hover:bg-espresso hover:text-ivory disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-espresso"
-          aria-label="Next"
-        >
-          <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">
-            <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </button>
-      </div>
+    <div className="relative mt-12 w-full group/carousel">
+      {/* Left Navigation Arrow (Desktop) */}
+      <button
+        onClick={() => scroll("left")}
+        disabled={!canScrollLeft}
+        className="hidden md:flex absolute -left-6 top-[45%] z-10 h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-alabaster border border-espresso/20 text-espresso shadow-md transition-all hover:bg-espresso hover:text-ivory disabled:opacity-0"
+        aria-label="Previous"
+      >
+        <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">
+          <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </button>
+
+      {/* Right Navigation Arrow (Desktop) */}
+      <button
+        onClick={() => scroll("right")}
+        disabled={!canScrollRight}
+        className="hidden md:flex absolute -right-6 top-[45%] z-10 h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-alabaster border border-espresso/20 text-espresso shadow-md transition-all hover:bg-espresso hover:text-ivory disabled:opacity-0"
+        aria-label="Next"
+      >
+        <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">
+          <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </button>
 
       {/* Carousel Container */}
       <div
@@ -93,15 +93,14 @@ export function ServicesCarousel({ services }: { services: Service[] }) {
                 />
               </div>
               
-              <div className="flex items-baseline gap-2 mb-2">
-                <span className="label text-brass text-[0.55rem] shrink-0">{s.tag}</span>
+              <div className="flex items-baseline mb-2">
                 <h3 className="font-display text-2xl text-espresso tracking-tight">{s.title}</h3>
               </div>
               
               <p className="text-espresso/70 leading-relaxed text-xs sm:text-sm mb-3 line-clamp-3">{s.body}</p>
               
               {s.bullets.length > 0 && (
-                <ul className="mb-4 space-y-1.5">
+                <ul className="mt-1 space-y-1.5">
                   {s.bullets.map((b, i) => (
                     <li key={i} className="flex items-start gap-2 text-espresso/80 text-xs sm:text-sm">
                       <span className="text-brass/60 mt-1.5 shrink-0 h-1 w-1 rounded-full bg-brass/60" />
@@ -110,13 +109,6 @@ export function ServicesCarousel({ services }: { services: Service[] }) {
                   ))}
                 </ul>
               )}
-
-              <div className="mt-auto pt-3 border-t border-espresso/5">
-                <a href={s.ctaLink} className="inline-flex items-center gap-1.5 group/cta text-espresso hover:text-brass transition-colors">
-                  <span className="font-display italic tracking-wide text-[0.95rem]">{s.cta}</span>
-                  <span className="transition-transform group-hover/cta:translate-x-1 text-brass text-sm">→</span>
-                </a>
-              </div>
             </div>
           </article>
         ))}
