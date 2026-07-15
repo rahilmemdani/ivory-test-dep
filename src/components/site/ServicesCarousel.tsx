@@ -47,11 +47,11 @@ export function ServicesCarousel({ services }: { services: Service[] }) {
 
   return (
     <div className="relative mt-12 w-full group/carousel">
-      {/* Left Navigation Arrow (Desktop) */}
+      {/* Left Navigation Arrow */}
       <button
         onClick={() => scroll("left")}
         disabled={!canScrollLeft}
-        className="hidden md:flex absolute -left-6 top-[45%] z-10 h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-alabaster border border-espresso/20 text-espresso shadow-md transition-all hover:bg-espresso hover:text-ivory disabled:opacity-0"
+        className="flex absolute -left-2 md:-left-6 top-[45%] z-10 h-10 w-10 md:h-12 md:w-12 -translate-y-1/2 items-center justify-center rounded-full bg-alabaster border border-espresso/20 text-espresso shadow-md transition-all hover:bg-espresso hover:text-ivory disabled:opacity-0"
         aria-label="Previous"
       >
         <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">
@@ -59,11 +59,11 @@ export function ServicesCarousel({ services }: { services: Service[] }) {
         </svg>
       </button>
 
-      {/* Right Navigation Arrow (Desktop) */}
+      {/* Right Navigation Arrow */}
       <button
         onClick={() => scroll("right")}
         disabled={!canScrollRight}
-        className="hidden md:flex absolute -right-6 top-[45%] z-10 h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-alabaster border border-espresso/20 text-espresso shadow-md transition-all hover:bg-espresso hover:text-ivory disabled:opacity-0"
+        className="flex absolute -right-2 md:-right-6 top-[45%] z-10 h-10 w-10 md:h-12 md:w-12 -translate-y-1/2 items-center justify-center rounded-full bg-alabaster border border-espresso/20 text-espresso shadow-md transition-all hover:bg-espresso hover:text-ivory disabled:opacity-0"
         aria-label="Next"
       >
         <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">

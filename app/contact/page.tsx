@@ -67,6 +67,25 @@ export default function Contact() {
           </dl>
         </div>
       </div>
+      
+      {/* 360 Google Maps Tour Embed */}
+      <div className="mt-16 sm:mt-24 w-full h-[350px] sm:h-[500px] overflow-hidden rounded-sm border border-espresso/15 shadow-md group">
+        <div className="w-full h-full relative">
+          {/* Subtle overlay that fades out on hover to encourage interaction */}
+          <div className="absolute inset-0 bg-espresso/5 pointer-events-none transition-colors group-hover:bg-transparent z-10" />
+          <iframe
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen={true}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed?pb=!4v1716000000000!6m8!1m7!1sCIABIhBW8xU7kuJzxpJLTGH84YDc!2m2!1d19.1077555!2d72.830029!3f90!4f0!5f1"
+            title="Ivory Atelier 360 Tour"
+            className="w-full h-full"
+          />
+        </div>
+      </div>
     </section>
   );
 }
