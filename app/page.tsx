@@ -10,7 +10,7 @@ const services = [
   {
     tag: "01",
     title: "Hair",
-    body: "Editorial cut, colour and care — read like a portrait sitting, not a salon appointment.",
+    body: "Cut, colour and care - including our Korean Glass Hair Treatment and AI-Powered Japanese Head Spa, read like a portrait sitting, not a salon appointment.",
     img: serviceHair,
   },
   {
@@ -22,7 +22,7 @@ const services = [
   {
     tag: "03",
     title: "Beauty",
-    body: "Skin rituals, facials and finishing — quiet science, warm hands, real time.",
+    body: "AI-guided facials, Face Gym rituals and finishing - quiet science, warm hands, real time.",
     img: serviceBeauty,
   },
 ];
@@ -114,9 +114,9 @@ export default function Home() {
           <div>
             <p className="label text-brass">The Craft — 03 disciplines</p>
             <h2 className="mt-4 font-display text-5xl leading-tight text-espresso sm:text-7xl">
-              Practised as craft.
+              Every detail, a craft.
               <br />
-              <span className="italic text-espresso/70">Received as guests.</span>
+              <span className="italic text-espresso/70">Every guest, family.</span>
             </h2>
           </div>
           <Link
