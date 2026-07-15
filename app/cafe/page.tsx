@@ -14,48 +14,33 @@ interface CafeItem {
 const CAFE_MENU: Record<string, CafeItem[]> = {
   Coffee: [
     { n: "Espresso Shot", d: "Strong and bold single shot", img: "/images/cafe/espresso_shot.png" },
-    { n: "Americano", d: "Espresso topped with hot water", img: "/images/cafe/americano.png" },
     { n: "Cappuccino", d: "Espresso with steamed milk and foamed milk", img: "/images/cafe/cappuccino.png" },
     { n: "Flat White", d: "Smooth espresso with microfoam milk", img: "/images/cafe/flat_white.png" },
     { n: "Caffè Latte", d: "Espresso with steamed milk", img: "/images/cafe/caffe_latte.png" },
-    { n: "Mocha", d: "Espresso with chocolate and steamed milk", img: "/images/cafe/mocha.png" },
-    { n: "Cold Coffee", d: "Classic cold coffee", img: "/images/cafe/cold_coffee.png" },
   ],
-  Tea: [
+  "Tea & Boba": [
     { n: "Masala Tea", d: "Traditional Indian spiced tea", img: "/images/cafe/masala_tea.png" },
-    { n: "Ice Tea", d: "Refreshing lemon iced tea", img: "/images/cafe/ice_tea.png" },
-    { n: "Dip Tea", d: "Ask for Dip Tea Menu", img: "/images/cafe/dip_tea.png" },
-  ],
-  "Boba Tea": [
     { n: "Watermelon Boba Tea", d: "Refreshing watermelon tea with chewy boba", img: "/images/cafe/watermelon_boba_tea.png" },
     { n: "Peach Mango Boba Tea", d: "Sweet peach & mango tea with boba", img: "/images/cafe/peach_mango_boba_tea.png" },
-    { n: "Strawberry Boba Tea", d: "Fruity strawberry tea with boba", img: "/images/cafe/strawberry_boba_tea.png" },
   ],
-  Mojito: [
-    { n: "Mojito (Classic)", d: "Mint, lemon, lime & soda", img: "/images/cafe/mojito_classic.png" },
+  Mojitos: [
+    { n: "Classic Mojito", d: "Mint, lemon, lime & soda", img: "/images/cafe/mojito_classic.png" },
     { n: "Watermelon Mojito", d: "Fresh watermelon with mint & lime", img: "/images/cafe/watermelon_mojito.png" },
     { n: "Peach Mojito", d: "Peach, lime, mint & soda", img: "/images/cafe/peach_mojito.png" },
   ],
-  Sandwich: [
+  "Fresh Juices & Matcha": [
+    { n: "Detox Juice", d: "Beet, Carrot, Spinach, Mint, Ginger", img: "/images/cafe/detox_juice.png" },
+    { n: "Iced Matcha Latte", d: "Smooth matcha with milk served over ice", img: "/images/cafe/iced_matcha_latte.png" },
+    { n: "Matcha Espresso Fusion", d: "Matcha with a shot of espresso for the perfect balance", img: "/images/cafe/matcha_espresso_fusion.png" },
+  ],
+  "Light Bites": [
     { n: "Avocado Sandwich", d: "Fresh avocado, cucumber, lettuce, tomato & mayo", p: "₹800", img: "/images/cafe/avocado_sandwich.png" },
     { n: "Tandoori Paneer Sandwich", d: "Tandoori paneer, onions, bell peppers & mint chutney", p: "₹800", img: "/images/cafe/tandoori_paneer_sandwich.png" },
     { n: "Mix Vegetable Sandwich", d: "Assorted vegetables, lettuce, cucumber & mayo", p: "₹800", img: "/images/cafe/mix_vegetable_sandwich.png" },
-  ],
-  "Fresh Juices": [
-    { n: "Watermelon Juice", d: "Fresh cold-pressed watermelon juice", img: "/images/cafe/watermelon_juice.png" },
-    { n: "Fresh Lime Juice", d: "Zesty freshly squeezed lime juice", img: "/images/cafe/fresh_lime_juice.png" },
-    { n: "Pineapple Juice", d: "Sweet tropical pineapple juice", img: "/images/cafe/pineapple_juice.png" },
-    { n: "Orange Juice", d: "Squeezed daily orange juice", img: "/images/cafe/orange_juice.png" },
-    { n: "Detox Juice", d: "Beet, Carrot, Spinach, Mint, Ginger", img: "/images/cafe/detox_juice.png" },
-  ],
-  Matcha: [
-    { n: "Iced Matcha Latte", d: "Smooth matcha with milk served over ice", img: "/images/cafe/iced_matcha_latte.png" },
-    { n: "Hot Matcha Latte", d: "Warm, creamy matcha made with steamed milk", img: "/images/cafe/hot_matcha_latte.png" },
-    { n: "Matcha Espresso Fusion", d: "Matcha with a shot of espresso for the perfect balance", img: "/images/cafe/matcha_espresso_fusion.png" },
   ]
 };
 
-const CATEGORIES = ["All", "Coffee", "Tea", "Boba Tea", "Mojito", "Sandwich", "Juices & Matcha"] as const;
+const CATEGORIES = ["All", "Coffee", "Tea & Boba", "Mojitos", "Fresh Juices & Matcha", "Light Bites"] as const;
 type Cat = (typeof CATEGORIES)[number];
 
 export default function Cafe() {
@@ -80,11 +65,7 @@ export default function Cafe() {
 
     // Filter by Category
     if (activeCategory !== "All") {
-      if (activeCategory === "Juices & Matcha") {
-        list = list.filter((item) => item.cat === "Fresh Juices" || item.cat === "Matcha");
-      } else {
-        list = list.filter((item) => item.cat === activeCategory);
-      }
+      list = list.filter((item) => item.cat === activeCategory);
     }
 
     // Filter by Search Query
@@ -119,16 +100,19 @@ export default function Cafe() {
       <section className="relative overflow-hidden pt-28 sm:pt-36 pb-14 bg-background">
         <div className="mx-auto grid max-w-[1400px] gap-12 px-5 sm:px-10 md:grid-cols-[1.1fr_1fr] md:items-center">
           <div className="flex flex-col justify-center">
-            <p className="label text-brass tracking-[0.28em]">The Café — the social center</p>
-            <h1 className="mt-4 font-display text-[clamp(2.8rem,7vw,6rem)] leading-[0.92] tracking-tight text-espresso">
+            {/* Plume Café branded lockup */}
+            <div className="flex items-center gap-3 mb-6">
+              <Plume className="h-10 w-10 text-brass" />
+              <p className="label text-brass tracking-[0.28em]">Plume Café</p>
+            </div>
+            <h1 className="font-display text-[clamp(2.8rem,7vw,6rem)] leading-[0.92] tracking-tight text-espresso">
               A pause worth
               <br />
               <span className="italic text-espresso/45">staying for.</span>
             </h1>
             <p className="mt-6 max-w-lg leading-relaxed text-espresso/70 text-base sm:text-lg">
-              The café is the social centre of the atelier — a place to wait, to
-              linger, or to arrive on purpose. Single-origin coffee, traditional
-              Indian spiced tea, and light grilled sandwiches.
+              Named for the single feather at the centre of our mark — the plume, held back, never the full fan.
+              Plume Café is the social centre of Ivory Atelier, where guests linger between rituals, not just wait for them.
             </p>
           </div>
           <figure className="relative max-h-[320px] md:max-h-none overflow-hidden rounded-sm">

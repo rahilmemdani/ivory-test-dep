@@ -249,7 +249,11 @@ export default function Home() {
       <section className="mx-auto flex max-w-[1400px] flex-col justify-center px-5 py-12 sm:px-10 sm:py-16">
         <div className="grid items-center gap-14 md:grid-cols-2">
           <div className="order-2 md:order-1">
-            <p className="label text-brass">The Plume Café</p>
+            {/* Plume Café branded lockup */}
+            <div className="flex items-center gap-3 mb-2">
+              <Plume className="h-9 w-9 text-brass" />
+              <p className="label text-brass tracking-[0.28em]">Plume Café</p>
+            </div>
             <h2 className="mt-4 font-display text-5xl leading-tight text-espresso sm:text-6xl">
               A pause worth
               <br />
