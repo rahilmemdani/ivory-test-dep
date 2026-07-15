@@ -249,22 +249,26 @@ export default function Home() {
       <section className="mx-auto flex max-w-[1400px] flex-col justify-center px-5 py-12 sm:px-10 sm:py-16">
         <div className="grid items-center gap-14 md:grid-cols-2">
           <div className="order-2 md:order-1">
-            <p className="label text-brass">The Café — the heart</p>
+            <p className="label text-brass">The Plume Café</p>
             <h2 className="mt-4 font-display text-5xl leading-tight text-espresso sm:text-6xl">
               A pause worth
               <br />
               <span className="italic">staying for.</span>
             </h2>
             <p className="mt-6 max-w-md text-espresso/75">
-              Single-origin filter. Cortado. Rose cardamom latte. Saffron tea cake
-              and pistachio financier. The social centre where guests linger — not
-              just wait.
+              Named for the single feather at the centre of our mark - the plume, held back, never the full
+              fan. Plume Café is the social centre of Ivory Atelier, where guests linger between rituals, not
+              just wait for them.
+            </p>
+            <p className="mt-4 max-w-md text-espresso/75">
+              Single-origin filter. Cortado. Rose cardamom latte. Iced matcha. A proper mojito, if the
+              afternoon calls for one.
             </p>
             <Link
               href="/cafe"
               className="label mt-8 inline-block border-b border-espresso/40 pb-1 text-espresso/70 hover:border-brass hover:text-brass"
             >
-              Café Menu →
+              View full café menu →
             </Link>
           </div>
           <figure className="order-1 md:order-2">
@@ -286,8 +290,7 @@ export default function Home() {
 
         <blockquote className="relative mt-12 max-w-4xl font-display text-4xl leading-[1.15] text-espresso sm:text-6xl tracking-tight">
           <span className="italic text-brass font-light">"</span>
-          <span className="italic font-light">You will leave</span> a little more{" "}
-          <span className="italic font-light">yourself</span> than when you arrived.
+          <span className="italic font-light">You will leave a little more yourself than when you arrived.</span>
           <span className="italic text-brass font-light">"</span>
           <cite className="label mt-8 block not-italic text-espresso/40 tracking-[0.3em]">
             — The Brand Promise
