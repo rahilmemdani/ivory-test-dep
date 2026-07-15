@@ -188,6 +188,63 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FEATURED RITUALS */}
+      <section className="bg-alabaster text-espresso">
+        <div className="mx-auto grid max-w-[1400px] gap-0 px-5 sm:px-10 md:grid-cols-[1fr_1.4fr]">
+
+          {/* Left panel */}
+          <div className="flex flex-col justify-center py-16 sm:py-20 md:pr-16 md:py-24">
+            <p className="label text-brass">Featured Ritual</p>
+            <h2 className="mt-4 font-display text-5xl leading-tight text-espresso sm:text-6xl">
+              The house signatures.
+              <br />
+              <span className="italic text-espresso/60">Three rituals guests return for.</span>
+            </h2>
+            <div className="mt-12 h-px w-12 bg-brass/40" />
+            <p className="mt-8 text-espresso/55 leading-relaxed max-w-xs">
+              Signature rituals built on AI precision and Korean craft — each one a reason guests return.
+            </p>
+            <Link
+              href="/services"
+              className="label mt-10 inline-block border-b border-espresso/30 pb-1.5 text-espresso/60 hover:border-brass hover:text-brass transition-colors tracking-[0.25em]"
+            >
+              Discover the rituals →
+            </Link>
+          </div>
+
+          {/* Right panel — vertical card stack */}
+          <div className="flex flex-col divide-y divide-espresso/10 border-l border-espresso/10 md:py-16">
+            {[
+              {
+                title: "Korean Glass Hair Treatment",
+                body: "The ultra-sleek, mirror-like finish inspired by Korean beauty - cuticles sealed, shine amplified, frizz gone.",
+              },
+              {
+                title: "AI-Powered Japanese Head Spa",
+                body: "A scalp-wellness ritual guided by AI analysis - deep cleansing, therapeutic massage, steam, and a hydrating face mask.",
+              },
+              {
+                title: "AI-Powered Korean Scalp Treatments",
+                body: "Personalised scalp therapy - for dryness, oiliness, dandruff or hair fall - built from your own scalp analysis.",
+              },
+            ].map((r) => (
+              <div
+                key={r.title}
+                className="group flex flex-col gap-3 px-8 py-8 md:px-12 md:py-10 cursor-default hover:bg-sand/30 transition-colors duration-500"
+              >
+                <h3 className="font-display text-2xl leading-snug tracking-tight text-espresso group-hover:text-brass transition-colors duration-500 sm:text-3xl">
+                  {r.title}
+                </h3>
+                <p className="text-espresso/55 leading-relaxed text-sm sm:text-base">
+                  {r.body}
+                </p>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
       {/* CAFÉ TEASER */}
       <section className="mx-auto flex max-w-[1400px] flex-col justify-center px-5 py-12 sm:px-10 sm:py-16">
         <div className="grid items-center gap-14 md:grid-cols-2">
