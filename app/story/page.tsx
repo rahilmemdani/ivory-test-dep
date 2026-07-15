@@ -73,7 +73,7 @@ export default function Story() {
       {/* STORY GRID */}
       <section className="mx-auto max-w-[1400px] px-5 pb-24 sm:px-10 md:pb-32">
         <div className="grid md:grid-cols-12 gap-16 md:gap-0 items-center md:border-t border-espresso/15 pt-8 md:pt-20">
-          
+
           {/* Left Column: Text */}
           <div className="order-2 md:order-1 md:col-span-6 md:pr-16">
             <div className="hairline w-16 mb-6" />
@@ -96,7 +96,7 @@ export default function Story() {
                 Together — a sanctuary where design, wellbeing and hospitality meet, and every detail is quietly,
                 deliberately considered.
               </p>
-              
+
               <div className="pt-6 space-y-5 border-t border-espresso/10 mt-8">
                 <div>
                   <p className="font-display text-xl text-espresso mb-0.5">Purpose</p>
@@ -113,7 +113,7 @@ export default function Story() {
               </div>
             </div>
           </div>
-          
+
           {/* Right Column: Image */}
           <div className="order-1 md:order-2 md:col-span-5 md:col-start-8 mb-10 md:mb-0">
             <figure className="relative w-full h-[40vh] md:h-auto aspect-square md:aspect-[7/8] rounded-sm overflow-hidden group md:shadow-[0_20px_40px_-15px_rgba(51,38,29,0.25)]">
@@ -128,7 +128,7 @@ export default function Story() {
               <div className="absolute inset-0 bg-espresso/5 mix-blend-multiply pointer-events-none"></div>
             </figure>
           </div>
-          
+
         </div>
       </section>
 
@@ -136,11 +136,11 @@ export default function Story() {
       <section className="bg-espresso text-ivory/90 selection:bg-brass selection:text-espresso">
         <div className="mx-auto max-w-[1400px] px-5 py-24 sm:px-10 sm:py-32">
           <div className="grid gap-14 md:grid-cols-12 md:gap-8 items-center md:border-t border-ivory/10 md:pt-20">
-            
+
             <div className="md:col-span-5 flex justify-center md:justify-start">
               <Plume className="h-40 w-40 text-brass md:h-72 md:w-72 animate-float" />
             </div>
-            
+
             <div className="md:col-span-7">
               <p className="label text-brass tracking-[0.3em] uppercase">The meaning of the mark</p>
               <h2 className="mt-4 md:mt-6 font-display text-5xl md:text-[4.5rem] leading-tight md:leading-[1.1]">
@@ -151,7 +151,7 @@ export default function Story() {
                 not the full fan — beauty hinted at, never performed. A quieter
                 kind of beautiful.
               </p>
-              
+
               <div className="mt-12 md:mt-16 grid gap-8 md:gap-10 sm:grid-cols-2">
                 {[
                   { h: "Beauty, held back", p: "Restraint as luxury. Never performed." },
@@ -166,7 +166,7 @@ export default function Story() {
                 ))}
               </div>
             </div>
-            
+
           </div>
         </div>
       </section>
@@ -175,25 +175,25 @@ export default function Story() {
       <section className="mx-auto max-w-[1400px] px-5 py-24 sm:px-10 sm:py-32">
         <div className="grid md:grid-cols-12 gap-12 md:gap-8 md:border-t border-espresso/15 md:pt-20">
           <div className="md:col-span-5">
-             <p className="label text-brass tracking-[0.3em] uppercase">04 · Positioning</p>
-             <h2 className="mt-6 font-display text-5xl sm:text-[4rem] leading-tight md:leading-[1.1] text-espresso">
-               Closer to a <br className="hidden md:block"/>
-               <span className="italic text-brass font-light">members' club</span> <br className="hidden md:block"/> than a beauty chair.
-             </h2>
+            <p className="label text-brass tracking-[0.3em] uppercase">04 · Positioning</p>
+            <h2 className="mt-6 font-display text-5xl sm:text-[4rem] leading-tight md:leading-[1.1] text-espresso">
+              Closer to a <br className="hidden md:block" />
+              <span className="italic text-brass font-light">members' club</span> <br className="hidden md:block" /> than a beauty chair.
+            </h2>
           </div>
           <div className="md:col-span-7 flex flex-col justify-center border-t border-espresso/15 pt-14 md:border-0 md:pt-0">
-             <div className="grid gap-10 md:gap-12 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-10 md:gap-12 sm:grid-cols-2 lg:grid-cols-3">
               {[
-                { h: "A sanctuary", p: "not a service counter" },
-                { h: "Craft", p: "not trend" },
-                { h: "Hospitality", p: "not a transaction" },
+                { h: "A sanctuary,", p: "not a service counter." },
+                { h: "Craft,", p: "not trend." },
+                { h: "Hospitality,", p: "not a transaction." },
               ].map((x) => (
                 <div key={x.h} className="group md:border-l border-espresso/10 md:pl-6 hover:border-espresso/30 transition-colors">
                   <p className="font-display text-4xl md:text-3xl text-espresso group-hover:text-brass transition-colors">{x.h}</p>
                   <p className="label mt-3 md:mt-4 text-espresso/50 tracking-[0.2em]">{x.p}</p>
                 </div>
               ))}
-             </div>
+            </div>
           </div>
         </div>
       </section>
