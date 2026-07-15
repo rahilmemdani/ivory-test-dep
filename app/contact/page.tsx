@@ -32,7 +32,7 @@ export default function Contact() {
                   { text: "Juhu, Vile Parle West" },
                   { text: "Mumbai, Maharashtra 400049" },
                 ],
-                href: "https://maps.google.com/?q=Ivory+Atelier,Plot+35,10th+Gulmohar+Cross+Rd,Juhu,Mumbai+400049",
+                href: "https://www.google.com/maps/place/Ivory+Atelier/@19.1077575,72.8275881,938m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3be7c9b9acf4b747:0x6796209d19d4904c!8m2!3d19.1077575!4d72.830163!16s%2Fg%2F11zgm1q79v?entry=ttu&g_ep=EgoyMDI2MDcxMi4wIKXMDSoASAFQAw%3D%3D",
               },
               {
                 k: "Call",

@@ -44,7 +44,7 @@ export function Footer() {
           <div>
             <h4 className="label text-brass">Address</h4>
             <address className="mt-5 space-y-1 not-italic text-ivory/75">
-              <a href="https://maps.google.com/?q=Ivory+Atelier,Plot+35,10th+Gulmohar+Cross+Rd,Juhu,Mumbai+400049" target="_blank" rel="noopener noreferrer" className="block hover:text-brass transition-colors">
+              <a href="https://www.google.com/maps/place/Ivory+Atelier/@19.1077575,72.8275881,938m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3be7c9b9acf4b747:0x6796209d19d4904c!8m2!3d19.1077575!4d72.830163!16s%2Fg%2F11zgm1q79v?entry=ttu&g_ep=EgoyMDI2MDcxMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="block hover:text-brass transition-colors">
                 <p>Plot Number 35, Rameshwar</p>
                 <p>10th Gulmohar Cross Rd</p>
                 <p>Juhu, Mumbai 400049</p>
