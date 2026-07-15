@@ -42,12 +42,12 @@ export default function Home() {
       <section className="relative isolate flex flex-col justify-center overflow-hidden min-h-[100dvh] pt-28 sm:pt-32 pb-16">
         <div className="mx-auto w-full max-w-[1400px] flex flex-col lg:grid gap-12 px-5 sm:px-10 lg:grid-cols-[1.1fr_1fr] lg:gap-20 lg:items-center">
           <div className="flex flex-col justify-center items-center text-center lg:items-start lg:text-left order-1 lg:order-1">
-            <h1 className="font-display text-5xl sm:text-6xl lg:text-[clamp(2.75rem,8vw,7.5rem)] leading-[0.95] tracking-[-0.02em] text-espresso animate-fade-up [animation-delay:200ms]">
-              A quieter <br className="hidden lg:block" />
-              <span className="italic text-brass">kind of</span> beautiful.
+            <h1 className="font-display text-5xl sm:text-6xl lg:text-[clamp(2.5rem,5vw,4.5rem)] leading-[0.95] tracking-[-0.02em] text-espresso animate-fade-up [animation-delay:200ms]">
+              IVORY ATELIER <br className="hidden lg:block" />
+              <span className="italic text-brass">Where Juhu comes to be beautiful.</span>
             </h1>
             <p className="mt-6 md:mt-8 max-w-xl text-base leading-relaxed text-espresso/75 sm:text-xl animate-fade-up [animation-delay:400ms]">
-              Ivory Atelier is a house for hair, nails and beauty — practised as
+              Ivory Atelier is Juhu's unhurried house for hair, nails and beauty - practised as
               craft, received as guests. Under one calm roof, with a café at its
               heart.
             </p>
@@ -77,8 +77,8 @@ export default function Home() {
               <div>
                 <dt className="label text-espresso/50">Address</dt>
                 <dd className="mt-1 md:mt-2 font-display text-lg md:text-xl text-espresso">
-                  <a href="https://maps.google.com/?q=Ivory+Atelier+House,Bandra+West,Mumbai" className="hover:text-brass transition-colors">
-                    Bandra W.
+                  <a href="https://maps.google.com/?q=Ground+Floor+Plot+Number+35+Rameshwar+10th+Gulmohar+Cross+Rd+Juhu+Vile+Parle+West+Mumbai+Maharashtra+400049" className="hover:text-brass transition-colors">
+                    Juhu
                   </a>
                 </dd>
               </div>
@@ -102,7 +102,7 @@ export default function Home() {
               <Plume className="pointer-events-none absolute left-6 top-6 lg:left-8 lg:top-8 h-10 w-10 text-brass/90 mix-blend-screen" />
             </div>
             <figcaption className="label mt-3 md:mt-4 text-espresso/50 text-right md:text-left">
-              The house — reception, quietly.
+              Not just a salon. A ritual.
             </figcaption>
           </figure>
         </div>
