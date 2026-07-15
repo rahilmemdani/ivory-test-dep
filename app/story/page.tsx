@@ -76,32 +76,47 @@ export default function Story() {
           
           {/* Left Column: Text */}
           <div className="order-2 md:order-1 md:col-span-6 md:pr-16">
-            <div className="hairline w-24 mb-10" />
-            <p className="font-display text-3xl sm:text-[2.75rem] leading-[1.3] text-espresso">
+            <div className="hairline w-16 mb-6" />
+            <p className="font-display text-3xl sm:text-[2.25rem] leading-[1.25] text-espresso">
               Ivory Atelier began with a small discomfort — that looking after
               yourself had become loud, rushed and transactional. <br /><br /><span className="italic text-brass font-light">We wanted the opposite.</span>
             </p>
-            <div className="mt-14 space-y-8 text-lg text-espresso/70 leading-[1.7] font-light">
+            <div className="mt-8 space-y-4 text-base sm:text-lg text-espresso/70 leading-[1.6] font-light">
               <p>
                 A house where beauty is practised as craft and guests are received as
                 guests: unhurried rooms, honest materials, exceptional coffee, and
                 hands that know their work.
               </p>
               <p>
-                <em className="font-display text-2xl md:text-[1.75rem] text-espresso not-italic mr-1">Ivory,</em> for warmth and for
-                things that outlast fashion. <em className="font-display text-2xl md:text-[1.75rem] text-espresso not-italic mx-1">Atelier,</em>
+                <em className="font-display text-xl md:text-2xl text-espresso not-italic mr-1">Ivory,</em> for warmth and for
+                things that outlast fashion. <em className="font-display text-xl md:text-2xl text-espresso not-italic mx-1">Atelier,</em>
                 for the workshop of a maker.
               </p>
               <p>
                 Together — a sanctuary where design, wellbeing and hospitality meet, and every detail is quietly,
                 deliberately considered.
               </p>
+              
+              <div className="pt-6 space-y-5 border-t border-espresso/10 mt-8">
+                <div>
+                  <p className="font-display text-xl text-espresso mb-0.5">Purpose</p>
+                  <p className="italic leading-relaxed text-sm text-espresso/60">"To make the care of oneself feel like a return, not a routine — a quiet hour that gives people back to themselves."</p>
+                </div>
+                <div>
+                  <p className="font-display text-xl text-espresso mb-0.5">Mission</p>
+                  <p className="italic leading-relaxed text-sm text-espresso/60">"We practise hair, skin and nail work as craft, and hospitality as an art — under one calm roof, with a café at its heart."</p>
+                </div>
+                <div>
+                  <p className="font-display text-xl text-espresso mb-0.5">Vision</p>
+                  <p className="italic leading-relaxed text-sm text-espresso/60">"To become the most gracious address in the city for beauty — spoken of the way people speak of a beloved hotel."</p>
+                </div>
+              </div>
             </div>
           </div>
           
           {/* Right Column: Image */}
           <div className="order-1 md:order-2 md:col-span-5 md:col-start-8 mb-10 md:mb-0">
-            <figure className="relative w-full h-[50vh] md:h-auto aspect-auto md:aspect-[4/5] rounded-sm overflow-hidden group md:shadow-[0_20px_40px_-15px_rgba(51,38,29,0.25)]">
+            <figure className="relative w-full h-[40vh] md:h-auto aspect-square md:aspect-[7/8] rounded-sm overflow-hidden group md:shadow-[0_20px_40px_-15px_rgba(51,38,29,0.25)]">
               <img
                 src={heroInterior.src}
                 alt="Interior of Ivory Atelier"
