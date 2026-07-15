@@ -34,9 +34,9 @@ export function ServicesCarousel({ services }: { services: Service[] }) {
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
-      const { clientWidth } = scrollRef.current;
-      // Scroll by one card width (approx one third of container on desktop, mostly full width on mobile)
-      const scrollAmount = window.innerWidth >= 768 ? clientWidth / 3 : clientWidth * 0.85;
+      // Find the actual width of a card and add the 20px (gap-5) gap
+      const firstCard = scrollRef.current.querySelector("article");
+      const scrollAmount = firstCard ? firstCard.clientWidth + 20 : window.innerWidth * 0.85;
       
       scrollRef.current.scrollBy({
         left: direction === "left" ? -scrollAmount : scrollAmount,
