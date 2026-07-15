@@ -51,7 +51,7 @@ export function ServicesCarousel({ services }: { services: Service[] }) {
       <button
         onClick={() => scroll("left")}
         disabled={!canScrollLeft}
-        className="flex absolute -left-2 md:-left-6 top-[45%] z-10 h-10 w-10 md:h-12 md:w-12 -translate-y-1/2 items-center justify-center rounded-full bg-alabaster border border-espresso/20 text-espresso shadow-md transition-all hover:bg-espresso hover:text-ivory disabled:opacity-0"
+        className="hidden md:flex absolute -left-2 md:-left-6 top-[45%] z-10 h-10 w-10 md:h-12 md:w-12 -translate-y-1/2 items-center justify-center rounded-full bg-alabaster border border-espresso/20 text-espresso shadow-md transition-all hover:bg-espresso hover:text-ivory disabled:opacity-0"
         aria-label="Previous"
       >
         <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">
@@ -63,13 +63,19 @@ export function ServicesCarousel({ services }: { services: Service[] }) {
       <button
         onClick={() => scroll("right")}
         disabled={!canScrollRight}
-        className="flex absolute -right-2 md:-right-6 top-[45%] z-10 h-10 w-10 md:h-12 md:w-12 -translate-y-1/2 items-center justify-center rounded-full bg-alabaster border border-espresso/20 text-espresso shadow-md transition-all hover:bg-espresso hover:text-ivory disabled:opacity-0"
+        className="hidden md:flex absolute -right-2 md:-right-6 top-[45%] z-10 h-10 w-10 md:h-12 md:w-12 -translate-y-1/2 items-center justify-center rounded-full bg-alabaster border border-espresso/20 text-espresso shadow-md transition-all hover:bg-espresso hover:text-ivory disabled:opacity-0"
         aria-label="Next"
       >
         <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">
           <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </button>
+
+      {/* Mobile Swipe Indicator */}
+      <div className="md:hidden flex items-center justify-end gap-2 mb-3 pr-6 text-espresso/40">
+        <span className="text-[0.65rem] uppercase tracking-widest font-display">Swipe to explore</span>
+        <span className="text-sm">→</span>
+      </div>
 
       {/* Carousel Container */}
       <div
@@ -80,7 +86,7 @@ export function ServicesCarousel({ services }: { services: Service[] }) {
         {services.map((s) => (
           <article
             key={s.title}
-            className="group flex flex-col w-[85vw] sm:w-[50vw] md:w-[calc(33.333%-14px)] shrink-0 snap-start rounded-lg transition-colors bg-alabaster/50 border border-espresso/5 hover:bg-ivory/50"
+            className="group flex flex-col w-[82vw] sm:w-[50vw] md:w-[calc(33.333%-14px)] shrink-0 snap-start rounded-lg transition-colors bg-alabaster/50 border border-espresso/5 hover:bg-ivory/50"
           >
             <div className="p-3 flex flex-col h-full">
               <div className="relative overflow-hidden rounded-sm bg-sand/20 ring-1 ring-black/5 group-hover:ring-brass/20 transition-all duration-700 shadow-sm group-hover:shadow-md cursor-pointer mb-4">
