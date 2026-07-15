@@ -19,15 +19,6 @@ const services = [
   },
   {
     tag: "02",
-    title: "Hair Rituals",
-    body: "The rituals worth the trip. Intensive smoothing, AI-powered scalp analysis, and peptide infusions that rebuild strands from within.",
-    bullets: ["Korean Glass Hair Treatment", "AI-Powered Japanese Head Spa", "AI-Powered Korean Scalp Treatments", "Peptide Hair Repair Treatment"],
-    img: spaceImg,
-    cta: "Book a consultation",
-    ctaLink: "https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
-  },
-  {
-    tag: "03",
     title: "Nails",
     body: "The classical manicure - soaked, shaped, buffed, and finished in colours drawn from the palette. Nothing bright, nothing hurried. Everything considered.",
     bullets: ["Atelier Manicure", "Atelier Pedicure", "Gel Finish", "Nail Art, Restrained"],
@@ -36,7 +27,7 @@ const services = [
     ctaLink: "https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
   },
   {
-    tag: "04",
+    tag: "03",
     title: "Beauty",
     body: "AI-guided facials, brows and finishing - quiet science, warm hands, and time enough to be still. Honest products made to last.",
     bullets: ["Ivory Signature Facial", "AI-Enhanced HydraFacial", "Red Light Therapy", "Face Gym", "Brow Architecture", "Occasion Make-up"],
@@ -45,7 +36,7 @@ const services = [
     ctaLink: "https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
   },
   {
-    tag: "05",
+    tag: "04",
     title: "Bridal",
     body: "For the day itself. Bridal hair and make-up, at the salon or at your venue, alongside a Pre-Bridal Package built around the two months before.",
     bullets: [],
@@ -236,6 +227,10 @@ export default function Home() {
               {
                 title: "AI-Powered Korean Scalp Treatments",
                 body: "Personalised scalp therapy - for dryness, oiliness, dandruff or hair fall - built from your own scalp analysis.",
+              },
+              {
+                title: "Peptide Hair Repair Treatment",
+                body: "An intensive peptide-infused ritual that rebuilds weakened strands from within.",
               },
             ].map((r) => (
               <div
