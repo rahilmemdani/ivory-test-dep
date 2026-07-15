@@ -6,24 +6,52 @@ import serviceBeauty from "@/assets/service-beauty.jpg";
 import spaceImg from "@/assets/space.jpg";
 import cafeImg from "@/assets/cafe.jpg";
 import { Plume } from "@/components/site/Plume";
+import { ServicesCarousel } from "@/components/site/ServicesCarousel";
 const services = [
   {
     tag: "01",
     title: "Hair",
-    body: "Cut, colour and care - including our Korean Glass Hair Treatment and AI-Powered Japanese Head Spa, read like a portrait sitting, not a salon appointment.",
+    body: "Cut, colour and care in generous time - a considered consultation, a proper wash, and hands that know their work. Editorial finishes, natural weight, dimension that reads like light.",
+    bullets: ["Signature Cut & Styling", "Global Colour & Highlights", "Balayage", "Bridal Hair Do", "The Ritual Blow-dry"],
     img: serviceHair,
+    cta: "Book a consultation",
+    ctaLink: "https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
   },
   {
     tag: "02",
-    title: "Nails",
-    body: "Considered manicures and pedicures, done with the patience of a craft studio.",
-    img: serviceNails,
+    title: "Hair Rituals",
+    body: "The rituals worth the trip. Intensive smoothing, AI-powered scalp analysis, and peptide infusions that rebuild strands from within.",
+    bullets: ["Korean Glass Hair Treatment", "AI-Powered Japanese Head Spa", "AI-Powered Korean Scalp Treatments", "Peptide Hair Repair Treatment"],
+    img: spaceImg,
+    cta: "Book a consultation",
+    ctaLink: "https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
   },
   {
     tag: "03",
+    title: "Nails",
+    body: "The classical manicure - soaked, shaped, buffed, and finished in colours drawn from the palette. Nothing bright, nothing hurried. Everything considered.",
+    bullets: ["Atelier Manicure", "Atelier Pedicure", "Gel Finish", "Nail Art, Restrained"],
+    img: serviceNails,
+    cta: "Book a consultation",
+    ctaLink: "https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
+  },
+  {
+    tag: "04",
     title: "Beauty",
-    body: "AI-guided facials, Face Gym rituals and finishing - quiet science, warm hands, real time.",
+    body: "AI-guided facials, brows and finishing - quiet science, warm hands, and time enough to be still. Honest products made to last.",
+    bullets: ["Ivory Signature Facial", "AI-Enhanced HydraFacial", "Red Light Therapy", "Face Gym", "Brow Architecture", "Occasion Make-up"],
     img: serviceBeauty,
+    cta: "Book a consultation",
+    ctaLink: "https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
+  },
+  {
+    tag: "05",
+    title: "Bridal",
+    body: "For the day itself. Bridal hair and make-up, at the salon or at your venue, alongside a Pre-Bridal Package built around the two months before.",
+    bullets: [],
+    img: heroInterior,
+    cta: "Enquire about bridal",
+    ctaLink: "/contact"
   },
 ];
 
@@ -112,12 +140,16 @@ export default function Home() {
       <section className="mx-auto flex max-w-[1400px] flex-col justify-center px-5 py-12 sm:px-10 sm:py-16">
         <header className="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
           <div>
-            <p className="label text-brass">The Craft — 03 disciplines</p>
-            <h2 className="mt-4 font-display text-5xl leading-tight text-espresso sm:text-7xl">
-              Every detail, a craft.
+            <p className="label text-brass tracking-[0.3em] uppercase">01 · Services</p>
+            <h2 className="mt-4 font-display text-5xl leading-tight text-espresso sm:text-6xl tracking-tight">
+              The house signatures.
               <br />
-              <span className="italic text-espresso/70">Every guest, family.</span>
+              <span className="italic text-espresso/60">Three rituals guests return for.</span>
             </h2>
+            <p className="mt-6 text-lg sm:text-xl text-espresso/70 max-w-xl leading-relaxed font-light">
+              Hair, nails, beauty, and the signature rituals Ivory Atelier is known for — each done in
+              generous time, with AI-guided precision where it matters.
+            </p>
           </div>
           <Link
             href="/services"
@@ -127,29 +159,7 @@ export default function Home() {
           </Link>
         </header>
 
-        <div className="mt-16 flex gap-5 overflow-x-auto snap-x snap-mandatory pb-8 md:grid md:grid-cols-3 md:gap-8 md:overflow-visible md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-          {services.map((s) => (
-            <article
-              key={s.title}
-              className="group flex flex-col min-w-[60vw] max-w-[280px] shrink-0 snap-center sm:min-w-[40vw] md:min-w-0 md:max-w-none md:shrink cursor-pointer p-4 -m-4 rounded-lg transition-colors hover:bg-ivory/50"
-            >
-              <div className="relative overflow-hidden rounded-sm bg-sand/20 ring-1 ring-black/5 group-hover:ring-brass/20 transition-all duration-700 shadow-sm group-hover:shadow-md">
-                <img
-                  src={s.img.src}
-                  alt={s.title}
-                  width={1200}
-                  height={1500}
-                  className="aspect-[4/5] w-full object-cover contrast-[1.05] sepia-[0.1] brightness-[0.95] transition-all duration-[1200ms] ease-out group-hover:scale-[1.04] group-hover:sepia-0 group-hover:brightness-100"
-                />
-              </div>
-              <div className="mt-8 flex items-baseline justify-between gap-4 px-2">
-                <h3 className="font-display text-4xl text-espresso tracking-tight">{s.title}</h3>
-                <Plume className="h-6 w-6 shrink-0 text-brass opacity-0 -translate-y-2 transition-all duration-700 ease-out group-hover:opacity-100 group-hover:translate-y-0" />
-              </div>
-              <p className="mt-3 text-espresso/70 px-2 leading-relaxed">{s.body}</p>
-            </article>
-          ))}
-        </div>
+        <ServicesCarousel services={services} />
       </section>
 
       {/* PRINCIPLES / SPACE SPLIT */}
