@@ -7,6 +7,7 @@ import spaceImg from "@/assets/space.jpg";
 import cafeImg from "@/assets/cafe.jpg";
 import { Plume } from "@/components/site/Plume";
 import { ServicesCarousel } from "@/components/site/ServicesCarousel";
+import { TestimonialsSlider } from "@/components/site/TestimonialsSlider";
 const services = [
   {
     tag: "01",
@@ -290,6 +291,36 @@ export default function Home() {
               className="w-full rounded-sm object-cover contrast-[1.05] sepia-[0.1] brightness-[0.95] hover:sepia-0 hover:brightness-100 transition-all duration-[1200ms] ease-out"
             />
           </figure>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS SECTION */}
+      <section className="relative flex flex-col items-center justify-center overflow-hidden py-24 sm:py-32 min-h-[700px]">
+        {/* Background Image with Blur */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={serviceHair.src} 
+            alt="Ivory Atelier Testimonials" 
+            className="w-full h-full object-cover brightness-[0.5] sepia-[0.2] blur-md scale-110"
+          />
+          <div className="absolute inset-0 bg-espresso/60 mix-blend-multiply" />
+        </div>
+
+        <div className="relative z-10 w-full flex flex-col items-center">
+          <div className="flex flex-col items-center mb-10 text-center">
+            {/* Double Arch Logo */}
+            <div className="relative w-16 h-20 md:w-20 md:h-24 rounded-t-[100px] border-2 border-b-0 border-ivory/30 flex items-end justify-center pb-1 mb-4">
+              <div className="absolute inset-1 -bottom-px rounded-t-[100px] border border-b-0 border-ivory/50" />
+              <Plume className="h-10 w-10 md:h-12 md:w-12 text-ivory/90 drop-shadow-md relative z-10" />
+            </div>
+            <p className="font-display text-ivory tracking-[0.25em] text-sm md:text-base uppercase drop-shadow-md">Ivory Atelier</p>
+          </div>
+
+          <TestimonialsSlider />
+
+          <p className="mt-10 md:mt-14 font-display italic text-ivory/90 text-3xl md:text-4xl tracking-wide drop-shadow-md">
+            Straight from the chair.
+          </p>
         </div>
       </section>
 
