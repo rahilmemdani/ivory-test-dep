@@ -91,7 +91,7 @@ export default function Home() {
             <dl className="mt-10 md:mt-16 hidden lg:grid max-w-md grid-cols-3 gap-4 md:gap-6 border-t border-espresso/15 pt-6 md:pt-8 animate-fade-up [animation-delay:800ms]">
               <div>
                 <dt className="label text-espresso/50">Hours</dt>
-                <dd className="mt-1 md:mt-2 font-display text-lg md:text-xl text-espresso">10 – 8</dd>
+                <dd className="mt-1 md:mt-2 font-display text-lg md:text-xl text-espresso">10 - 8</dd>
               </div>
               <div>
                 <dt className="label text-espresso/50">Address</dt>
@@ -112,7 +112,7 @@ export default function Home() {
             <div className="relative overflow-hidden rounded-t-[200px] lg:rounded-t-[280px] rounded-b-sm bg-sand/40 shadow-2xl">
               <img
                 src={heroInterior.src}
-                alt="The Ivory Atelier reception — marble, brass and warm light."
+                alt="The Ivory Atelier reception - marble, brass and warm light."
                 width={1600}
                 height={1920}
                 className="w-full aspect-[4/5] lg:max-h-[75vh] object-cover contrast-[1.05] sepia-[0.1] brightness-[0.95] hover:sepia-0 hover:brightness-100 hover:scale-[1.02] transition-all duration-[2000ms] ease-out"
@@ -138,7 +138,7 @@ export default function Home() {
               <span className="italic text-espresso/60">Three rituals guests return for.</span>
             </h2>
             <p className="mt-6 text-lg sm:text-xl text-espresso/70 max-w-xl leading-relaxed font-light">
-              Hair, nails, beauty, and the signature rituals Ivory Atelier is known for — each done in
+              Hair, nails, beauty, and the signature rituals Ivory Atelier is known for - each done in
               generous time, with AI-guided precision where it matters.
             </p>
           </div>
@@ -159,7 +159,7 @@ export default function Home() {
           <div className="relative">
             <img
               src={spaceImg.src}
-              alt="Ivory Atelier interior — arched corridors, marble floors, warm brass fixtures."
+              alt="Ivory Atelier interior - arched corridors, marble floors, warm brass fixtures."
               width={1600}
               height={1100}
               loading="lazy"
@@ -203,7 +203,7 @@ export default function Home() {
             </h2>
             <div className="mt-12 h-px w-12 bg-brass/40" />
             <p className="mt-8 text-espresso/55 leading-relaxed max-w-xs">
-              Signature rituals built on AI precision and Korean craft — each one a reason guests return.
+              Signature rituals built on AI precision and Korean craft - each one a reason guests return.
             </p>
             <Link
               href="/services"
@@ -302,7 +302,7 @@ export default function Home() {
           <span className="italic font-light">You will leave a little more yourself than when you arrived.</span>
           <span className="italic text-brass font-light">"</span>
           <cite className="label mt-8 block not-italic text-espresso/40 tracking-[0.3em]">
-            — The Brand Promise
+            - The Brand Promise
           </cite>
         </blockquote>
 

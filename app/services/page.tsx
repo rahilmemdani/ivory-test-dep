@@ -19,18 +19,18 @@ interface Service {
 
 const ALL_SERVICES: Service[] = [
   // ── Hair: Cuts & Styling ──
-  { name: "Hair Cut & Styling — Women", desc: "Signature cut, consultation included", category: "Hair", subcategory: "Cuts & Styling" },
-  { name: "Hair Cut & Styling — Men", desc: "Considered cut with proper consultation", category: "Hair", subcategory: "Cuts & Styling" },
-  { name: "Hair Cut & Styling — Children (under 12)", desc: "Gentle, patient, and unhurried", category: "Hair", subcategory: "Cuts & Styling" },
+  { name: "Hair Cut & Styling - Women", desc: "Signature cut, consultation included", category: "Hair", subcategory: "Cuts & Styling" },
+  { name: "Hair Cut & Styling - Men", desc: "Considered cut with proper consultation", category: "Hair", subcategory: "Cuts & Styling" },
+  { name: "Hair Cut & Styling - Children (under 12)", desc: "Gentle, patient, and unhurried", category: "Hair", subcategory: "Cuts & Styling" },
   { name: "Bangs / Fringes", category: "Hair", subcategory: "Cuts & Styling" },
   { name: "Blast Dry", desc: "Quick, clean finish", category: "Hair", subcategory: "Cuts & Styling" },
-  { name: "Styling — Blow Dry", desc: "Full round-brush blow-dry", category: "Hair", subcategory: "Cuts & Styling" },
+  { name: "Styling - Blow Dry", desc: "Full round-brush blow-dry", category: "Hair", subcategory: "Cuts & Styling" },
   { name: "Ironing", desc: "Sleek, glass-smooth finish", category: "Hair", subcategory: "Cuts & Styling" },
   { name: "Tonging", desc: "Soft waves and curls", category: "Hair", subcategory: "Cuts & Styling" },
   { name: "Crimping", category: "Hair", subcategory: "Cuts & Styling" },
   { name: "Evening Hair Do", desc: "Occasion-ready updo or styling", category: "Hair", subcategory: "Cuts & Styling" },
   { name: "Party Hair Do", desc: "Showstopping look for a night out", category: "Hair", subcategory: "Cuts & Styling" },
-  { name: "Bridal Hair Do", desc: "Your most important look — given the time it deserves", category: "Hair", subcategory: "Cuts & Styling" },
+  { name: "Bridal Hair Do", desc: "Your most important look - given the time it deserves", category: "Hair", subcategory: "Cuts & Styling" },
   // ── Hair: Colour ──
   { name: "Root Touch-up", desc: "Seamless regrowth correction", category: "Hair", subcategory: "Colour" },
   { name: "Global Colour", desc: "All-over colour, head to tip", category: "Hair", subcategory: "Colour" },
@@ -74,8 +74,8 @@ const ALL_SERVICES: Service[] = [
   { name: "Ponytail Extensions", desc: "Available in 18\", 20\", 22\" & 24\"", category: "Hair", subcategory: "Extensions" },
   { name: "Fringe Extensions (18\")", category: "Hair", subcategory: "Extensions" },
   { name: "Tape Extensions", desc: "Per tape, multiple lengths available", category: "Hair", subcategory: "Extensions" },
-  { name: "Great Lengths Extensions", desc: "Per strand, 18\"–24\" available", category: "Hair", subcategory: "Extensions" },
-  { name: "Servicing Extensions — Wash & Dry", category: "Hair", subcategory: "Extensions" },
+  { name: "Great Lengths Extensions", desc: "Per strand, 18\"-24\" available", category: "Hair", subcategory: "Extensions" },
+  { name: "Servicing Extensions - Wash & Dry", category: "Hair", subcategory: "Extensions" },
   { name: "Highlights on Extensions", category: "Hair", subcategory: "Extensions" },
 
   // ── Skin Care: Facials ──
@@ -83,64 +83,64 @@ const ALL_SERVICES: Service[] = [
   { name: "AI-Enhanced City Life Hydration Treatment (60 mins)", desc: "Deep urban-skin hydration, restores natural vitality", category: "Skin Care", subcategory: "Facials" },
   { name: "AI-Enhanced Clarifying Mineral Treatment (60 mins)", desc: "Purifying mineral facial for oily and acne-prone skin", category: "Skin Care", subcategory: "Facials" },
   { name: "AI-Enhanced Radiance Antiox Treatment (75 mins)", desc: "Brightening antioxidant facial targeting pigmentation and dullness", category: "Skin Care", subcategory: "Facials" },
-  { name: "Ivory Signature Facial (90 mins)", desc: "LumiSpa + Galvanic Spa + eye treatment — deeply hydrating, radiant result", category: "Skin Care", subcategory: "Facials" },
+  { name: "Ivory Signature Facial (90 mins)", desc: "LumiSpa + Galvanic Spa + eye treatment - deeply hydrating, radiant result", category: "Skin Care", subcategory: "Facials" },
   { name: "AI-Enhanced Multi Peptide Better Ageing Treatment (75 mins)", desc: "Peptide firming facial to reduce signs of ageing", category: "Skin Care", subcategory: "Facials" },
-  { name: "AI-Enhanced HydraFacial (45–50 mins)", desc: "Deep cleanse · hydrate · lift · glow — all in one session", category: "Skin Care", subcategory: "Facials" },
+  { name: "AI-Enhanced HydraFacial (45-50 mins)", desc: "Deep cleanse · hydrate · lift · glow - all in one session", category: "Skin Care", subcategory: "Facials" },
   { name: "Red Light Therapy (20 mins)", desc: "Improves texture, reduces fine lines and supports acne healing", category: "Skin Care", subcategory: "Facials" },
   { name: "Eye Care Ritual Treatment (30 mins)", desc: "Targets dark circles, fine lines and puffiness around the eye area", category: "Skin Care", subcategory: "Facials" },
   // ── Skin Care: Face Gym ──
-  { name: "Face Gym — Cardio (30 mins)", desc: "High-energy facial muscle workout to tone and sculpt", category: "Skin Care", subcategory: "Face Gym" },
-  { name: "Face Gym — Sculpting (45 mins)", desc: "Deep tissue massage to lift, tone and define facial contours", category: "Skin Care", subcategory: "Face Gym" },
-  { name: "Face Gym — Cool Down (60 mins)", desc: "Gua Sha + nutrient-rich skincare for restoration and radiance", category: "Skin Care", subcategory: "Face Gym" },
+  { name: "Face Gym - Cardio (30 mins)", desc: "High-energy facial muscle workout to tone and sculpt", category: "Skin Care", subcategory: "Face Gym" },
+  { name: "Face Gym - Sculpting (45 mins)", desc: "Deep tissue massage to lift, tone and define facial contours", category: "Skin Care", subcategory: "Face Gym" },
+  { name: "Face Gym - Cool Down (60 mins)", desc: "Gua Sha + nutrient-rich skincare for restoration and radiance", category: "Skin Care", subcategory: "Face Gym" },
   { name: "Add-on: Eye Treatment with Facial", category: "Skin Care", subcategory: "Face Gym" },
   { name: "Add-on: Mask (Face Gym)", category: "Skin Care", subcategory: "Face Gym" },
   { name: "Add-on: Red Light Therapy (Face Gym)", category: "Skin Care", subcategory: "Face Gym" },
   { name: "Add-on: HydraFacial (Face Gym)", category: "Skin Care", subcategory: "Face Gym" },
   // ── Skin Care: Threading ──
-  { name: "Threading — Upper Lip", category: "Skin Care", subcategory: "Threading & Waxing" },
-  { name: "Threading — Chin", category: "Skin Care", subcategory: "Threading & Waxing" },
-  { name: "Threading — Eyebrow", category: "Skin Care", subcategory: "Threading & Waxing" },
-  { name: "Threading — Forehead", category: "Skin Care", subcategory: "Threading & Waxing" },
-  { name: "Threading — Side Locks", category: "Skin Care", subcategory: "Threading & Waxing" },
-  { name: "Threading — Full Face", category: "Skin Care", subcategory: "Threading & Waxing" },
-  { name: "Waxing — Upper Lip", category: "Skin Care", subcategory: "Threading & Waxing" },
-  { name: "Waxing — Eyebrows", category: "Skin Care", subcategory: "Threading & Waxing" },
-  { name: "Waxing — Chin", category: "Skin Care", subcategory: "Threading & Waxing" },
-  { name: "Waxing — Nose", category: "Skin Care", subcategory: "Threading & Waxing" },
-  { name: "Waxing — Full Face", category: "Skin Care", subcategory: "Threading & Waxing" },
+  { name: "Threading - Upper Lip", category: "Skin Care", subcategory: "Threading & Waxing" },
+  { name: "Threading - Chin", category: "Skin Care", subcategory: "Threading & Waxing" },
+  { name: "Threading - Eyebrow", category: "Skin Care", subcategory: "Threading & Waxing" },
+  { name: "Threading - Forehead", category: "Skin Care", subcategory: "Threading & Waxing" },
+  { name: "Threading - Side Locks", category: "Skin Care", subcategory: "Threading & Waxing" },
+  { name: "Threading - Full Face", category: "Skin Care", subcategory: "Threading & Waxing" },
+  { name: "Waxing - Upper Lip", category: "Skin Care", subcategory: "Threading & Waxing" },
+  { name: "Waxing - Eyebrows", category: "Skin Care", subcategory: "Threading & Waxing" },
+  { name: "Waxing - Chin", category: "Skin Care", subcategory: "Threading & Waxing" },
+  { name: "Waxing - Nose", category: "Skin Care", subcategory: "Threading & Waxing" },
+  { name: "Waxing - Full Face", category: "Skin Care", subcategory: "Threading & Waxing" },
   // ── Skin Care: Body Waxing ──
-  { name: "Body Waxing — Half Arms", category: "Skin Care", subcategory: "Body Waxing" },
-  { name: "Body Waxing — Full Arms", category: "Skin Care", subcategory: "Body Waxing" },
-  { name: "Body Waxing — Underarms", category: "Skin Care", subcategory: "Body Waxing" },
-  { name: "Body Waxing — Half Legs", category: "Skin Care", subcategory: "Body Waxing" },
-  { name: "Body Waxing — Full Legs", category: "Skin Care", subcategory: "Body Waxing" },
-  { name: "Body Waxing — Bikini Line", category: "Skin Care", subcategory: "Body Waxing" },
-  { name: "Body Waxing — Brazilian", category: "Skin Care", subcategory: "Body Waxing" },
-  { name: "Body Waxing — G-String", category: "Skin Care", subcategory: "Body Waxing" },
-  { name: "Body Waxing — Stomach", category: "Skin Care", subcategory: "Body Waxing" },
-  { name: "Body Waxing — Chest", category: "Skin Care", subcategory: "Body Waxing" },
-  { name: "Body Waxing — Back", category: "Skin Care", subcategory: "Body Waxing" },
-  { name: "Body Waxing — Glutes", category: "Skin Care", subcategory: "Body Waxing" },
+  { name: "Body Waxing - Half Arms", category: "Skin Care", subcategory: "Body Waxing" },
+  { name: "Body Waxing - Full Arms", category: "Skin Care", subcategory: "Body Waxing" },
+  { name: "Body Waxing - Underarms", category: "Skin Care", subcategory: "Body Waxing" },
+  { name: "Body Waxing - Half Legs", category: "Skin Care", subcategory: "Body Waxing" },
+  { name: "Body Waxing - Full Legs", category: "Skin Care", subcategory: "Body Waxing" },
+  { name: "Body Waxing - Bikini Line", category: "Skin Care", subcategory: "Body Waxing" },
+  { name: "Body Waxing - Brazilian", category: "Skin Care", subcategory: "Body Waxing" },
+  { name: "Body Waxing - G-String", category: "Skin Care", subcategory: "Body Waxing" },
+  { name: "Body Waxing - Stomach", category: "Skin Care", subcategory: "Body Waxing" },
+  { name: "Body Waxing - Chest", category: "Skin Care", subcategory: "Body Waxing" },
+  { name: "Body Waxing - Back", category: "Skin Care", subcategory: "Body Waxing" },
+  { name: "Body Waxing - Glutes", category: "Skin Care", subcategory: "Body Waxing" },
   { name: "Full Body Waxing", desc: "Complete body waxing package", category: "Skin Care", subcategory: "Body Waxing" },
-  { name: "Men's Body Waxing", desc: "Cartridge wax — arms, underarms, chest, stomach, back", category: "Skin Care", subcategory: "Body Waxing" },
+  { name: "Men's Body Waxing", desc: "Cartridge wax - arms, underarms, chest, stomach, back", category: "Skin Care", subcategory: "Body Waxing" },
   // ── Skin Care: Make-up & Bridal ──
   { name: "Day / Light Make-up (60 mins)", category: "Skin Care", subcategory: "Make-up & Bridal" },
   { name: "Evening Make-up (60 mins)", category: "Skin Care", subcategory: "Make-up & Bridal" },
   { name: "Eye Make-up", category: "Skin Care", subcategory: "Make-up & Bridal" },
   { name: "Saree Draping", category: "Skin Care", subcategory: "Make-up & Bridal" },
   { name: "Stick-on Lashes", category: "Skin Care", subcategory: "Make-up & Bridal" },
-  { name: "Bridal Hair & Make-up — at the Salon", desc: "Complete bridal look at Ivory Atelier", category: "Skin Care", subcategory: "Make-up & Bridal" },
-  { name: "Bridal Hair & Make-up — at the Venue", desc: "Our team comes to you on your day", category: "Skin Care", subcategory: "Make-up & Bridal" },
+  { name: "Bridal Hair & Make-up - at the Salon", desc: "Complete bridal look at Ivory Atelier", category: "Skin Care", subcategory: "Make-up & Bridal" },
+  { name: "Bridal Hair & Make-up - at the Venue", desc: "Our team comes to you on your day", category: "Skin Care", subcategory: "Make-up & Bridal" },
   { name: "Pre-Bridal Package", desc: "Spa Mani + Spa Pedi + Full Body Wax + Hair Spa + Facial + Massage + Body Exfoliation + Body Wrap · Valid 2 months", category: "Skin Care", subcategory: "Make-up & Bridal" },
   // ── Skin Care: Bleach & Add-ons ──
-  { name: "Bleach — Face", category: "Skin Care", subcategory: "Bleach & Add-ons" },
-  { name: "Bleach — Full Hands", category: "Skin Care", subcategory: "Bleach & Add-ons" },
-  { name: "Bleach — Full Legs", category: "Skin Care", subcategory: "Bleach & Add-ons" },
-  { name: "Bleach — Chest", category: "Skin Care", subcategory: "Bleach & Add-ons" },
-  { name: "Bleach — Back", category: "Skin Care", subcategory: "Bleach & Add-ons" },
-  { name: "Bleach — Full Body", desc: "Excluding face", category: "Skin Care", subcategory: "Bleach & Add-ons" },
-  { name: "Head Massage", desc: "30, 45 or 60 minutes — relieves tension, improves circulation", category: "Skin Care", subcategory: "Bleach & Add-ons" },
-  { name: "Foot Massage", desc: "30, 45 or 60 minutes — soothing and restorative", category: "Skin Care", subcategory: "Bleach & Add-ons" },
+  { name: "Bleach - Face", category: "Skin Care", subcategory: "Bleach & Add-ons" },
+  { name: "Bleach - Full Hands", category: "Skin Care", subcategory: "Bleach & Add-ons" },
+  { name: "Bleach - Full Legs", category: "Skin Care", subcategory: "Bleach & Add-ons" },
+  { name: "Bleach - Chest", category: "Skin Care", subcategory: "Bleach & Add-ons" },
+  { name: "Bleach - Back", category: "Skin Care", subcategory: "Bleach & Add-ons" },
+  { name: "Bleach - Full Body", desc: "Excluding face", category: "Skin Care", subcategory: "Bleach & Add-ons" },
+  { name: "Head Massage", desc: "30, 45 or 60 minutes - relieves tension, improves circulation", category: "Skin Care", subcategory: "Bleach & Add-ons" },
+  { name: "Foot Massage", desc: "30, 45 or 60 minutes - soothing and restorative", category: "Skin Care", subcategory: "Bleach & Add-ons" },
 
   // ── Nails: Hands ──
   { name: "Nail Polish Application", category: "Nails", subcategory: "Manicure" },
@@ -149,32 +149,32 @@ const ALL_SERVICES: Service[] = [
   { name: "Classic Manicure", desc: "Soaked, shaped, buffed and polished", category: "Nails", subcategory: "Manicure" },
   { name: "French Manicure", desc: "The timeless classic", category: "Nails", subcategory: "Manicure" },
   { name: "Warm Candle Manicure", desc: "Deeply moisturising warm wax treatment", category: "Nails", subcategory: "Manicure" },
-  { name: "Spa Manicure", desc: "Full ritual — soak, scrub, mask, massage and polish", category: "Nails", subcategory: "Manicure" },
+  { name: "Spa Manicure", desc: "Full ritual - soak, scrub, mask, massage and polish", category: "Nails", subcategory: "Manicure" },
   // ── Nails: Pedicure ──
-  { name: "Nail Polish Application — Toes", category: "Nails", subcategory: "Pedicure" },
-  { name: "French Polish Application — Toes", category: "Nails", subcategory: "Pedicure" },
-  { name: "Shape & Polish — Toes", category: "Nails", subcategory: "Pedicure" },
+  { name: "Nail Polish Application - Toes", category: "Nails", subcategory: "Pedicure" },
+  { name: "French Polish Application - Toes", category: "Nails", subcategory: "Pedicure" },
+  { name: "Shape & Polish - Toes", category: "Nails", subcategory: "Pedicure" },
   { name: "Classic Pedicure", desc: "Soaked, shaped, buffed and polished", category: "Nails", subcategory: "Pedicure" },
   { name: "French Pedicure", category: "Nails", subcategory: "Pedicure" },
   { name: "Warm Candle Pedicure", desc: "Deeply moisturising warm wax treatment", category: "Nails", subcategory: "Pedicure" },
-  { name: "Spa Pedicure", desc: "Full ritual — soak, scrub, mask, massage and polish", category: "Nails", subcategory: "Pedicure" },
+  { name: "Spa Pedicure", desc: "Full ritual - soak, scrub, mask, massage and polish", category: "Nails", subcategory: "Pedicure" },
   // ── Nails: Gel ──
   { name: "Gel Polish Application", category: "Nails", subcategory: "Gel Polish" },
-  { name: "Gel Polish — French", category: "Nails", subcategory: "Gel Polish" },
-  { name: "Gel Polish — Cat Eye", category: "Nails", subcategory: "Gel Polish" },
-  { name: "Gel Polish — Ombre", category: "Nails", subcategory: "Gel Polish" },
-  { name: "Gel Polish — Glitter", category: "Nails", subcategory: "Gel Polish" },
-  { name: "Gel Polish — Chrome", category: "Nails", subcategory: "Gel Polish" },
+  { name: "Gel Polish - French", category: "Nails", subcategory: "Gel Polish" },
+  { name: "Gel Polish - Cat Eye", category: "Nails", subcategory: "Gel Polish" },
+  { name: "Gel Polish - Ombre", category: "Nails", subcategory: "Gel Polish" },
+  { name: "Gel Polish - Glitter", category: "Nails", subcategory: "Gel Polish" },
+  { name: "Gel Polish - Chrome", category: "Nails", subcategory: "Gel Polish" },
   { name: "Gel Polish Removal", category: "Nails", subcategory: "Gel Polish" },
-  { name: "Nail Art — Stickers (per finger)", category: "Nails", subcategory: "Gel Polish" },
-  { name: "Nail Art — Stones (per finger)", category: "Nails", subcategory: "Gel Polish" },
-  { name: "Nail Art — Freehand (per finger)", desc: "All types", category: "Nails", subcategory: "Gel Polish" },
+  { name: "Nail Art - Stickers (per finger)", category: "Nails", subcategory: "Gel Polish" },
+  { name: "Nail Art - Stones (per finger)", category: "Nails", subcategory: "Gel Polish" },
+  { name: "Nail Art - Freehand (per finger)", desc: "All types", category: "Nails", subcategory: "Gel Polish" },
   // ── Nails: Extensions ──
   { name: "Gel Nail Extensions", category: "Nails", subcategory: "Nail Extensions" },
   { name: "Gel Nail Refilling", category: "Nails", subcategory: "Nail Extensions" },
   { name: "Gel Inbuilt Nail Art", category: "Nails", subcategory: "Nail Extensions" },
-  { name: "Builder Gel — French", category: "Nails", subcategory: "Nail Extensions" },
-  { name: "Builder Gel — Ombre", category: "Nails", subcategory: "Nail Extensions" },
+  { name: "Builder Gel - French", category: "Nails", subcategory: "Nail Extensions" },
+  { name: "Builder Gel - Ombre", category: "Nails", subcategory: "Nail Extensions" },
   { name: "Acrylic Nail Extension", category: "Nails", subcategory: "Nail Extensions" },
   { name: "Acrylic Overlay", category: "Nails", subcategory: "Nail Extensions" },
   { name: "Acrylic Refilling", category: "Nails", subcategory: "Nail Extensions" },
@@ -336,7 +336,7 @@ function ServiceDrawer({
               <path d="M10 9v5M10 7v.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
             </svg>
             <p className="text-sm text-espresso/55 leading-relaxed">
-              Our booking system is general — mention <span className="font-medium text-espresso/80">{service.name}</span> when you book and our team will ensure everything is arranged for you.
+              Our booking system is general - mention <span className="font-medium text-espresso/80">{service.name}</span> when you book and our team will ensure everything is arranged for you.
             </p>
           </div>
 
@@ -427,14 +427,14 @@ export default function Services() {
 
         <div className="relative mx-auto max-w-[1400px] px-5 sm:px-10">
           {/* Title */}
-          <p className="label text-brass tracking-[0.3em]">The Craft — 03 disciplines</p>
+          <p className="label text-brass tracking-[0.3em]">The Craft - 03 disciplines</p>
           <h1 className="mt-4 font-display text-[clamp(2.6rem,7vw,5.5rem)] leading-[0.92] tracking-tight text-espresso">
             What we do,
             <br />
             <span className="italic text-espresso/45">done properly.</span>
           </h1>
           <p className="mt-5 text-espresso/55 max-w-lg leading-relaxed">
-            Every service Ivory Atelier offers — no rush, no shortcuts. Tap any service to learn more.
+            Every service Ivory Atelier offers - no rush, no shortcuts. Tap any service to learn more.
           </p>
 
           {/* ── Search bar ──────────────────────────────────────────────────── */}
@@ -454,7 +454,7 @@ export default function Services() {
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search — balayage, facial, gel nails…"
+              placeholder="Search - balayage, facial, gel nails…"
               className="w-full pl-12 pr-12 py-4 sm:py-5 bg-alabaster border border-espresso/15 rounded-sm text-espresso placeholder-espresso/30 focus:outline-none focus:border-brass focus:ring-2 focus:ring-brass/15 transition-all duration-200 font-sans text-base"
             />
             {query && (
@@ -502,7 +502,7 @@ export default function Services() {
             <Plume className="h-16 w-16 text-brass/30 mb-6" />
             <p className="font-display text-3xl text-espresso/40">Nothing found.</p>
             <p className="mt-2 text-espresso/30 text-sm">
-              Try a different word — or{" "}
+              Try a different word - or{" "}
               <button
                 onClick={() => { setQuery(""); setActiveCategory("All"); }}
                 className="underline underline-offset-2 hover:text-espresso/60 transition-colors"
@@ -558,7 +558,7 @@ export default function Services() {
               <span className="italic text-brass">We'll take care of the rest.</span>
             </h2>
             <p className="mt-4 text-espresso/50 max-w-md leading-relaxed">
-              Not sure what you need? Book a consultation — we'll guide you through it.
+              Not sure what you need? Book a consultation - we'll guide you through it.
             </p>
           </div>
           <a

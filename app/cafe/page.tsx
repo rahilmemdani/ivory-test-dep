@@ -111,7 +111,7 @@ export default function Cafe() {
               <span className="italic text-espresso/45">staying for.</span>
             </h1>
             <p className="mt-6 max-w-lg leading-relaxed text-espresso/70 text-base sm:text-lg">
-              Named for the single feather at the centre of our mark — the plume, held back, never the full fan.
+              Named for the single feather at the centre of our mark - the plume, held back, never the full fan.
               Plume Café is the social centre of Ivory Atelier, where guests linger between rituals, not just wait for them.
             </p>
           </div>
@@ -143,7 +143,7 @@ export default function Cafe() {
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search cafe menu — latte, boba, sandwich…"
+              placeholder="Search cafe menu - latte, boba, sandwich…"
               className="w-full pl-10 pr-10 py-3 bg-alabaster border border-espresso/15 rounded-sm text-espresso placeholder-espresso/30 focus:outline-none focus:border-brass transition-all duration-200 text-sm"
             />
             {query && (
@@ -184,7 +184,7 @@ export default function Cafe() {
             <Plume className="h-12 w-12 text-brass/35 mb-4" />
             <p className="font-display text-2xl text-espresso/40">Nothing found on the menu.</p>
             <p className="mt-2 text-espresso/35 text-sm">
-              Try a different word — or{" "}
+              Try a different word - or{" "}
               <button
                 onClick={() => { setQuery(""); setActiveCategory("All"); }}
                 className="underline underline-offset-2 hover:text-espresso/60 transition-colors"

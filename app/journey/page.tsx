@@ -5,7 +5,7 @@ const acts = [
   {
     n: "01",
     h: "The Arrival",
-    p: "Gates, greenery, warm light — and a name remembered. You are expected.",
+    p: "Gates, greenery, warm light - and a name remembered. You are expected.",
   },
   {
     n: "02",
@@ -15,7 +15,7 @@ const acts = [
   {
     n: "03",
     h: "The Ritual",
-    p: "The craft itself — done with care, and quiet. Time enough to be still.",
+    p: "The craft itself - done with care, and quiet. Time enough to be still.",
   },
   {
     n: "04",

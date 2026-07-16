@@ -78,7 +78,7 @@ export default function Story() {
           <div className="order-2 md:order-1 md:col-span-6 md:pr-16">
             <div className="hairline w-16 mb-6" />
             <p className="font-display text-3xl sm:text-[2.25rem] leading-[1.25] text-espresso">
-              Ivory Atelier began with a small discomfort — that looking after
+              Ivory Atelier began with a small discomfort - that looking after
               yourself had become loud, rushed and transactional. <br /><br /><span className="italic text-brass font-light">We wanted the opposite.</span>
             </p>
             <div className="mt-8 space-y-4 text-base sm:text-lg text-espresso/70 leading-[1.6] font-light">
@@ -93,22 +93,22 @@ export default function Story() {
                 for the workshop of a maker.
               </p>
               <p>
-                Together — a sanctuary where design, wellbeing and hospitality meet, and every detail is quietly,
+                Together - a sanctuary where design, wellbeing and hospitality meet, and every detail is quietly,
                 deliberately considered.
               </p>
 
               <div className="pt-6 space-y-5 border-t border-espresso/10 mt-8">
                 <div>
                   <p className="font-display text-xl text-espresso mb-0.5">Purpose</p>
-                  <p className="italic leading-relaxed text-sm text-espresso/60">"To make the care of oneself feel like a return, not a routine — a quiet hour that gives people back to themselves."</p>
+                  <p className="italic leading-relaxed text-sm text-espresso/60">"To make the care of oneself feel like a return, not a routine - a quiet hour that gives people back to themselves."</p>
                 </div>
                 <div>
                   <p className="font-display text-xl text-espresso mb-0.5">Mission</p>
-                  <p className="italic leading-relaxed text-sm text-espresso/60">"We practise hair, skin and nail work as craft, and hospitality as an art — under one calm roof, with a café at its heart."</p>
+                  <p className="italic leading-relaxed text-sm text-espresso/60">"We practise hair, skin and nail work as craft, and hospitality as an art - under one calm roof, with a café at its heart."</p>
                 </div>
                 <div>
                   <p className="font-display text-xl text-espresso mb-0.5">Vision</p>
-                  <p className="italic leading-relaxed text-sm text-espresso/60">"To become the most gracious address in the city for beauty — spoken of the way people speak of a beloved hotel."</p>
+                  <p className="italic leading-relaxed text-sm text-espresso/60">"To become the most gracious address in the city for beauty - spoken of the way people speak of a beloved hotel."</p>
                 </div>
               </div>
             </div>
@@ -148,7 +148,7 @@ export default function Story() {
               </h2>
               <p className="mt-6 md:mt-8 max-w-xl text-lg text-ivory/70 leading-[1.8] font-light">
                 The motif set into our floor, redrawn as one clean line. One plume,
-                not the full fan — beauty hinted at, never performed. A quieter
+                not the full fan - beauty hinted at, never performed. A quieter
                 kind of beautiful.
               </p>
 

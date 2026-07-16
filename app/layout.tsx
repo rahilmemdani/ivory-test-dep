@@ -7,10 +7,10 @@ import { Suspense } from "react";
 import { Loader } from "../src/components/site/Loader";
 
 export const metadata: Metadata = {
-  title: "Ivory Atelier — A quieter kind of beautiful.",
+  title: "Ivory Atelier - A quieter kind of beautiful.",
   description: "Ivory Atelier is Mumbai's unhurried house for hair, nails and beauty.",
   openGraph: {
-    title: "Ivory Atelier — A quieter kind of beautiful.",
+    title: "Ivory Atelier - A quieter kind of beautiful.",
     description: "An atelier, not a salon. Hair · Nails · Beauty · Café.",
     type: "website",
     images: [
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ivory Atelier — A quieter kind of beautiful.",
+    title: "Ivory Atelier - A quieter kind of beautiful.",
     images: ["/og-image.jpg"],
   },
 };

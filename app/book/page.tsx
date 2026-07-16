@@ -30,7 +30,7 @@ export default function Book() {
             <span className="italic text-brass">consultation.</span>
           </h1>
           <p className="mt-8 text-espresso/75">
-            Every visit begins with a quiet conversation — over coffee, never over
+            Every visit begins with a quiet conversation - over coffee, never over
             a counter. Choose a time that suits you; we'll take care of the rest.
           </p>
 
