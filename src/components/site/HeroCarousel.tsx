@@ -4,11 +4,11 @@ import React, { useState, useEffect } from "react";
 import { Plume } from "@/components/site/Plume";
 
 const HERO_IMAGES = [
+  "/images/homepage-1.png",
+  "/images/homepage-2.jpeg",
   "/images/whatsapp-1.jpeg",
   // "/images/whatsapp-2.jpeg",
   "/images/whatsapp-3.jpeg",
-  "/images/homepage-1.png",
-  "/images/homepage-2.jpeg",
 
 
 ];
