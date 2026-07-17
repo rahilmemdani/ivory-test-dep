@@ -9,6 +9,7 @@ import { Plume } from "@/components/site/Plume";
 import { ServicesCarousel } from "@/components/site/ServicesCarousel";
 import { TestimonialsSlider } from "@/components/site/TestimonialsSlider";
 import { SignatureSlider } from "@/components/site/SignatureSlider";
+import { HeroCarousel } from "@/components/site/HeroCarousel";
 const services = [
   {
     tag: "01",
@@ -110,22 +111,7 @@ export default function Home() {
             </dl>
           </div>
 
-          <figure className="relative order-2 lg:order-2 mt-8 lg:mt-0 lg:pl-8 w-full max-w-[400px] lg:max-w-none mx-auto animate-fade-in [animation-delay:800ms]">
-            <div className="relative overflow-hidden rounded-t-[200px] lg:rounded-t-[280px] rounded-b-sm bg-sand/40 shadow-2xl">
-              <img
-                src={heroInterior.src}
-                alt="The Ivory Atelier reception - marble, brass and warm light."
-                width={1600}
-                height={1920}
-                className="w-full aspect-[4/5] lg:max-h-[75vh] object-cover contrast-[1.05] sepia-[0.1] brightness-[0.95] hover:sepia-0 hover:brightness-100 hover:scale-[1.02] transition-all duration-[2000ms] ease-out"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-espresso/40 to-transparent mix-blend-multiply opacity-40 pointer-events-none transition-opacity duration-1000"></div>
-              <Plume className="pointer-events-none absolute left-6 top-6 lg:left-8 lg:top-8 h-10 w-10 text-brass/90 mix-blend-screen" />
-            </div>
-            <figcaption className="label mt-3 md:mt-4 text-espresso/50 text-right md:text-left">
-              Not just a salon. A ritual.
-            </figcaption>
-          </figure>
+          <HeroCarousel />
         </div>
       </section>
 
