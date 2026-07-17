@@ -4,6 +4,7 @@ import { useState, useMemo, useRef, useEffect } from "react";
 import serviceHair from "@/assets/service-hair.jpg";
 import serviceNails from "@/assets/service-nails.jpg";
 import serviceBeauty from "@/assets/service-beauty.jpg";
+import serviceBridal from "@/assets/service-bridal.jpg";
 import { Plume } from "@/components/site/Plume";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -266,10 +267,41 @@ function ServiceDrawer({
   service: Service | null;
   onClose: () => void;
 }) {
+  // Drag to close logic
+  const [dragY, setDragY] = useState(0);
+  const startY = useRef(0);
+  const isDragging = useRef(false);
+
+  const handleDragStart = (e: React.TouchEvent<HTMLDivElement> | React.MouseEvent<HTMLDivElement>) => {
+    isDragging.current = true;
+    startY.current = 'touches' in e ? e.touches[0].clientY : e.clientY;
+  };
+
+  const handleDragMove = (e: React.TouchEvent<HTMLDivElement> | React.MouseEvent<HTMLDivElement>) => {
+    if (!isDragging.current) return;
+    const y = 'touches' in e ? e.touches[0].clientY : e.clientY;
+    const delta = y - startY.current;
+    if (delta > 0) {
+      setDragY(delta);
+    }
+  };
+
+  const handleDragEnd = () => {
+    if (!isDragging.current) return;
+    isDragging.current = false;
+    if (dragY > 100) {
+      onClose();
+      setTimeout(() => setDragY(0), 300);
+    } else {
+      setDragY(0);
+    }
+  };
+
   // Prevent body scroll when open
   useEffect(() => {
     if (service) {
       document.body.style.overflow = "hidden";
+      setDragY(0);
     } else {
       document.body.style.overflow = "";
     }
@@ -298,14 +330,27 @@ function ServiceDrawer({
       {/* Drawer */}
       <div
         className="fixed inset-x-0 bottom-0 z-50 max-h-[85dvh] overflow-y-auto rounded-t-2xl bg-alabaster shadow-2xl"
-        style={{ animation: "slideUp 0.28s cubic-bezier(0.32,0.72,0,1)" }}
+        style={{ 
+          animation: "slideUp 0.28s cubic-bezier(0.32,0.72,0,1)",
+          transform: dragY > 0 ? `translateY(${dragY}px)` : 'translateY(0)',
+          transition: isDragging.current ? 'none' : 'transform 0.3s cubic-bezier(0.32,0.72,0,1)'
+        }}
         role="dialog"
         aria-modal
         aria-label={service.name}
       >
         {/* Drag handle */}
-        <div className="sticky top-0 flex justify-center pt-3 pb-2 bg-alabaster/90 backdrop-blur-sm">
-          <div className="w-10 h-1 rounded-full bg-espresso/15" />
+        <div 
+          className="sticky top-0 z-10 flex items-center justify-center pt-5 pb-4 bg-alabaster/95 backdrop-blur-md cursor-grab active:cursor-grabbing touch-none"
+          onTouchStart={handleDragStart}
+          onTouchMove={handleDragMove}
+          onTouchEnd={handleDragEnd}
+          onMouseDown={handleDragStart}
+          onMouseMove={handleDragMove}
+          onMouseUp={handleDragEnd}
+          onMouseLeave={handleDragEnd}
+        >
+          <div className="w-12 h-1.5 rounded-full bg-espresso/20" />
         </div>
 
         <div className="px-6 sm:px-8 pb-10 pt-2">
@@ -354,13 +399,6 @@ function ServiceDrawer({
             <span className="text-brass text-xl transition-transform duration-300 group-hover:translate-x-1">→</span>
           </a>
 
-          {/* Close */}
-          <button
-            onClick={onClose}
-            className="mt-4 w-full py-3.5 border border-espresso/15 text-espresso/50 hover:text-espresso hover:border-espresso/30 transition-all label text-[0.68rem] tracking-[0.2em]"
-          >
-            Close
-          </button>
         </div>
       </div>
 
@@ -374,42 +412,53 @@ function ServiceDrawer({
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
+const SECTIONS = [
+  {
+    category: "Hair",
+    img: serviceHair,
+    signatures: [
+      "Hair Cut & Styling - Women",
+      "Global Colour",
+      "Balayage",
+      "Bridal Hair Do",
+      "Styling - Blow Dry",
+    ]
+  },
+  {
+    category: "Nails",
+    img: serviceNails,
+    signatures: [
+      "Classic Manicure",
+      "Classic Pedicure",
+      "Gel Polish Application",
+      "Nail Art - Freehand (per finger)",
+    ]
+  },
+  {
+    category: "Beauty",
+    img: serviceBeauty,
+    signatures: [
+      "Ivory Signature Facial (90 mins)",
+      "AI-Enhanced HydraFacial (45-50 mins)",
+      "Red Light Therapy (20 mins)",
+      "Face Gym - Cardio (30 mins)",
+      "Threading - Eyebrow",
+      "Evening Make-up (60 mins)"
+    ]
+  },
+  {
+    category: "Bridal",
+    img: serviceBridal,
+    signatures: [
+      "Bridal Hair & Make-up - at the Salon",
+      "Bridal Hair & Make-up - at the Venue",
+      "Pre-Bridal Package"
+    ]
+  }
+];
+
 export default function Services() {
-  const [query, setQuery] = useState("");
-  const [activeCategory, setActiveCategory] = useState<Cat>("All");
   const [selected, setSelected] = useState<Service | null>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  // Filter
-  const filtered = useMemo(() => {
-    let list = ALL_SERVICES;
-    if (activeCategory !== "All") {
-      list = list.filter((s) => s.category === activeCategory);
-    }
-    if (query.trim()) {
-      const q = query.toLowerCase();
-      list = list.filter(
-        (s) =>
-          s.name.toLowerCase().includes(q) ||
-          s.subcategory.toLowerCase().includes(q) ||
-          s.category.toLowerCase().includes(q) ||
-          (s.desc ?? "").toLowerCase().includes(q)
-      );
-    }
-    return list;
-  }, [query, activeCategory]);
-
-  // Group by subcategory
-  const grouped = useMemo(() => {
-    const map = new Map<string, Service[]>();
-    for (const s of filtered) {
-      if (!map.has(s.subcategory)) map.set(s.subcategory, []);
-      map.get(s.subcategory)!.push(s);
-    }
-    return map;
-  }, [filtered]);
-
-  const isSearching = query.trim().length > 0;
 
   return (
     <>
@@ -425,134 +474,79 @@ export default function Services() {
           />
         </div>
 
-        <div className="relative mx-auto max-w-[1400px] px-5 sm:px-10">
-          {/* Title */}
-          <p className="label text-brass tracking-[0.3em]">The Craft - 03 disciplines</p>
-          <h1 className="mt-4 font-display text-[clamp(2.6rem,7vw,5.5rem)] leading-[0.92] tracking-tight text-espresso">
-            What we do,
-            <br />
-            <span className="italic text-espresso/45">done properly.</span>
-          </h1>
-          <p className="mt-5 text-espresso/55 max-w-lg leading-relaxed">
-            Every service Ivory Atelier offers - no rush, no shortcuts. Tap any service to learn more.
-          </p>
-
-          {/* ── Search bar ──────────────────────────────────────────────────── */}
-          <div className="mt-10 relative max-w-2xl">
-            <div className="absolute inset-y-0 left-0 flex items-center pl-5 pointer-events-none">
-              <svg
-                viewBox="0 0 20 20"
-                fill="none"
-                className="w-4 h-4 text-espresso/35"
-              >
-                <circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" strokeWidth="1.5" />
-                <path d="M13 13l4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-              </svg>
-            </div>
-            <input
-              ref={inputRef}
-              type="text"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search - balayage, facial, gel nails…"
-              className="w-full pl-12 pr-12 py-4 sm:py-5 bg-alabaster border border-espresso/15 rounded-sm text-espresso placeholder-espresso/30 focus:outline-none focus:border-brass focus:ring-2 focus:ring-brass/15 transition-all duration-200 font-sans text-base"
-            />
-            {query && (
-              <button
-                onClick={() => { setQuery(""); inputRef.current?.focus(); }}
-                className="absolute inset-y-0 right-0 flex items-center pr-5 text-espresso/30 hover:text-espresso/70 transition-colors"
-              >
-                <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4">
-                  <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                </svg>
-              </button>
-            )}
+        <div className="relative mx-auto max-w-[1400px] px-5 sm:px-10 flex flex-col md:flex-row md:items-end justify-between gap-10">
+          <div>
+            <p className="label text-brass tracking-[0.3em]">The Craft</p>
+            <h1 className="mt-4 font-display text-[clamp(2.6rem,7vw,5.5rem)] leading-[0.92] tracking-tight text-espresso">
+              The house signatures.
+              <br />
+              <span className="italic text-espresso/45">Done properly.</span>
+            </h1>
+            <p className="mt-5 text-espresso/55 max-w-lg leading-relaxed">
+              Hair, nails, beauty, and the signature rituals Ivory Atelier is known for.
+            </p>
           </div>
-
-          {/* ── Category pills ───────────────────────────────────────────────── */}
-          <div className="mt-5 flex flex-wrap gap-2.5">
-            {CATEGORIES.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`px-4 sm:px-5 py-2 rounded-full border text-sm transition-all duration-200 label tracking-[0.15em] ${
-                  activeCategory === cat
-                    ? "bg-espresso text-ivory border-espresso"
-                    : "border-espresso/20 text-espresso/55 hover:border-espresso/50 hover:text-espresso/80"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+          
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 shrink-0 mt-8 md:mt-0">
+            <a
+              href="https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center justify-center gap-3 bg-espresso text-ivory px-7 py-4 hover:bg-ink transition-colors duration-300"
+            >
+              <span className="font-display text-lg italic">Book consultation</span>
+            </a>
+            <a
+              href="http://localhost:3000/ivory%20atelier%20menu.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-3 text-espresso hover:text-brass transition-colors duration-300 pb-1 border-b border-espresso/20 hover:border-brass"
+            >
+              <span className="label tracking-[0.15em] text-xs">View full catalogue (PDF)</span>
+              <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </a>
           </div>
-
-          {/* Result count */}
-          <p className="mt-5 text-xs text-espresso/30 label tracking-[0.2em]">
-            {filtered.length} service{filtered.length !== 1 ? "s" : ""}
-            {isSearching ? ` for "${query}"` : activeCategory !== "All" ? ` in ${activeCategory}` : " total"}
-          </p>
         </div>
       </section>
 
-      {/* ── Results ──────────────────────────────────────────────────────────── */}
-      <div className="mx-auto max-w-[1400px] px-5 sm:px-10 pb-24">
-        {filtered.length === 0 ? (
-          // Empty state
-          <div className="flex flex-col items-center justify-center py-28 text-center">
-            <Plume className="h-16 w-16 text-brass/30 mb-6" />
-            <p className="font-display text-3xl text-espresso/40">Nothing found.</p>
-            <p className="mt-2 text-espresso/30 text-sm">
-              Try a different word - or{" "}
-              <button
-                onClick={() => { setQuery(""); setActiveCategory("All"); }}
-                className="underline underline-offset-2 hover:text-espresso/60 transition-colors"
-              >
-                browse everything
-              </button>
-            </p>
-          </div>
-        ) : isSearching ? (
-          // Flat list when searching
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {filtered.map((s) => (
-              <ServiceCard key={`${s.category}/${s.name}`} service={s} query={query} onSelect={setSelected} />
-            ))}
-          </div>
-        ) : (
-          // Grouped by subcategory when browsing
-          <div className="space-y-14">
-            {Array.from(grouped.entries()).map(([subcat, services]) => (
-              <section key={subcat}>
-                {/* Subcategory header */}
-                <div className="flex items-center gap-4 mb-6">
-                  <h2 className="font-display text-2xl sm:text-3xl text-espresso leading-none">
-                    {subcat}
-                  </h2>
-                  <span className={`label text-[0.58rem] tracking-[0.2em] ${CAT_ACCENT[services[0].category] ?? "text-espresso/30"}`}>
-                    {services[0].category.toUpperCase()}
-                  </span>
+      {/* ── Signatures ──────────────────────────────────────────────────────────── */}
+      <div className="mx-auto max-w-[1400px] px-5 sm:px-10 pb-24 space-y-24">
+        {SECTIONS.map((sec, idx) => {
+          const isEven = idx % 2 === 0;
+          const sectionServices = sec.signatures.map(name => ALL_SERVICES.find(s => s.name === name)).filter(Boolean) as Service[];
+
+          return (
+            <section key={sec.category} className={`grid md:grid-cols-[1fr_1.5fr] gap-10 md:gap-16 items-start ${isEven ? "" : "md:[direction:rtl]"}`}>
+              <div className="relative aspect-[3/4] rounded-md overflow-hidden shadow-sm">
+                <img src={sec.img.src} alt={sec.category} className="w-full h-full object-cover object-[50%_25%]" />
+              </div>
+              <div className={isEven ? "" : "md:[direction:ltr]"}>
+                <div className="flex items-center gap-4 mb-8">
+                  <h2 className="font-display text-4xl text-espresso leading-none">{sec.category}</h2>
                   <div className="flex-1 h-px bg-espresso/10" />
                 </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {services.map((s) => (
-                    <ServiceCard key={`${s.category}/${s.name}`} service={s} query={query} onSelect={setSelected} />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {sectionServices.map((s) => (
+                    <ServiceCard key={`${s.category}/${s.name}`} service={s} query="" onSelect={setSelected} />
                   ))}
                 </div>
-              </section>
-            ))}
-          </div>
-        )}
+              </div>
+            </section>
+          )
+        })}
       </div>
 
       {/* ── CTA ──────────────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-sand/30 border-t border-espresso/10">
-        {/* Decorative brass line */}
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brass/40 to-transparent" />
 
         <div className="mx-auto max-w-[1400px] px-5 sm:px-10 py-20 sm:py-24 flex flex-col sm:flex-row gap-10 items-start sm:items-center justify-between">
           <div>
-            <Plume className="h-10 w-10 text-brass/60 mb-5" />
+            <img
+              src="/images/logo-icon.png"
+              alt="Ivory Atelier"
+              className="h-10 w-auto object-contain mb-5"
+            />
             <h2 className="font-display text-4xl sm:text-5xl text-espresso leading-tight">
               Take the afternoon.{" "}
               <span className="italic text-brass">We'll take care of the rest.</span>

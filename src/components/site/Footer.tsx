@@ -8,7 +8,11 @@ export function Footer() {
         <div className="grid gap-14 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-3 text-alabaster">
-              <Plume className="h-9 w-9 text-brass" />
+              <img 
+                src="/images/logo-icon.png" 
+                alt="Ivory Atelier" 
+                className="h-12 w-auto object-contain brightness-0 invert opacity-90 -ml-1" 
+              />
               <span className="font-display text-xl tracking-[0.32em] uppercase">
                 Ivory Atelier
               </span>

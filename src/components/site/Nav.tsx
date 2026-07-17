@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Plume } from "./Plume";
 
 const links = [
+  { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
   { to: "/story", label: "The Story" },
   { to: "/journey", label: "The Hour" },
