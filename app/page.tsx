@@ -248,9 +248,9 @@ export default function Home() {
             {/* Plume Café branded lockup */}
             <div className="mb-4">
               <img 
-                src="/images/logo-plume.png" 
+                src="/images/logo-plume-transparent.png" 
                 alt="Plume Café" 
-                className="h-24 sm:h-32 w-auto object-contain mix-blend-multiply -ml-4" 
+                className="h-24 sm:h-32 w-auto object-contain -ml-4" 
               />
             </div>
             <h2 className="mt-4 font-display text-5xl leading-tight text-espresso sm:text-6xl">
