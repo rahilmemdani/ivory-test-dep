@@ -8,6 +8,7 @@ import cafeImg from "@/assets/cafe.jpg";
 import { Plume } from "@/components/site/Plume";
 import { ServicesCarousel } from "@/components/site/ServicesCarousel";
 import { TestimonialsSlider } from "@/components/site/TestimonialsSlider";
+import { SignatureSlider } from "@/components/site/SignatureSlider";
 const services = [
   {
     tag: "01",
@@ -250,6 +251,9 @@ export default function Home() {
 
         </div>
       </section>
+
+      {/* SIGNATURE SLIDER */}
+      <SignatureSlider />
 
       {/* CAFÉ TEASER */}
       <section className="mx-auto flex max-w-[1400px] flex-col justify-center px-5 py-12 sm:px-10 sm:py-16">
