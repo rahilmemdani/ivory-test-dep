@@ -63,7 +63,11 @@ export default function Journey() {
             >
               <div className="relative flex flex-col items-center z-10">
                 <span className="grid h-11 w-11 place-items-center rounded-full border border-espresso/15 bg-ivory text-espresso/30 transition-all duration-700 group-hover:border-brass group-hover:text-brass group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(182,141,64,0.15)] md:h-[72px] md:w-[72px]">
-                  <Plume className="h-5 w-5 md:h-8 md:w-8 transition-transform duration-700 group-hover:rotate-[360deg]" />
+                  <img 
+                    src="/images/logo-icon.png" 
+                    alt="Plume Graphic" 
+                    className="h-5 w-auto md:h-8 object-contain transition-all duration-700 group-hover:rotate-[360deg] opacity-50 group-hover:opacity-100" 
+                  />
                 </span>
               </div>
               
