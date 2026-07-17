@@ -138,7 +138,11 @@ export default function Story() {
           <div className="grid gap-14 md:grid-cols-12 md:gap-8 items-center md:border-t border-ivory/10 md:pt-20">
 
             <div className="md:col-span-5 flex justify-center md:justify-start">
-              <Plume className="h-40 w-40 text-brass md:h-72 md:w-72 animate-float" />
+              <img 
+                src="/images/logo-icon.png" 
+                alt="Plume Graphic" 
+                className="h-40 w-auto md:h-72 object-contain animate-float" 
+              />
             </div>
 
             <div className="md:col-span-7">

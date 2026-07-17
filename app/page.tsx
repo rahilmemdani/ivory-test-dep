@@ -310,7 +310,11 @@ export default function Home() {
 
       {/* PROMISE + CLOSING — merged */}
       <section className="relative flex flex-col items-center justify-center overflow-hidden gradient-ivory px-5 py-16 text-center sm:px-10 sm:py-20">
-        <Plume className="mx-auto h-16 w-16 text-brass/70 animate-float" />
+        <img 
+          src="/images/logo-icon.png" 
+          alt="Plume Graphic" 
+          className="mx-auto h-24 w-auto object-contain animate-float" 
+        />
 
         <blockquote className="relative mt-12 max-w-4xl font-display text-4xl leading-[1.15] text-espresso sm:text-6xl tracking-tight">
           <span className="italic text-brass font-light">"</span>
