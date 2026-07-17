@@ -5,14 +5,18 @@ import { Plume } from "@/components/site/Plume";
 
 const HERO_IMAGES = [
   "/images/whatsapp-1.jpeg",
-  "/images/whatsapp-2.jpeg",
-  "/images/whatsapp-3.jpeg"
+  // "/images/whatsapp-2.jpeg",
+  "/images/whatsapp-3.jpeg",
+  "/images/homepage-1.png",
+  "/images/homepage-2.jpeg",
+
+
 ];
 
 export function HeroCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [prevIndex, setPrevIndex] = useState(0);
-  
+
   // Only use the whatsapp images
   const allImages = HERO_IMAGES;
 
@@ -32,13 +36,12 @@ export function HeroCarousel() {
         {allImages.map((src, idx) => {
           const isActive = idx === currentIndex;
           const isPrev = idx === prevIndex;
-          
+
           let zIndex = "z-0";
           if (isActive) zIndex = "z-20";
           else if (isPrev) zIndex = "z-10";
 
           const opacity = (isActive || isPrev) ? "opacity-100" : "opacity-0";
-          const scale = isActive ? "scale-105" : "scale-100";
 
           return (
             <img
@@ -47,18 +50,17 @@ export function HeroCarousel() {
               alt="The Ivory Atelier reception and moments."
               width={1600}
               height={1920}
-              className={`absolute inset-0 w-full aspect-[4/5] lg:max-h-[75vh] object-cover contrast-[1.05] sepia-[0.1] brightness-[0.95] group-hover:sepia-0 group-hover:brightness-100 group-hover:scale-[1.05] transition-all duration-[1500ms] ease-out ${zIndex} ${opacity} ${scale}`}
+              className={`absolute inset-0 w-full aspect-[3/4] lg:max-h-[82vh] object-cover contrast-[1.05] sepia-[0.05] brightness-[0.98] group-hover:sepia-0 group-hover:brightness-100 group-hover:scale-[1.02] transition-all duration-[1500ms] ease-out ${zIndex} ${opacity}`}
             />
           );
         })}
-        {/* We need a static relative element to give the container height, since the images are absolute. 
-            We can just use the first image as a placeholder to give the aspect ratio, but hidden. */}
+        {/* We need a static relative element to give the container height, since the images are absolute. */}
         <img
           src={allImages[0]}
           alt=""
           width={1600}
           height={1920}
-          className="w-full aspect-[4/5] lg:max-h-[75vh] object-cover invisible pointer-events-none"
+          className="w-full aspect-[3/4] lg:max-h-[82vh] object-cover invisible pointer-events-none"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-espresso/40 to-transparent mix-blend-multiply opacity-40 pointer-events-none transition-opacity duration-1000 z-20"></div>
         <Plume className="pointer-events-none absolute left-6 top-6 lg:left-8 lg:top-8 h-10 w-10 text-brass/90 mix-blend-screen z-20" />
