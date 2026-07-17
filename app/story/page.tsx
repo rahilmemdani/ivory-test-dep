@@ -1,9 +1,29 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import spaceImg from "@/assets/space.jpg";
-import heroInterior from "@/assets/hero-interior.jpg";
 import { Plume } from "@/components/site/Plume";
 
+const CLUB_IMAGES = [
+  "/images/story/club-1.jpg",
+  "/images/story/discomfort.jpg",
+  "/images/story/club-2.jpg",
+  // "/images/story/club-3.jpg",
+
+  // "/images/story/club-4.jpg",
+  // "/images/story/club-5.jpg",
+  // "/images/story/club-6.jpg",
+];
 
 export default function Story() {
+  const [currentImg, setCurrentImg] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImg((prev) => (prev + 1) % CLUB_IMAGES.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
   return (
     <>
       {/* EDITORIAL COVER HERO */}
@@ -118,11 +138,8 @@ export default function Story() {
           <div className="order-1 md:order-2 md:col-span-5 md:col-start-8 mb-10 md:mb-0">
             <figure className="relative w-full h-[40vh] md:h-auto aspect-square md:aspect-[7/8] rounded-sm overflow-hidden group md:shadow-[0_20px_40px_-15px_rgba(51,38,29,0.25)]">
               <img
-                src={heroInterior.src}
+                src="/images/story/club-3.jpg"
                 alt="Interior of Ivory Atelier"
-                width={1600}
-                height={1920}
-                loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover contrast-[1.05] sepia-[0.1] brightness-[0.95] transition-transform duration-[2000ms] ease-out group-hover:scale-[1.02]"
               />
               <div className="absolute inset-0 bg-espresso/5 mix-blend-multiply pointer-events-none"></div>
@@ -138,10 +155,10 @@ export default function Story() {
           <div className="grid gap-14 md:grid-cols-12 md:gap-8 items-center md:border-t border-ivory/10 md:pt-20">
 
             <div className="md:col-span-5 flex justify-center md:justify-start">
-              <img 
-                src="/images/logo-icon.png" 
-                alt="Plume Graphic" 
-                className="h-40 w-auto md:h-72 object-contain animate-float" 
+              <img
+                src="/images/logo-icon.png"
+                alt="Plume Graphic"
+                className="h-40 w-auto md:h-72 object-contain animate-float"
               />
             </div>
 
@@ -202,19 +219,29 @@ export default function Story() {
         </div>
       </section>
 
-      {/* AMBIENT IMG */}
+      {/* AMBIENT CAROUSEL */}
       <section className="mx-auto max-w-[1600px] px-5 pb-20 sm:px-10 sm:pb-32">
-        <figure className="relative w-full aspect-[4/3] sm:aspect-[21/9] rounded-sm overflow-hidden shadow-xl">
-          <img
-            src={spaceImg.src}
-            alt="Arched interior of the atelier."
-            width={1600}
-            height={1100}
-            loading="lazy"
-            className="absolute inset-0 w-full h-full object-cover contrast-[1.05] brightness-[0.95]"
-          />
+        <figure className="relative w-full aspect-[4/3] sm:aspect-[21/9] rounded-sm overflow-hidden shadow-xl bg-espresso">
+          {CLUB_IMAGES.map((src, idx) => (
+            <img
+              key={src}
+              src={src}
+              alt={`Ivory Atelier Club ${idx + 1}`}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${idx === currentImg ? "opacity-100" : "opacity-0"}`}
+            />
+          ))}
           <div className="absolute inset-0 bg-espresso/10 mix-blend-multiply pointer-events-none"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-brass/10 to-transparent mix-blend-overlay pointer-events-none"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-brass/20 to-transparent mix-blend-overlay pointer-events-none"></div>
+
+          {/* Carousel indicators */}
+          <div className="absolute bottom-6 inset-x-0 flex justify-center gap-3 z-10">
+            {CLUB_IMAGES.map((_, idx) => (
+              <div
+                key={idx}
+                className={`h-1 rounded-full transition-all duration-500 ${idx === currentImg ? "w-8 bg-ivory" : "w-2 bg-ivory/40"}`}
+              />
+            ))}
+          </div>
         </figure>
       </section>
     </>
