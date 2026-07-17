@@ -64,7 +64,7 @@ export function Nav() {
             className="h-14 w-auto object-contain -ml-1" 
           />
           <span className="flex flex-col leading-none">
-            <span className="font-display text-lg tracking-[0.32em] uppercase">
+            <span className="font-display text-lg tracking-[0.32em] uppercase text-brass">
               Ivory Atelier
             </span>
             <span className="label mt-1 text-[0.55rem] text-espresso/60">
