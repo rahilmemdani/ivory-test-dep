@@ -184,7 +184,7 @@ export default function Cafe() {
       <section className="mx-auto max-w-[1400px] px-5 sm:px-10 py-16">
         {filtered.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 text-center">
-            <Plume className="h-12 w-12 text-brass/35 mb-4" />
+            <img src="/images/logo-icon.png" alt="" className="h-12 w-auto object-contain opacity-40 mb-4" />
             <p className="font-display text-2xl text-espresso/40">Nothing found on the menu.</p>
             <p className="mt-2 text-espresso/35 text-sm">
               Try a different word - or{" "}
