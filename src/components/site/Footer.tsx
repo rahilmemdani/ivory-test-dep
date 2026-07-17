@@ -28,6 +28,7 @@ export function Footer() {
           <div>
             <h4 className="label text-brass">The House</h4>
             <ul className="mt-5 space-y-3 text-ivory/75">
+              <li><Link href="/" className="hover:text-brass">Home</Link></li>
               <li><Link href="/story" className="hover:text-brass">The Story</Link></li>
               <li><Link href="/journey" className="hover:text-brass">The Unhurried Hour</Link></li>
               <li><Link href="/cafe" className="hover:text-brass">The Café</Link></li>
