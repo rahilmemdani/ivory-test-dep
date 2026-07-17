@@ -87,7 +87,11 @@ export function Loader() {
       }`}
     >
       <div className="flex flex-col items-center justify-center gap-8 animate-float">
-        <Plume className="h-20 w-20 text-brass" />
+        <img 
+          src="/images/logo-icon.png" 
+          alt="Ivory Atelier graphic" 
+          className="h-32 sm:h-36 w-auto object-contain" 
+        />
         <h1 className="font-display text-3xl sm:text-4xl tracking-[0.1em] text-espresso">
           Ivory Atelier
         </h1>

@@ -246,9 +246,12 @@ export default function Home() {
         <div className="grid items-center gap-14 md:grid-cols-2">
           <div className="order-2 md:order-1">
             {/* Plume Café branded lockup */}
-            <div className="flex items-center gap-3 mb-2">
-              <Plume className="h-9 w-9 text-brass" />
-              <p className="label text-brass tracking-[0.28em]">Plume Café</p>
+            <div className="mb-4">
+              <img 
+                src="/images/logo-plume.png" 
+                alt="Plume Café" 
+                className="h-24 sm:h-32 w-auto object-contain mix-blend-multiply -ml-4" 
+              />
             </div>
             <h2 className="mt-4 font-display text-5xl leading-tight text-espresso sm:text-6xl">
               A pause worth

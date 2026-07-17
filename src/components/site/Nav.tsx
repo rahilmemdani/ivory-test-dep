@@ -58,7 +58,11 @@ export function Nav() {
           className="flex items-center gap-3 text-espresso"
           onClick={() => setOpen(false)}
         >
-          <Plume className="h-8 w-8 text-brass" />
+          <img 
+            src="/images/logo-icon.png" 
+            alt="Ivory Atelier" 
+            className="h-14 w-auto object-contain -ml-1" 
+          />
           <span className="flex flex-col leading-none">
             <span className="font-display text-lg tracking-[0.32em] uppercase">
               Ivory Atelier
