@@ -497,7 +497,7 @@ export default function Services() {
               <span className="font-display text-lg italic">Book consultation</span>
             </a>
             <a
-              href="http://localhost:3000/ivory%20atelier%20menu.pdf"
+              href="/ivory%20atelier%20menu.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-3 text-espresso hover:text-brass transition-colors duration-300 pb-1 border-b border-espresso/20 hover:border-brass"
