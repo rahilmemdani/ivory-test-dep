@@ -101,9 +101,12 @@ export default function Cafe() {
         <div className="mx-auto grid max-w-[1400px] gap-12 px-5 sm:px-10 md:grid-cols-[1.1fr_1fr] md:items-center">
           <div className="flex flex-col justify-center">
             {/* Plume Café branded lockup */}
-            <div className="flex items-center gap-3 mb-6">
-              <Plume className="h-10 w-10 text-brass" />
-              <p className="label text-brass tracking-[0.28em]">Plume Café</p>
+            <div className="mb-8">
+              <img 
+                src="/images/logo-plume-transparent.png" 
+                alt="Plume Café" 
+                className="h-28 sm:h-36 w-auto object-contain -ml-4" 
+              />
             </div>
             <h1 className="font-display text-[clamp(2.8rem,7vw,6rem)] leading-[0.92] tracking-tight text-espresso">
               A pause worth
