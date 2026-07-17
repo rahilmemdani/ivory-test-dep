@@ -459,6 +459,8 @@ const SECTIONS = [
 
 export default function Services() {
   const [selected, setSelected] = useState<Service | null>(null);
+  const [activeFilter, setActiveFilter] = useState("All");
+  const FILTER_CATEGORIES = ["All", "Hair", "Nails", "Beauty", "Bridal"];
 
   return (
     <>
@@ -509,15 +511,36 @@ export default function Services() {
         </div>
       </section>
 
+      {/* ── Filter Controls ────────────────────────────────────────────────────── */}
+      <section className="bg-background border-y border-espresso/8 py-5 mb-16">
+        <div className="mx-auto max-w-[1400px] px-5 sm:px-10">
+          <div className="flex flex-wrap gap-2 overflow-x-auto pb-1 md:pb-0">
+            {FILTER_CATEGORIES.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveFilter(cat)}
+                className={`px-4 py-2 rounded-full border text-xs transition-all duration-200 label tracking-[0.15em] shrink-0 ${
+                  activeFilter === cat
+                    ? "bg-espresso text-ivory border-espresso"
+                    : "border-espresso/15 text-espresso/50 hover:border-espresso/40 hover:text-espresso/85"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Signatures ──────────────────────────────────────────────────────────── */}
-      <div className="mx-auto max-w-[1400px] px-5 sm:px-10 pb-24 space-y-24">
-        {SECTIONS.map((sec, idx) => {
+      <div className="mx-auto max-w-[1400px] px-5 sm:px-10 pb-24 space-y-20 md:space-y-32">
+        {SECTIONS.filter(sec => activeFilter === "All" || sec.category === activeFilter).map((sec, idx) => {
           const isEven = idx % 2 === 0;
           const sectionServices = sec.signatures.map(name => ALL_SERVICES.find(s => s.name === name)).filter(Boolean) as Service[];
 
           return (
-            <section key={sec.category} className={`grid md:grid-cols-[1fr_1.5fr] gap-10 md:gap-16 items-start ${isEven ? "" : "md:[direction:rtl]"}`}>
-              <div className="relative aspect-[3/4] rounded-md overflow-hidden shadow-sm">
+            <section key={sec.category} className={`grid md:grid-cols-[1fr_1.5fr] gap-8 md:gap-16 items-start ${isEven ? "" : "md:[direction:rtl]"}`}>
+              <div className="relative aspect-[4/3] md:aspect-[3/4] rounded-xl md:rounded-md overflow-hidden shadow-sm">
                 <img src={sec.img.src} alt={sec.category} className="w-full h-full object-cover object-[50%_25%]" />
               </div>
               <div className={isEven ? "" : "md:[direction:ltr]"}>
@@ -529,6 +552,21 @@ export default function Services() {
                   {sectionServices.map((s) => (
                     <ServiceCard key={`${s.category}/${s.name}`} service={s} query="" onSelect={setSelected} />
                   ))}
+                </div>
+                
+                <div className="mt-8 flex items-center justify-between border-t border-espresso/10 pt-5">
+                  <p className="text-[0.8rem] text-espresso/40 italic">
+                    Showing signature {sec.category.toLowerCase()} rituals.
+                  </p>
+                  <a
+                    href="/ivory%20atelier%20menu.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[0.8rem] tracking-wider uppercase text-espresso/60 hover:text-brass transition-colors group flex items-center gap-2"
+                  >
+                    Explore full menu
+                    <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                  </a>
                 </div>
               </div>
             </section>
