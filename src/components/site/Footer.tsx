@@ -25,25 +25,28 @@ export function Footer() {
             </p>
           </div>
 
-          <div>
-            <h4 className="label text-brass">The House</h4>
-            <ul className="mt-5 space-y-3 text-ivory/75">
-              <li><Link href="/" className="hover:text-brass">Home</Link></li>
-              <li><Link href="/story" className="hover:text-brass">The Story</Link></li>
-              <li><Link href="/journey" className="hover:text-brass">The Unhurried Hour</Link></li>
-              <li><Link href="/cafe" className="hover:text-brass">The Café</Link></li>
-              <li><Link href="/contact" className="hover:text-brass">Contact</Link></li>
-            </ul>
-          </div>
+          {/* The House + Craft: side by side on mobile */}
+          <div className="grid grid-cols-2 gap-8 md:contents">
+            <div>
+              <h4 className="label text-brass">The House</h4>
+              <ul className="mt-5 space-y-3 text-ivory/75">
+                <li><Link href="/" className="hover:text-brass">Home</Link></li>
+                <li><Link href="/story" className="hover:text-brass">The Story</Link></li>
+                <li><Link href="/journey" className="hover:text-brass">The Unhurried Hour</Link></li>
+                <li><Link href="/cafe" className="hover:text-brass">The Café</Link></li>
+                <li><Link href="/contact" className="hover:text-brass">Contact</Link></li>
+              </ul>
+            </div>
 
-          <div>
-            <h4 className="label text-brass">Craft</h4>
-            <ul className="mt-5 space-y-3 text-ivory/75">
-              <li><Link href="/services" className="hover:text-brass">Hair</Link></li>
-              <li><Link href="/services" className="hover:text-brass">Nails</Link></li>
-              <li><Link href="/services" className="hover:text-brass">Beauty</Link></li>
-              <li><a href="https://ivoryatelier.zohobookings.com.au/#/ivoryatelier" target="_blank" rel="noopener noreferrer" className="hover:text-brass">Book a Consultation</a></li>
-            </ul>
+            <div>
+              <h4 className="label text-brass">Craft</h4>
+              <ul className="mt-5 space-y-3 text-ivory/75">
+                <li><Link href="/services" className="hover:text-brass">Hair</Link></li>
+                <li><Link href="/services" className="hover:text-brass">Nails</Link></li>
+                <li><Link href="/services" className="hover:text-brass">Beauty</Link></li>
+                <li><a href="https://ivoryatelier.zohobookings.com.au/#/ivoryatelier" target="_blank" rel="noopener noreferrer" className="hover:text-brass">Book a Consultation</a></li>
+              </ul>
+            </div>
           </div>
 
           <div>
