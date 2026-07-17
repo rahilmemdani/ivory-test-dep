@@ -1,8 +1,13 @@
 "use client";
 
-import { useState, useMemo, useRef } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import cafeImg from "@/assets/cafe.jpg";
 import { Plume } from "@/components/site/Plume";
+
+const CAFE_HERO_IMAGES = [
+  "/images/cafe/hero-1.jpg",
+  "/images/cafe/hero-2.jpg"
+];
 
 interface CafeItem {
   n: string;
@@ -46,7 +51,15 @@ type Cat = (typeof CATEGORIES)[number];
 export default function Cafe() {
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<Cat>("All");
+  const [heroIdx, setHeroIdx] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setHeroIdx(prev => (prev + 1) % CAFE_HERO_IMAGES.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, []);
 
   // Flattened list for searching
   const flattenedItems = useMemo(() => {
@@ -118,14 +131,17 @@ export default function Cafe() {
               Plume Café is the social centre of Ivory Atelier, where guests linger between rituals, not just wait for them.
             </p>
           </div>
-          <figure className="relative max-h-[320px] md:max-h-none overflow-hidden rounded-sm">
-            <img
-              src={cafeImg.src}
-              alt="A cortado and pistachio financier on marble."
-              width={1400}
-              height={1200}
-              className="w-full rounded-sm object-cover aspect-[4/3] contrast-[1.03] sepia-[0.1] brightness-[0.98]"
-            />
+          <figure className="relative w-full max-w-[500px] mx-auto md:max-w-none md:max-h-[600px] overflow-hidden rounded-sm aspect-[2/3] bg-espresso">
+            {CAFE_HERO_IMAGES.map((src, idx) => (
+              <img
+                key={src}
+                src={src}
+                alt="Plume Cafe"
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                  idx === heroIdx ? "opacity-100" : "opacity-0"
+                }`}
+              />
+            ))}
           </figure>
         </div>
       </section>
