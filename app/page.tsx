@@ -273,12 +273,12 @@ export default function Home() {
           </div>
           <figure className="order-1 md:order-2">
             <img
-              src={cafeImg.src}
-              alt="Cortado and pistachio financier on marble."
+              src="/images/pause.jpeg"
+              alt="A pause worth staying for."
               width={1400}
               height={1200}
               loading="lazy"
-              className="w-full rounded-sm object-cover contrast-[1.05] sepia-[0.1] brightness-[0.95] hover:sepia-0 hover:brightness-100 transition-all duration-[1200ms] ease-out"
+              className="w-full aspect-[7/6] rounded-sm object-cover contrast-[1.05] sepia-[0.05] brightness-[0.98] hover:sepia-0 hover:brightness-100 transition-all duration-[1200ms] ease-out"
             />
           </figure>
         </div>
