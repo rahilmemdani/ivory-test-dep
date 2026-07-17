@@ -86,15 +86,12 @@ export function Loader() {
         isLoading ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
     >
-      <div className="flex flex-col items-center justify-center gap-8 animate-float">
+      <div className="flex flex-col items-center justify-center animate-pulse">
         <img 
-          src="/images/logo-icon.png" 
+          src="/images/logo-loader.png" 
           alt="Ivory Atelier graphic" 
-          className="h-32 sm:h-36 w-auto object-contain" 
+          className="h-48 sm:h-56 w-auto object-contain" 
         />
-        <h1 className="font-display text-3xl sm:text-4xl tracking-[0.1em] text-espresso">
-          Ivory Atelier
-        </h1>
       </div>
     </div>
   );
