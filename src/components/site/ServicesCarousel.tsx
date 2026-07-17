@@ -86,10 +86,10 @@ export function ServicesCarousel({ services }: { services: Service[] }) {
         {services.map((s) => (
           <article
             key={s.title}
-            className="group flex flex-col w-[82vw] sm:w-[50vw] md:w-[calc(33.333%-14px)] shrink-0 snap-start"
+            className="group flex flex-col w-[82vw] sm:w-[50vw] md:w-[calc(33.333%-14px)] shrink-0 snap-start bg-white rounded-lg border border-espresso/5 shadow-sm hover:shadow-md transition-all duration-500"
           >
             <div className="flex flex-col h-full">
-              <div className="relative overflow-hidden rounded-md border border-espresso/10 mb-5">
+              <div className="relative overflow-hidden rounded-t-lg">
                 <img
                   src={typeof s.img === 'string' ? s.img : s.img.src}
                   alt={s.title}
@@ -97,22 +97,24 @@ export function ServicesCarousel({ services }: { services: Service[] }) {
                 />
               </div>
               
-              <div className="flex items-baseline mb-2">
-                <h3 className="font-display text-2xl text-espresso tracking-tight">{s.title}</h3>
+              <div className="p-5 md:p-6 flex flex-col flex-1">
+                <div className="flex items-baseline mb-2">
+                  <h3 className="font-display text-2xl text-espresso tracking-tight">{s.title}</h3>
+                </div>
+                
+                <p className="text-espresso/70 leading-relaxed text-xs sm:text-sm mb-3 line-clamp-3">{s.body}</p>
+                
+                {s.bullets.length > 0 && (
+                  <ul className="mt-1 space-y-1.5">
+                    {s.bullets.map((b, i) => (
+                      <li key={i} className="flex items-start gap-2 text-espresso/80 text-xs sm:text-sm">
+                        <span className="text-brass/60 mt-1.5 shrink-0 h-1 w-1 rounded-full bg-brass/60" />
+                        <span className="leading-snug">{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
-              
-              <p className="text-espresso/70 leading-relaxed text-xs sm:text-sm mb-3 line-clamp-3">{s.body}</p>
-              
-              {s.bullets.length > 0 && (
-                <ul className="mt-1 space-y-1.5">
-                  {s.bullets.map((b, i) => (
-                    <li key={i} className="flex items-start gap-2 text-espresso/80 text-xs sm:text-sm">
-                      <span className="text-brass/60 mt-1.5 shrink-0 h-1 w-1 rounded-full bg-brass/60" />
-                      <span className="leading-snug">{b}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
             </div>
           </article>
         ))}
