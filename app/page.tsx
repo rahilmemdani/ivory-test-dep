@@ -3,6 +3,7 @@ import heroInterior from "@/assets/hero-interior.jpg";
 import serviceHair from "@/assets/service-hair.jpg";
 import serviceNails from "@/assets/service-nails.jpg";
 import serviceBeauty from "@/assets/service-beauty.jpg";
+import serviceBridal from "@/assets/service-bridal.jpg";
 import spaceImg from "@/assets/space.jpg";
 import cafeImg from "@/assets/cafe.jpg";
 import { Plume } from "@/components/site/Plume";
@@ -43,7 +44,7 @@ const services = [
     title: "Bridal",
     body: "For the day itself. Bridal hair and make-up, at the salon or at your venue, alongside a Pre-Bridal Package built around the two months before.",
     bullets: [],
-    img: heroInterior,
+    img: serviceBridal,
     cta: "Enquire about bridal",
     ctaLink: "/contact"
   },

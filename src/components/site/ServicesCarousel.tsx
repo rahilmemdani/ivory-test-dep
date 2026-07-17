@@ -86,16 +86,14 @@ export function ServicesCarousel({ services }: { services: Service[] }) {
         {services.map((s) => (
           <article
             key={s.title}
-            className="group flex flex-col w-[82vw] sm:w-[50vw] md:w-[calc(33.333%-14px)] shrink-0 snap-start rounded-lg transition-colors bg-alabaster/50 border border-espresso/5 hover:bg-ivory/50"
+            className="group flex flex-col w-[82vw] sm:w-[50vw] md:w-[calc(33.333%-14px)] shrink-0 snap-start"
           >
-            <div className="p-3 flex flex-col h-full">
-              <div className="relative overflow-hidden rounded-sm bg-sand/20 ring-1 ring-black/5 group-hover:ring-brass/20 transition-all duration-700 shadow-sm group-hover:shadow-md cursor-pointer mb-4">
+            <div className="flex flex-col h-full">
+              <div className="relative overflow-hidden rounded-md border border-espresso/10 mb-5">
                 <img
-                  src={s.img.src}
+                  src={typeof s.img === 'string' ? s.img : s.img.src}
                   alt={s.title}
-                  width={800}
-                  height={500}
-                  className="aspect-[16/10] w-full object-cover contrast-[1.05] sepia-[0.1] brightness-[0.95] transition-all duration-[1200ms] ease-out group-hover:scale-[1.04] group-hover:sepia-0 group-hover:brightness-100"
+                  className="aspect-[4/3] w-full object-cover object-[50%_25%] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                 />
               </div>
               
