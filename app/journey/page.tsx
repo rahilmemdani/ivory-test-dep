@@ -61,12 +61,12 @@ export default function Journey() {
       ))}
       <div className="absolute inset-0 bg-espresso/5 mix-blend-multiply pointer-events-none"></div>
       <div className="absolute inset-0 bg-gradient-to-t from-brass/20 via-transparent to-transparent mix-blend-overlay pointer-events-none"></div>
-      
+
       {/* Carousel indicators */}
       <div className="absolute bottom-6 inset-x-0 flex justify-center gap-2.5 z-10">
         {HOUR_IMAGES.map((_, idx) => (
-          <div 
-            key={idx} 
+          <div
+            key={idx}
             className={`h-1 rounded-full transition-all duration-500 ${idx === currentImg ? "w-8 bg-ivory" : "w-2 bg-ivory/40"}`}
           />
         ))}
@@ -95,12 +95,14 @@ export default function Journey() {
 
       <section className="mx-auto max-w-[1400px] px-5 pb-32 sm:px-10">
         <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-start border-t border-espresso/15 pt-16">
-          
+
           {/* Mobile Auto-Carousel */}
-          <div className="lg:hidden mb-8">
-            <figure className="relative w-full aspect-square sm:aspect-[4/3] rounded-md overflow-hidden shadow-xl bg-espresso">
-              <CarouselInner />
-            </figure>
+          <div className="lg:hidden mb-12 px-4 sm:px-12">
+            <div className="p-3 bg-sand shadow-[0_20px_40px_-15px_rgba(182,141,64,0.15)] rounded-[2rem] rounded-t-[12rem] border border-brass/20">
+              <figure className="relative w-full aspect-[3/4] rounded-[1.5rem] rounded-t-[11rem] overflow-hidden bg-espresso">
+                <CarouselInner />
+              </figure>
+            </div>
           </div>
 
           {/* Timeline - Left */}
@@ -111,7 +113,7 @@ export default function Journey() {
                 aria-hidden
                 className="absolute left-[22px] top-10 bottom-10 w-px bg-espresso/10 md:left-[36px]"
               />
-              
+
               {acts.map((a, i) => (
                 <li
                   key={a.n}
@@ -120,14 +122,14 @@ export default function Journey() {
                 >
                   <div className="relative flex flex-col items-center z-10">
                     <span className="grid h-11 w-11 place-items-center rounded-full border border-espresso/15 bg-ivory text-espresso/30 transition-all duration-700 group-hover:border-brass group-hover:text-brass group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(182,141,64,0.15)] md:h-[72px] md:w-[72px]">
-                      <img 
-                        src="/images/logo-icon.png" 
-                        alt="Plume Graphic" 
-                        className="h-5 w-auto md:h-8 object-contain transition-all duration-700 group-hover:rotate-[360deg] opacity-50 group-hover:opacity-100" 
+                      <img
+                        src="/images/logo-icon.png"
+                        alt="Plume Graphic"
+                        className="h-5 w-auto md:h-8 object-contain transition-all duration-700 group-hover:rotate-[360deg] opacity-50 group-hover:opacity-100"
                       />
                     </span>
                   </div>
-                  
+
                   <div className="min-w-0 border-t border-espresso/10 pt-8 transition-all duration-500 group-hover:border-brass/30 group-hover:translate-x-2">
                     <p className="label text-brass tracking-[0.2em]">{a.n}</p>
                     <h2 className="mt-4 font-display text-4xl leading-tight text-espresso sm:text-[3.5rem] transition-colors duration-500 group-hover:text-brass">
@@ -144,9 +146,11 @@ export default function Journey() {
 
           {/* Sticky Auto-Carousel - Right (Desktop) */}
           <div className="hidden lg:block lg:col-span-5 sticky top-32">
-            <figure className="relative w-full aspect-[4/5] rounded-md overflow-hidden shadow-[0_20px_40px_-15px_rgba(51,38,29,0.25)] bg-espresso group">
-              <CarouselInner />
-            </figure>
+            <div className="p-4 xl:p-5 bg-sand shadow-[0_30px_60px_-20px_rgba(182,141,64,0.25)] rounded-[2.5rem] rounded-t-[16rem] border border-brass/20 translate-x-4">
+              <figure className="relative w-full aspect-[3/4] rounded-[2rem] rounded-t-[15rem] overflow-hidden bg-espresso">
+                <CarouselInner />
+              </figure>
+            </div>
           </div>
 
         </div>
