@@ -11,13 +11,17 @@ const HERO_IMAGES = [
 
 export function HeroCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [prevIndex, setPrevIndex] = useState(0);
   
   // Only use the whatsapp images
   const allImages = HERO_IMAGES;
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % allImages.length);
+      setCurrentIndex((prev) => {
+        setPrevIndex(prev);
+        return (prev + 1) % allImages.length;
+      });
     }, 2200); // Change image every 2.2 seconds
     return () => clearInterval(timer);
   }, [allImages.length]);
@@ -25,18 +29,28 @@ export function HeroCarousel() {
   return (
     <figure className="relative order-2 lg:order-2 mt-8 lg:mt-0 lg:pl-8 w-full max-w-[400px] lg:max-w-none mx-auto animate-fade-in [animation-delay:800ms]">
       <div className="relative overflow-hidden rounded-t-[200px] lg:rounded-t-[280px] rounded-b-sm bg-sand/40 shadow-2xl group">
-        {allImages.map((src, idx) => (
-          <img
-            key={src}
-            src={src}
-            alt="The Ivory Atelier reception and moments."
-            width={1600}
-            height={1920}
-            className={`absolute inset-0 w-full aspect-[4/5] lg:max-h-[75vh] object-cover contrast-[1.05] sepia-[0.1] brightness-[0.95] group-hover:sepia-0 group-hover:brightness-100 group-hover:scale-[1.02] transition-all duration-1000 ease-out ${
-              idx === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
-            }`}
-          />
-        ))}
+        {allImages.map((src, idx) => {
+          const isActive = idx === currentIndex;
+          const isPrev = idx === prevIndex;
+          
+          let zIndex = "z-0";
+          if (isActive) zIndex = "z-20";
+          else if (isPrev) zIndex = "z-10";
+
+          const opacity = (isActive || isPrev) ? "opacity-100" : "opacity-0";
+          const scale = isActive ? "scale-105" : "scale-100";
+
+          return (
+            <img
+              key={src}
+              src={src}
+              alt="The Ivory Atelier reception and moments."
+              width={1600}
+              height={1920}
+              className={`absolute inset-0 w-full aspect-[4/5] lg:max-h-[75vh] object-cover contrast-[1.05] sepia-[0.1] brightness-[0.95] group-hover:sepia-0 group-hover:brightness-100 group-hover:scale-[1.05] transition-all duration-[1500ms] ease-out ${zIndex} ${opacity} ${scale}`}
+            />
+          );
+        })}
         {/* We need a static relative element to give the container height, since the images are absolute. 
             We can just use the first image as a placeholder to give the aspect ratio, but hidden. */}
         <img
