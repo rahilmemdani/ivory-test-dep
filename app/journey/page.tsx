@@ -98,7 +98,7 @@ export default function Journey() {
 
           {/* Mobile Auto-Carousel */}
           <div className="lg:hidden mb-12 px-4 sm:px-12">
-            <div className="p-3 bg-sand shadow-[0_20px_40px_-15px_rgba(182,141,64,0.15)] rounded-[2rem] rounded-t-[12rem] border border-brass/20">
+            <div className="p-1.5 bg-sand shadow-[0_20px_40px_-15px_rgba(182,141,64,0.15)] rounded-[2rem] rounded-t-[12rem] border border-brass/20">
               <figure className="relative w-full aspect-[3/4] rounded-[1.5rem] rounded-t-[11rem] overflow-hidden bg-espresso">
                 <CarouselInner />
               </figure>
@@ -146,7 +146,7 @@ export default function Journey() {
 
           {/* Sticky Auto-Carousel - Right (Desktop) */}
           <div className="hidden lg:block lg:col-span-5 sticky top-32">
-            <div className="p-4 xl:p-5 bg-sand shadow-[0_30px_60px_-20px_rgba(182,141,64,0.25)] rounded-[2.5rem] rounded-t-[16rem] border border-brass/20 translate-x-4">
+            <div className="p-2 xl:p-2.5 bg-sand shadow-[0_30px_60px_-20px_rgba(182,141,64,0.25)] rounded-[2.5rem] rounded-t-[16rem] border border-brass/20 translate-x-4">
               <figure className="relative w-full aspect-[3/4] rounded-[2rem] rounded-t-[15rem] overflow-hidden bg-espresso">
                 <CarouselInner />
               </figure>
