@@ -5,6 +5,7 @@ import serviceHair from "@/assets/service-hair.jpg";
 import serviceNails from "@/assets/service-nails.jpg";
 import serviceBeauty from "@/assets/service-beauty.jpg";
 import serviceBridal from "@/assets/service-bridal.jpg";
+import serviceBarber from "@/assets/service-barber.jpg";
 import { Plume } from "@/components/site/Plume";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -19,6 +20,28 @@ interface Service {
 // ─── All Services (no prices) ─────────────────────────────────────────────────
 
 const ALL_SERVICES: Service[] = [
+  // ── New Services from Board ──
+  { name: "Hair Cutting & Styling", category: "Hair", subcategory: "Cuts & Styling" },
+  { name: "Hair Color", category: "Hair", subcategory: "Colour" },
+  { name: "Korean Hair Treatment", category: "Hair", subcategory: "Treatments" },
+  { name: "Japanese Head Spa", category: "Hair", subcategory: "Head Spa" },
+  { name: "Korean Glass Hair", category: "Hair", subcategory: "Treatments" },
+  { name: "Manicure & Pedicure", category: "Nails", subcategory: "Manicure" },
+  { name: "Gel Extensions", category: "Nails", subcategory: "Nail Extensions" },
+  { name: "Nail Art", category: "Nails", subcategory: "Gel Polish" },
+  { name: "Builder Gel", category: "Nails", subcategory: "Nail Extensions" },
+  { name: "Shellac", category: "Nails", subcategory: "Gel Polish" },
+  { name: "HydraFacial", category: "Skin Care", subcategory: "Facials" },
+  { name: "Anti-Aging Treatment", category: "Skin Care", subcategory: "Facials" },
+  { name: "Signature Facial", category: "Skin Care", subcategory: "Facials" },
+  { name: "Red Light Therapy", category: "Skin Care", subcategory: "Facials" },
+  { name: "Makeovers", category: "Skin Care", subcategory: "Make-up & Bridal" },
+  { name: "Bridal Makeup", category: "Skin Care", subcategory: "Make-up & Bridal" },
+  { name: "Makeup", category: "Skin Care", subcategory: "Make-up & Bridal" },
+  { name: "Gentlemen's Cuts", category: "Barber", subcategory: "Grooming" },
+  { name: "Beard Trims & Shaping", category: "Barber", subcategory: "Grooming" },
+  { name: "Gentlemen's Facials", category: "Barber", subcategory: "Grooming" },
+  { name: "Hair & Beard Colour", category: "Barber", subcategory: "Grooming" },
   // ── Hair: Cuts & Styling ──
   { name: "Hair Cut & Styling - Women", desc: "Signature cut, consultation included", category: "Hair", subcategory: "Cuts & Styling" },
   { name: "Hair Cut & Styling - Men", desc: "Considered cut with proper consultation", category: "Hair", subcategory: "Cuts & Styling" },
@@ -187,7 +210,7 @@ const ALL_SERVICES: Service[] = [
   { name: "Extension Removal", category: "Nails", subcategory: "Nail Extensions" },
 ];
 
-const CATEGORIES = ["All", "Hair", "Skin Care", "Nails"] as const;
+const CATEGORIES = ["All", "Hair", "Skin Care", "Nails", "Barber"] as const;
 type Cat = (typeof CATEGORIES)[number];
 
 // ─── Highlight matching text ──────────────────────────────────────────────────
@@ -217,6 +240,7 @@ const CAT_ACCENT: Record<string, string> = {
   "Hair": "text-[#8B6B4A]",
   "Skin Care": "text-[#7A8B6A]",
   "Nails": "text-[#8A6A7A]",
+  "Barber": "text-[#4A5D8B]",
 };
 
 // ─── Service Card ─────────────────────────────────────────────────────────────
@@ -417,42 +441,45 @@ const SECTIONS = [
     category: "Hair",
     img: serviceHair,
     signatures: [
-      "Hair Cut & Styling - Women",
-      "Global Colour",
-      "Balayage",
-      "Bridal Hair Do",
-      "Styling - Blow Dry",
+      "Hair Cutting & Styling",
+      "Hair Color",
+      "Korean Hair Treatment",
+      "Japanese Head Spa",
+      "Korean Glass Hair",
     ]
   },
   {
     category: "Nails",
     img: serviceNails,
     signatures: [
-      "Classic Manicure",
-      "Classic Pedicure",
-      "Gel Polish Application",
-      "Nail Art - Freehand (per finger)",
+      "Manicure & Pedicure",
+      "Gel Extensions",
+      "Nail Art",
+      "Builder Gel",
+      "Shellac",
     ]
   },
   {
-    category: "Beauty",
+    category: "Skin & Beauty",
     img: serviceBeauty,
     signatures: [
-      "Ivory Signature Facial (90 mins)",
-      "AI-Enhanced HydraFacial (45-50 mins)",
-      "Red Light Therapy (20 mins)",
-      "Face Gym - Cardio (30 mins)",
-      "Threading - Eyebrow",
-      "Evening Make-up (60 mins)"
+      "HydraFacial",
+      "Anti-Aging Treatment",
+      "Signature Facial",
+      "Red Light Therapy",
+      "Makeovers",
+      "Bridal Makeup",
+      "Makeup",
     ]
   },
   {
-    category: "Bridal",
-    img: serviceBridal,
+    category: "Barber",
+    img: serviceBarber,
     signatures: [
-      "Bridal Hair & Make-up - at the Salon",
-      "Bridal Hair & Make-up - at the Venue",
-      "Pre-Bridal Package"
+      "Gentlemen's Cuts",
+      "Beard Trims & Shaping",
+      "Gentlemen's Facials",
+      "Hair & Beard Colour",
     ]
   }
 ];
@@ -460,7 +487,7 @@ const SECTIONS = [
 export default function Services() {
   const [selected, setSelected] = useState<Service | null>(null);
   const [activeFilter, setActiveFilter] = useState("All");
-  const FILTER_CATEGORIES = ["All", "Hair", "Nails", "Beauty", "Bridal"];
+  const FILTER_CATEGORIES = ["All", "Hair", "Nails", "Skin & Beauty", "Barber"];
 
   return (
     <>
