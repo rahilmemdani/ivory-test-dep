@@ -18,34 +18,49 @@ interface CafeItem {
 
 const CAFE_MENU: Record<string, CafeItem[]> = {
   Coffee: [
-    { n: "Espresso Shot", d: "Strong and bold single shot", img: "/images/cafe/espresso_shot.png" },
-    { n: "Cappuccino", d: "Espresso with steamed milk and foamed milk", img: "/images/cafe/cappuccino.png" },
-    { n: "Flat White", d: "Smooth espresso with microfoam milk", img: "/images/cafe/flat_white.png" },
-    { n: "Caffè Latte", d: "Espresso with steamed milk", img: "/images/cafe/caffe_latte.png" },
+    { n: "Espresso Shot", d: "Strong and bold single shot", img: "/images/cafe/1.png" },
+    { n: "Americano", d: "Espresso topped with hot water", img: "/images/cafe/2.png" },
+    { n: "Cappuccino", d: "Espresso with steamed milk and foamed milk", img: "/images/cafe/3.png" },
+    { n: "Flat White", d: "Smooth espresso with microfoam milk", img: "/images/cafe/4.png" },
+    { n: "Caffè Latte", d: "Espresso with steamed milk", img: "/images/cafe/5.png" },
+    { n: "Mocha", d: "Espresso with chocolate and steamed milk", img: "/images/cafe/6.png" },
+    { n: "Cold Coffee", d: "Classic cold coffee", img: "/images/cafe/7.png" },
   ],
-  "Tea & Boba": [
-    { n: "Masala Tea", d: "Traditional Indian spiced tea", img: "/images/cafe/masala_tea.png" },
-    { n: "Watermelon Boba Tea", d: "Refreshing watermelon tea with chewy boba", img: "/images/cafe/watermelon_boba_tea.png" },
-    { n: "Peach Mango Boba Tea", d: "Sweet peach & mango tea with boba", img: "/images/cafe/peach_mango_boba_tea.png" },
+  Tea: [
+    { n: "Masala Tea", d: "Traditional Indian spiced tea", img: "/images/cafe/8.png" },
+    { n: "Ice Tea", d: "Refreshing lemon iced tea", img: "/images/cafe/9.png" },
+    { n: "Dip Tea", d: "(Ask for Dip Tea Menu)", img: "/images/cafe/10.png" },
   ],
-  Mojitos: [
-    { n: "Classic Mojito", d: "Mint, lemon, lime & soda", img: "/images/cafe/mojito_classic.png" },
-    { n: "Watermelon Mojito", d: "Fresh watermelon with mint & lime", img: "/images/cafe/watermelon_mojito.png" },
-    { n: "Peach Mojito", d: "Peach, lime, mint & soda", img: "/images/cafe/peach_mojito.png" },
+  "Boba Tea": [
+    { n: "Watermelon Boba Tea", d: "Refreshing watermelon tea with chewy boba", img: "/images/cafe/11.png" },
+    { n: "Peach Mango Boba Tea", d: "Sweet peach & mango tea with boba", img: "/images/cafe/12.png" },
+    { n: "Strawberry Boba Tea", d: "Fruity strawberry tea with boba", img: "/images/cafe/13.png" },
   ],
-  "Fresh Juices & Matcha": [
-    { n: "Detox Juice", d: "Beet, Carrot, Spinach, Mint, Ginger", img: "/images/cafe/detox_juice.png" },
-    { n: "Iced Matcha Latte", d: "Smooth matcha with milk served over ice", img: "/images/cafe/iced_matcha_latte.png" },
+  Mojito: [
+    { n: "Mojito (Classic)", d: "Mint, lemon, lime & soda", img: "/images/cafe/14.png" },
+    { n: "Watermelon Mojito", d: "Fresh watermelon with mint & lime", img: "/images/cafe/15.png" },
+    { n: "Peach Mojito", d: "Peach, lime, mint & soda", img: "/images/cafe/16.png" },
+  ],
+  Sandwich: [
+    { n: "Avocado Sandwich", d: "Fresh avocado, cucumber, lettuce, tomato & mayo", p: "₹800", img: "/images/cafe/17.png" },
+    { n: "Tandoori Paneer Sandwich", d: "Tandoori paneer, onions, bell peppers & mint chutney", p: "₹800", img: "/images/cafe/18.png" },
+    { n: "Mix Vegetable Sandwich", d: "Assorted vegetables, lettuce, cucumber & mayo", p: "₹800", img: "/images/cafe/19.png" },
+  ],
+  "Fresh Juices": [
+    { n: "Watermelon Juice", d: "", img: "/images/cafe/20.png" },
+    { n: "Fresh Lime Juice", d: "", img: "/images/cafe/21.png" },
+    { n: "Pineapple Juice", d: "", img: "/images/cafe/22.png" },
+    { n: "Orange Juice", d: "", img: "/images/cafe/23.png" },
+    { n: "Detox Juice", d: "(Beet, Carrot, Spinach, Mint, Ginger)", img: "/images/cafe/24.png" },
+  ],
+  Matcha: [
+    { n: "Iced Matcha Latte", d: "Smooth matcha with milk served over ice", img: "/images/cafe/25.png" },
+    { n: "Hot Matcha Latte", d: "Warm, creamy matcha made with steamed milk", img: "/images/cafe/26.png" },
     { n: "Matcha Espresso Fusion", d: "Matcha with a shot of espresso for the perfect balance", img: "/images/cafe/matcha_espresso_fusion.png" },
-  ],
-  "Light Bites": [
-    { n: "Avocado Sandwich", d: "Fresh avocado, cucumber, lettuce, tomato & mayo", p: "₹800", img: "/images/cafe/avocado_sandwich.png" },
-    { n: "Tandoori Paneer Sandwich", d: "Tandoori paneer, onions, bell peppers & mint chutney", p: "₹800", img: "/images/cafe/tandoori_paneer_sandwich.png" },
-    { n: "Mix Vegetable Sandwich", d: "Assorted vegetables, lettuce, cucumber & mayo", p: "₹800", img: "/images/cafe/mix_vegetable_sandwich.png" },
   ]
 };
 
-const CATEGORIES = ["All", "Coffee", "Tea & Boba", "Mojitos", "Fresh Juices & Matcha", "Light Bites"] as const;
+const CATEGORIES = ["All", "Coffee", "Tea", "Boba Tea", "Mojito", "Sandwich", "Fresh Juices", "Matcha"] as const;
 type Cat = (typeof CATEGORIES)[number];
 
 export default function Cafe() {
