@@ -297,12 +297,6 @@ export default function Cafe() {
                           borderRadius: "1.3rem 1.3rem 0 0"
                         }} />
 
-                        {/* Category pill */}
-                        <div className="absolute top-2.5 left-3 z-20">
-                          <span className="label text-[0.48rem] tracking-[0.22em] text-espresso/50 uppercase bg-white/70 backdrop-blur-sm px-2 py-0.5 rounded-full border border-espresso/10">
-                            {catName}
-                          </span>
-                        </div>
 
                         {/* Drink image */}
                         <div className="absolute inset-0 flex items-center justify-center transition-transform duration-700 group-hover:scale-110 group-hover:-rotate-2">
