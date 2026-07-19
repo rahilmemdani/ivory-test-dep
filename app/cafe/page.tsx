@@ -238,17 +238,32 @@ export default function Cafe() {
                   <div className="flex-1 h-px bg-espresso/10" />
                 </div>
 
-                {/* Items grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* Items grid / mobile horizontal scroll */}
+                <div 
+                  className="flex md:grid overflow-x-auto md:overflow-visible pb-8 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden"
+                  style={{ scrollbarWidth: "none" }}
+                >
                   {items.map((item) => (
                     <div
                       key={item.n}
-                      className="group flex gap-4 p-4 rounded-sm hover:bg-sand/15 transition-all duration-300 items-center justify-between"
+                      className="shrink-0 w-[260px] md:w-auto md:shrink snap-center group flex flex-col md:flex-row gap-6 md:gap-4 p-6 md:p-4 rounded-2xl md:rounded-sm hover:bg-sand/15 transition-all duration-300 items-center justify-between border border-espresso/10 md:border-transparent bg-white/50 md:bg-transparent shadow-[0_4px_20px_rgba(0,0,0,0.03)] md:shadow-none"
                     >
+                      {/* Transparent Drink Thumbnail */}
+                      <div className="w-32 h-32 md:w-16 md:h-16 shrink-0 relative flex items-center justify-center group-hover:scale-110 transition-all duration-500 order-1 md:order-2">
+                        <img
+                          src={item.img}
+                          alt={item.n}
+                          className="w-full h-full object-contain filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.12)] md:drop-shadow-[0_4px_8px_rgba(0,0,0,0.08)]"
+                          onError={(e) => {
+                            e.currentTarget.style.display = "none";
+                          }}
+                        />
+                      </div>
+
                       {/* Text details */}
-                      <div className="flex-1 min-w-0 pr-2">
-                        <div className="flex items-baseline gap-3 flex-wrap">
-                          <h3 className="font-display text-lg text-espresso group-hover:text-brass transition-colors duration-200">
+                      <div className="flex-1 min-w-0 w-full text-center md:text-left order-2 md:order-1">
+                        <div className="flex flex-col md:flex-row items-center md:items-baseline gap-1 md:gap-3 flex-wrap justify-center md:justify-start">
+                          <h3 className="font-display text-xl md:text-lg text-espresso group-hover:text-brass transition-colors duration-200">
                             {item.n}
                           </h3>
                           {item.p && (
@@ -257,21 +272,9 @@ export default function Cafe() {
                             </span>
                           )}
                         </div>
-                        <p className="mt-1 text-xs text-espresso/50 leading-relaxed">
+                        <p className="mt-2 md:mt-1 text-sm md:text-xs text-espresso/50 leading-relaxed">
                           {item.d}
                         </p>
-                      </div>
-
-                      {/* Transparent Drink Thumbnail */}
-                      <div className="w-16 h-16 shrink-0 relative flex items-center justify-center group-hover:scale-110 transition-all duration-300">
-                        <img
-                          src={item.img}
-                          alt={item.n}
-                          className="w-full h-full object-contain filter drop-shadow-[0_4px_8px_rgba(0,0,0,0.08)]"
-                          onError={(e) => {
-                            e.currentTarget.style.display = "none";
-                          }}
-                        />
                       </div>
                     </div>
                   ))}
