@@ -260,13 +260,13 @@ export default function Cafe() {
 
                 {/* Items grid / mobile horizontal scroll */}
                 <div 
-                  className="flex md:grid overflow-x-auto md:overflow-visible pb-8 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden"
+                  className="flex md:grid overflow-x-auto md:overflow-visible pb-8 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-5 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden"
                   style={{ scrollbarWidth: "none" }}
                 >
                   {items.map((item) => (
                     <div
                       key={item.n}
-                      className="shrink-0 w-[175px] h-[245px] md:w-auto md:h-auto md:shrink snap-center group relative flex flex-col md:flex-row md:gap-5 md:p-6 md:rounded-2xl md:transition-all md:duration-500 md:items-start md:justify-between md:border-espresso/5 md:hover:border-espresso/10 md:hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] md:bg-transparent md:shadow-none overflow-hidden cursor-pointer"
+                      className="shrink-0 w-[175px] h-[245px] md:w-auto md:h-auto md:shrink snap-center group relative flex flex-col md:gap-0 md:rounded-[1.75rem] transition-all duration-500 border overflow-hidden cursor-pointer"
                       style={{
                         borderRadius: "1.4rem",
                         background: "linear-gradient(160deg, #fff 0%, #faf6f0 100%)",
@@ -274,11 +274,12 @@ export default function Cafe() {
                         border: "1px solid rgba(185,155,110,0.18)",
                       }}
                     >
-                      {/* ── IMAGE ZONE (top 58% of card on mobile) ── */}
-                      <div className="md:hidden relative w-full flex-shrink-0" style={{ height: "142px" }}>
+                      {/* ── IMAGE ZONE ── */}
+                      <div className="relative w-full flex-shrink-0" style={{ height: "142px", minHeight: "142px" }}>
                         {/* Warm gradient backdrop */}
-                        <div className="absolute inset-0 rounded-t-[1.3rem]" style={{
-                          background: "linear-gradient(135deg, #f9f0e1 0%, #f3ece0 50%, #efe6d5 100%)"
+                        <div className="absolute inset-0" style={{
+                          background: "linear-gradient(135deg, #f9f0e1 0%, #f3ece0 50%, #efe6d5 100%)",
+                          borderRadius: "1.3rem 1.3rem 0 0"
                         }} />
 
                         {/* Category pill */}
@@ -290,7 +291,7 @@ export default function Cafe() {
 
                         {/* Drink image */}
                         <div className="absolute inset-0 flex items-center justify-center transition-transform duration-700 group-hover:scale-110 group-hover:-rotate-2">
-                          <div className="relative w-28 h-28">
+                          <div className="relative w-28 h-28 md:w-32 md:h-32">
                             {/* Ambient glow */}
                             <div className="absolute inset-0 rounded-full blur-2xl"
                               style={{ background: "radial-gradient(circle, rgba(200,160,90,0.22) 0%, transparent 65%)" }}
@@ -299,32 +300,31 @@ export default function Cafe() {
                               src={item.img}
                               alt={item.n}
                               fill
-                              sizes="112px"
+                              sizes="(max-width: 768px) 112px, 128px"
                               className="object-contain drop-shadow-[0_8px_18px_rgba(51,38,29,0.2)] relative z-10"
                             />
                           </div>
                         </div>
                       </div>
 
-                      {/* ── DESKTOP: original image ── */}
-                      <div className="hidden md:flex w-20 h-20 shrink-0 relative items-center justify-center transition-transform duration-700 group-hover:scale-110 group-hover:-rotate-3 order-2">
-                        <Image src={item.img} alt={item.n} fill sizes="80px" className="object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.08)]" />
-                      </div>
-
                       {/* ── TEXT PANEL ── */}
-                      <div className="flex flex-col items-center md:items-start justify-center px-4 py-3 md:p-0 flex-1 min-w-0 w-full md:text-left order-2 md:order-1 relative z-10">
-                        <h3 className="font-display text-[0.98rem] md:text-lg text-espresso text-center md:text-left group-hover:text-brass transition-colors duration-300 line-clamp-2 leading-snug w-full">
+                      <div className="flex flex-col items-center justify-center px-4 py-3.5 flex-1 min-w-0 w-full relative z-10">
+                        <h3 className="font-display text-[0.98rem] md:text-[1.05rem] text-espresso text-center group-hover:text-brass transition-colors duration-300 line-clamp-2 leading-snug w-full">
                           {item.n}
                         </h3>
                         {item.d && (
-                          <p className="text-[0.68rem] text-espresso/45 leading-snug line-clamp-2 mt-1 text-center md:text-left">
+                          <p className="text-[0.68rem] md:text-[0.72rem] text-espresso/45 leading-snug line-clamp-2 mt-1.5 text-center">
                             {item.d}
                           </p>
                         )}
                       </div>
 
                       {/* Bottom shimmer */}
-                      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brass/20 to-transparent md:hidden pointer-events-none" />
+                      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brass/20 to-transparent pointer-events-none" />
+                      {/* Hover warm wash */}
+                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-[1.4rem]"
+                        style={{ background: "radial-gradient(ellipse at 50% 25%, rgba(185,150,90,0.07) 0%, transparent 70%)" }}
+                      />
                     </div>
                   ))}
                 </div>
