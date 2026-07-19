@@ -246,16 +246,29 @@ export default function Cafe() {
             </p>
           </div>
         ) : (
-          <div className="space-y-16">
-            {Array.from(grouped.entries()).map(([catName, items]) => (
-              <div key={catName} className="space-y-8">
+          <div className="space-y-20">
+            {Array.from(grouped.entries()).map(([catName, items], sectionIdx) => (
+              <div key={catName} className="space-y-7">
+                {/* Section divider (not for the first) */}
+                {sectionIdx > 0 && (
+                  <div className="w-full flex items-center gap-4 -mt-4 mb-2">
+                    <div className="flex-1 h-px bg-gradient-to-r from-transparent via-espresso/8 to-transparent" />
+                    <div className="w-1 h-1 rounded-full bg-brass/30" />
+                    <div className="flex-1 h-px bg-gradient-to-r from-transparent via-espresso/8 to-transparent" />
+                  </div>
+                )}
                 {/* Category Header */}
-                <div className="flex items-center gap-4 mb-2">
-                  <h2 className="font-display text-2xl sm:text-3xl text-espresso tracking-tight shrink-0">
-                    {catName}
-                  </h2>
-                  <div className="flex-1 h-px bg-gradient-to-r from-espresso/15 to-transparent" />
-                  <span className="label text-[0.55rem] tracking-[0.25em] text-espresso/30 shrink-0 hidden sm:block">{items.length} items</span>
+                <div className="flex items-end gap-5 pb-1">
+                  <div>
+                    <p className="label text-[0.55rem] tracking-[0.3em] text-espresso/30 uppercase mb-1">Menu</p>
+                    <h2 className="font-display text-3xl sm:text-4xl text-espresso tracking-tight leading-none">
+                      {catName}
+                    </h2>
+                  </div>
+                  <div className="flex-1 pb-1.5">
+                    <div className="h-px bg-gradient-to-r from-espresso/12 via-brass/20 to-transparent" />
+                  </div>
+                  <p className="label text-[0.55rem] tracking-[0.2em] text-espresso/25 pb-1.5 shrink-0">{items.length} items</p>
                 </div>
 
                 {/* Items grid / mobile horizontal scroll */}
