@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo, useRef, useEffect } from "react";
+import Image from "next/image";
 import serviceHair from "@/assets/service-hair.jpg";
 import serviceNails from "@/assets/service-nails.jpg";
 import serviceBeauty from "@/assets/service-beauty.jpg";
@@ -15,33 +16,34 @@ interface Service {
   desc?: string;
   category: string;       // "Hair" | "Skin Care" | "Nails"
   subcategory: string;    // e.g. "Cuts & Styling", "Colour", "Facials"…
+  img?: string;           // Optional thumbnail image
 }
 
 // ─── All Services (no prices) ─────────────────────────────────────────────────
 
 const ALL_SERVICES: Service[] = [
   // ── New Services from Board ──
-  { name: "Hair Cutting & Styling", category: "Hair", subcategory: "Cuts & Styling" },
-  { name: "Hair Color", category: "Hair", subcategory: "Colour" },
-  { name: "Korean Hair Treatment", category: "Hair", subcategory: "Treatments" },
+  { name: "Hair Cutting & Styling", category: "Hair", subcategory: "Cuts & Styling", img: "/services/hair cutting and styling.jpeg" },
+  { name: "Hair Color", category: "Hair", subcategory: "Colour", img: "/services/hair color.jpeg" },
+  { name: "Korean Hair Treatment", category: "Hair", subcategory: "Treatments", img: "/services/korean hair treatment.jpeg" },
   { name: "Japanese Head Spa", category: "Hair", subcategory: "Head Spa" },
   { name: "Korean Glass Hair", category: "Hair", subcategory: "Treatments" },
-  { name: "Manicure & Pedicure", category: "Nails", subcategory: "Manicure" },
-  { name: "Gel Extensions", category: "Nails", subcategory: "Nail Extensions" },
+  { name: "Manicure & Pedicure", category: "Nails", subcategory: "Manicure", img: "/services/manicure.jpeg" },
+  { name: "Gel Extensions", category: "Nails", subcategory: "Nail Extensions", img: "/services/gel extensions.jpeg" },
   { name: "Nail Art", category: "Nails", subcategory: "Gel Polish" },
-  { name: "Builder Gel", category: "Nails", subcategory: "Nail Extensions" },
+  { name: "Builder Gel", category: "Nails", subcategory: "Nail Extensions", img: "/services/builder gel.png" },
   { name: "Shellac", category: "Nails", subcategory: "Gel Polish" },
-  { name: "HydraFacial", category: "Skin Care", subcategory: "Facials" },
+  { name: "HydraFacial", category: "Skin Care", subcategory: "Facials", img: "/services/hydrafacial.png" },
   { name: "Anti-Aging Treatment", category: "Skin Care", subcategory: "Facials" },
-  { name: "Signature Facial", category: "Skin Care", subcategory: "Facials" },
-  { name: "Red Light Therapy", category: "Skin Care", subcategory: "Facials" },
-  { name: "Makeovers", category: "Skin Care", subcategory: "Make-up & Bridal" },
+  { name: "Signature Facial", category: "Skin Care", subcategory: "Facials", img: "/services/facial.jpeg" },
+  { name: "Red Light Therapy", category: "Skin Care", subcategory: "Facials", img: "/services/red light theraphy.jpg" },
+  { name: "Makeovers", category: "Skin Care", subcategory: "Make-up & Bridal", img: "/services/MAKEOVERS.jpeg" },
   { name: "Bridal Makeup", category: "Skin Care", subcategory: "Make-up & Bridal" },
   { name: "Makeup", category: "Skin Care", subcategory: "Make-up & Bridal" },
-  { name: "Gentlemen's Cuts", category: "Barber", subcategory: "Grooming" },
-  { name: "Beard Trims & Shaping", category: "Barber", subcategory: "Grooming" },
-  { name: "Gentlemen's Facials", category: "Barber", subcategory: "Grooming" },
-  { name: "Hair & Beard Colour", category: "Barber", subcategory: "Grooming" },
+  { name: "Gentlemen's Cuts", category: "Barber", subcategory: "Grooming", img: "/services/gentlemans cut.jpg" },
+  { name: "Beard Trims & Shaping", category: "Barber", subcategory: "Grooming", img: "/services/beard triming and shaping.jpg" },
+  { name: "Gentlemen's Facials", category: "Barber", subcategory: "Grooming", img: "/services/gentlemans spa.jpeg" },
+  { name: "Hair & Beard Colour", category: "Barber", subcategory: "Grooming", img: "/services/beard and hair color.jpeg" },
   // ── Hair: Cuts & Styling ──
   { name: "Hair Cut & Styling - Women", desc: "Signature cut, consultation included", category: "Hair", subcategory: "Cuts & Styling" },
   { name: "Hair Cut & Styling - Men", desc: "Considered cut with proper consultation", category: "Hair", subcategory: "Cuts & Styling" },
@@ -257,27 +259,40 @@ function ServiceCard({
   return (
     <button
       onClick={() => onSelect(service)}
-      className="group text-left flex flex-col gap-2 rounded-sm border border-espresso/10 bg-alabaster/50 p-5 hover:border-brass/30 hover:bg-alabaster hover:shadow-[0_4px_20px_-4px_rgba(51,38,29,0.10)] active:scale-[0.98] transition-all duration-200 w-full"
+      className="group flex items-center text-left gap-4 rounded-md border border-espresso/10 bg-alabaster/60 p-3 hover:border-brass/30 hover:bg-white hover:shadow-[0_4px_20px_-4px_rgba(51,38,29,0.10)] active:scale-[0.98] transition-all duration-300 w-full"
     >
-      <div className="flex items-start justify-between gap-3">
-        <p className="font-display text-[1.1rem] leading-snug text-espresso group-hover:text-brass transition-colors duration-200">
-          <Highlighted text={service.name} query={query} />
-        </p>
-        {/* Tap hint */}
-        <span className="shrink-0 mt-0.5 w-6 h-6 rounded-full border border-espresso/15 flex items-center justify-center text-espresso/25 group-hover:border-brass/40 group-hover:text-brass transition-all duration-200">
-          <svg viewBox="0 0 10 10" fill="none" className="w-2.5 h-2.5">
-            <path d="M2 5h6M5 2l3 3-3 3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
+      {/* Service Image */}
+      {service.img ? (
+        <div className="w-[84px] h-[84px] sm:w-[92px] sm:h-[92px] shrink-0 rounded-sm overflow-hidden border border-espresso/5 shadow-sm relative">
+          <Image src={service.img} alt={service.name} fill sizes="92px" className="object-cover transition-transform duration-500 group-hover:scale-110" />
+        </div>
+      ) : (
+        <div className="w-[84px] h-[84px] sm:w-[92px] sm:h-[92px] shrink-0 rounded-sm bg-espresso/5 flex items-center justify-center border border-espresso/5 text-espresso/20 shadow-sm">
+          <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+        </div>
+      )}
+
+      {/* Text Content */}
+      <div className="flex-1 flex flex-col justify-center min-w-0 pr-1">
+        <div className="flex items-start justify-between gap-2">
+          <p className="font-display text-lg sm:text-[1.1rem] leading-snug text-espresso group-hover:text-brass transition-colors duration-200">
+            <Highlighted text={service.name} query={query} />
+          </p>
+          <span className="shrink-0 mt-0.5 w-6 h-6 rounded-full border border-espresso/15 flex items-center justify-center text-espresso/25 group-hover:border-brass/40 group-hover:text-brass transition-all duration-200 bg-white/50">
+            <svg viewBox="0 0 10 10" fill="none" className="w-2.5 h-2.5">
+              <path d="M2 5h6M5 2l3 3-3 3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </span>
+        </div>
+        {service.desc && (
+          <p className="text-[0.8rem] text-espresso/50 leading-relaxed line-clamp-1 mt-1">
+            <Highlighted text={service.desc} query={query} />
+          </p>
+        )}
+        <span className={`mt-2 label text-[0.58rem] tracking-[0.2em] uppercase ${CAT_ACCENT[service.category] ?? "text-espresso/30"}`}>
+          {service.subcategory}
         </span>
       </div>
-      {service.desc && (
-        <p className="text-sm text-espresso/40 leading-relaxed">
-          <Highlighted text={service.desc} query={query} />
-        </p>
-      )}
-      <span className={`mt-auto pt-3 label text-[0.58rem] tracking-[0.2em] ${CAT_ACCENT[service.category] ?? "text-espresso/30"}`}>
-        {service.subcategory}
-      </span>
     </button>
   );
 }
@@ -496,10 +511,13 @@ export default function Services() {
       <section className="relative overflow-hidden pt-28 sm:pt-36 pb-16 sm:pb-20">
         {/* Subtle background imagery */}
         <div className="absolute inset-0 opacity-[0.06] pointer-events-none">
-          <img
-            src={serviceHair.src}
+          <Image
+            src={serviceHair}
             alt=""
-            className="w-full h-full object-cover object-top scale-110"
+            fill
+            placeholder="blur"
+            className="object-cover object-top scale-110"
+            priority
           />
         </div>
 
@@ -568,7 +586,7 @@ export default function Services() {
           return (
             <section key={sec.category} className={`grid md:grid-cols-[1fr_1.5fr] gap-8 md:gap-16 items-start ${isEven ? "" : "md:[direction:rtl]"}`}>
               <div className="relative aspect-[4/3] md:aspect-[3/4] rounded-xl md:rounded-md overflow-hidden shadow-sm">
-                <img src={sec.img.src} alt={sec.category} className="w-full h-full object-cover object-[50%_25%]" />
+                <Image src={sec.img} alt={sec.category} placeholder="blur" fill sizes="(max-width: 768px) 100vw, 40vw" className="object-cover object-[50%_25%]" />
               </div>
               <div className={isEven ? "" : "md:[direction:ltr]"}>
                 <div className="flex items-center gap-4 mb-8">
@@ -607,11 +625,14 @@ export default function Services() {
 
         <div className="mx-auto max-w-[1400px] px-5 sm:px-10 py-20 sm:py-24 flex flex-col sm:flex-row gap-10 items-start sm:items-center justify-between">
           <div>
-            <img
-              src="/images/logo-icon.png"
-              alt="Ivory Atelier"
-              className="h-10 w-auto object-contain mb-5"
-            />
+            <div className="relative h-10 w-10 mb-5">
+              <Image
+                src="/images/logo-icon.png"
+                alt="Ivory Atelier"
+                fill
+                className="object-contain"
+              />
+            </div>
             <h2 className="font-display text-4xl sm:text-5xl text-espresso leading-tight">
               Take the afternoon.{" "}
               <span className="italic text-brass">We'll take care of the rest.</span>

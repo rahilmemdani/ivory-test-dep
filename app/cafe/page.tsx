@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo, useRef, useEffect } from "react";
+import Image from "next/image";
 import cafeImg from "@/assets/cafe.jpg";
 import { Plume } from "@/components/site/Plume";
 
@@ -140,11 +141,14 @@ export default function Cafe() {
         <div className="mx-auto grid max-w-[1400px] gap-12 px-5 sm:px-10 md:grid-cols-[1.1fr_1fr] md:items-center">
           <div className="flex flex-col justify-center">
             {/* Plume Café branded lockup */}
-            <div className="mb-8">
-              <img
+            <div className="mb-8 relative h-28 sm:h-36 w-48 sm:w-64 -ml-4">
+              <Image
                 src="/images/logo-plume-transparent.png"
                 alt="Plume Café"
-                className="h-28 sm:h-36 w-auto object-contain -ml-4"
+                fill
+                sizes="(max-width: 640px) 192px, 256px"
+                className="object-contain"
+                priority
               />
             </div>
             <h1 className="font-display text-[clamp(2.8rem,7vw,6rem)] leading-[0.92] tracking-tight text-espresso">
@@ -159,11 +163,14 @@ export default function Cafe() {
           </div>
           <figure className="relative w-full max-w-[500px] mx-auto md:max-w-none md:max-h-[600px] overflow-hidden rounded-sm aspect-[2/3] bg-espresso">
             {CAFE_HERO_IMAGES.map((src, idx) => (
-              <img
+              <Image
                 key={src}
                 src={src}
                 alt="Plume Cafe"
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${idx === heroIdx ? "opacity-100" : "opacity-0"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority={idx === 0}
+                className={`object-cover transition-opacity duration-1000 ${idx === heroIdx ? "opacity-100" : "opacity-0"
                   }`}
               />
             ))}
@@ -171,7 +178,7 @@ export default function Cafe() {
         </div>
       </section>
 
-      {/* ── Search and Filter Controls (Desktop Only) ───────────────────────── */}
+      {/* ── Filter Controls (Desktop Only) ──────────────────────────────────── */}
       <section className="hidden md:block bg-background/95 border-y border-espresso/10 py-4 md:py-5 transition-all duration-300">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-10 flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-6">
           {/* Search bar */}
@@ -201,9 +208,9 @@ export default function Cafe() {
               </button>
             )}
           </div>
-
+          
           {/* Category tabs */}
-          <div className="flex flex-wrap gap-2 overflow-x-auto pb-1 md:pb-0 [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: "none" }}>
+          <div className="flex flex-wrap gap-2 overflow-x-auto pb-1 md:pb-0 [&::-webkit-scrollbar]:hidden w-full md:w-auto" style={{ scrollbarWidth: "none" }}>
             {CATEGORIES.map((cat) => (
               <button
                 key={cat}
@@ -224,7 +231,9 @@ export default function Cafe() {
       <section ref={menuRef} className="mx-auto max-w-[1400px] px-5 sm:px-10 py-16 scroll-mt-24 md:scroll-mt-28">
         {filtered.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 text-center">
-            <img src="/images/logo-icon.png" alt="" className="h-12 w-auto object-contain opacity-40 mb-4" />
+            <div className="relative h-12 w-12 mb-4 opacity-40">
+              <Image src="/images/logo-icon.png" alt="" fill className="object-contain" />
+            </div>
             <p className="font-display text-2xl text-espresso/40">Nothing found on the menu.</p>
             <p className="mt-2 text-espresso/35 text-sm">
               Try a different word - or{" "}
@@ -256,7 +265,11 @@ export default function Cafe() {
                   {items.map((item) => (
                     <div
                       key={item.n}
-                      className="shrink-0 w-[280px] md:w-auto md:shrink snap-center group relative flex flex-col md:flex-row gap-6 md:gap-5 p-8 md:p-5 rounded-[2rem] md:rounded-2xl hover:bg-white transition-all duration-500 items-center justify-between border border-espresso/5 hover:border-espresso/10 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] bg-white/60 md:bg-transparent shadow-[0_4px_20px_rgba(0,0,0,0.03)] md:shadow-none overflow-hidden"
+                      className={`shrink-0 md:shrink snap-center group relative flex flex-col md:flex-row md:gap-5 md:p-5 rounded-[2rem] md:rounded-2xl hover:bg-white transition-all duration-500 items-center justify-between border border-espresso/5 hover:border-espresso/10 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] bg-white/60 md:bg-transparent shadow-[0_4px_20px_rgba(0,0,0,0.03)] md:shadow-none overflow-hidden ${
+                        item.img
+                          ? "w-[280px] md:w-auto gap-6 p-8 h-full"
+                          : "w-[210px] md:w-auto gap-3 p-5 h-fit md:h-full self-stretch md:self-auto my-auto md:my-0"
+                      }`}
                     >
                       {/* Decorative background blob on hover */}
                       <div className="absolute inset-0 bg-gradient-to-br from-brass/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
@@ -265,13 +278,12 @@ export default function Cafe() {
                       <div className="w-36 h-36 md:w-20 md:h-20 shrink-0 relative flex items-center justify-center transition-transform duration-700 group-hover:scale-110 group-hover:-rotate-3 order-1 md:order-2">
                         {/* Soft glow behind image */}
                         <div className="absolute inset-0 bg-brass/15 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                        <img
+                        <Image
                           src={item.img}
                           alt={item.n}
-                          className="w-full h-full object-contain filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.15)] md:drop-shadow-[0_4px_12px_rgba(0,0,0,0.08)] relative z-10"
-                          onError={(e) => {
-                            e.currentTarget.style.display = "none";
-                          }}
+                          fill
+                          sizes="(max-width: 768px) 144px, 80px"
+                          className="object-contain filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.15)] md:drop-shadow-[0_4px_12px_rgba(0,0,0,0.08)] relative z-10"
                         />
                       </div>
 
@@ -313,21 +325,26 @@ export default function Cafe() {
       </section>
 
       {/* ── Mobile Floating Filter Button ────────────────────────────────────── */}
-      <div className="fixed bottom-6 left-5 z-40 md:hidden pointer-events-none">
+      <div className="fixed bottom-4 left-3 z-40 md:hidden pointer-events-none">
         <button 
           onClick={() => setIsFilterOpen(true)}
-          className="pointer-events-auto bg-espresso/95 backdrop-blur-md text-ivory px-5 py-3.5 rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.15)] font-medium tracking-wide flex items-center gap-2.5 hover:bg-espresso transition-colors"
+          className="pointer-events-auto bg-espresso/95 backdrop-blur-md text-ivory px-3.5 py-2 rounded-full shadow-lg font-medium tracking-wide flex items-center gap-1.5 hover:bg-espresso transition-colors text-[0.8rem]"
         >
-          <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
+          <svg viewBox="0 0 24 24" fill="none" className="w-3.5 h-3.5">
             <path d="M4 6h16M7 12h10M10 18h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          Filters & Search
+          Filter
         </button>
       </div>
 
       {/* ── Mobile Filter Bottom Sheet ───────────────────────────────────────── */}
       {isFilterOpen && (
         <div className="fixed inset-0 z-50 flex items-end md:hidden">
+          <style>{`
+            #global-book-btn {
+              display: none !important;
+            }
+          `}</style>
           {/* Backdrop */}
           <div 
             className="absolute inset-0 bg-espresso/20 backdrop-blur-sm transition-opacity"
@@ -347,7 +364,7 @@ export default function Cafe() {
               </button>
             </div>
 
-            <div className="space-y-8">
+            <div className="space-y-6">
               {/* Search */}
               <div className="relative w-full">
                 <span className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-espresso/40">
