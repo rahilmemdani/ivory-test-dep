@@ -18,45 +18,46 @@ interface CafeItem {
 
 const CAFE_MENU: Record<string, CafeItem[]> = {
   Coffee: [
-    { n: "Espresso Shot", d: "Strong and bold single shot", img: "/images/cafe/1.png" },
-    { n: "Americano", d: "Espresso topped with hot water", img: "/images/cafe/2.png" },
-    { n: "Cappuccino", d: "Espresso with steamed milk and foamed milk", img: "/images/cafe/3.png" },
-    { n: "Flat White", d: "Smooth espresso with microfoam milk", img: "/images/cafe/4.png" },
-    { n: "Caffè Latte", d: "Espresso with steamed milk", img: "/images/cafe/5.png" },
-    { n: "Mocha", d: "Espresso with chocolate and steamed milk", img: "/images/cafe/6.png" },
-    { n: "Cold Coffee", d: "Classic cold coffee", img: "/images/cafe/7.png" },
+    { n: "Espresso Shot", d: "Strong and bold single shot", img: "/images/cafe/ESPRESSO SHOT.png" },
+    { n: "Espresso Shot With Soda", d: "", img: "/images/cafe/esspresso shot with soda.png" },
+    { n: "Americano", d: "Espresso topped with hot water", img: "/images/cafe/AMERICANO.png" },
+    { n: "Cappuccino", d: "Espresso with steamed milk and foamed milk", img: "/images/cafe/CAPPUCCINO.png" },
+    { n: "Flat White", d: "Smooth espresso with microfoam milk", img: "/images/cafe/FLAT WHITE.png" },
+    { n: "Caffè Latte", d: "Espresso with steamed milk", img: "/images/cafe/CAFFÈ LATTE.png" },
+    { n: "Mocha", d: "Espresso with chocolate and steamed milk", img: "/images/cafe/MOCHA.png" },
+    { n: "Iced Coffee", d: "Classic cold coffee", img: "/images/cafe/Iced coffee.png" },
   ],
   Tea: [
-    { n: "Masala Tea", d: "Traditional Indian spiced tea", img: "/images/cafe/8.png" },
-    { n: "Ice Tea", d: "Refreshing lemon iced tea", img: "/images/cafe/9.png" },
-    { n: "Dip Tea", d: "(Ask for Dip Tea Menu)", img: "/images/cafe/10.png" },
+    { n: "Masala Tea", d: "Traditional Indian spiced tea", img: "/images/cafe/MASALA TEA.png" },
+    { n: "Ice Tea", d: "Refreshing lemon iced tea", img: "/images/cafe/ICE TEA.png" },
+    { n: "Dip Tea", d: "(Ask for Dip Tea Menu)", img: "/images/cafe/DIP TEA.png" },
   ],
   "Boba Tea": [
-    { n: "Watermelon Boba Tea", d: "Refreshing watermelon tea with chewy boba", img: "/images/cafe/11.png" },
-    { n: "Peach Mango Boba Tea", d: "Sweet peach & mango tea with boba", img: "/images/cafe/12.png" },
-    { n: "Strawberry Boba Tea", d: "Fruity strawberry tea with boba", img: "/images/cafe/13.png" },
+    { n: "Watermelon Boba Tea", d: "Refreshing watermelon tea with chewy boba", img: "/images/cafe/WATERMELON BOBA TEA.png" },
+    { n: "Peach Mango Boba Tea", d: "Sweet peach & mango tea with boba", img: "/images/cafe/PEACH MANGO BOBA TEA.png" },
+    { n: "Strawberry Boba Tea", d: "Fruity strawberry tea with boba", img: "/images/cafe/STRAWBERRY BOBA TEA.png" },
   ],
   Mojito: [
-    { n: "Mojito (Classic)", d: "Mint, lemon, lime & soda", img: "/images/cafe/14.png" },
-    { n: "Watermelon Mojito", d: "Fresh watermelon with mint & lime", img: "/images/cafe/15.png" },
-    { n: "Peach Mojito", d: "Peach, lime, mint & soda", img: "/images/cafe/16.png" },
+    { n: "Mojito (Classic)", d: "Mint, lemon, lime & soda", img: "/images/cafe/MOJITO (CLASSIC).png" },
+    { n: "Watermelon Mojito", d: "Fresh watermelon with mint & lime", img: "/images/cafe/WATERMELON MOJITO.png" },
+    { n: "Peach Mojito", d: "Peach, lime, mint & soda", img: "/images/cafe/PEACH MOJITO.png" },
   ],
   Sandwich: [
-    { n: "Avocado Sandwich", d: "Fresh avocado, cucumber, lettuce, tomato & mayo", p: "₹800", img: "/images/cafe/17.png" },
-    { n: "Tandoori Paneer Sandwich", d: "Tandoori paneer, onions, bell peppers & mint chutney", p: "₹800", img: "/images/cafe/18.png" },
-    { n: "Mix Vegetable Sandwich", d: "Assorted vegetables, lettuce, cucumber & mayo", p: "₹800", img: "/images/cafe/19.png" },
+    { n: "Avocado Sandwich", d: "Fresh avocado, cucumber, lettuce, tomato & mayo", p: "₹800", img: "/images/cafe/AVOCADO SANDWICH.png" },
+    { n: "Tandoori Paneer Sandwich", d: "Tandoori paneer, onions, bell peppers & mint chutney", p: "₹800", img: "/images/cafe/TANDOORI PANEER SANDWICH.png" },
+    { n: "Mix Vegetable Sandwich", d: "Assorted vegetables, lettuce, cucumber & mayo", p: "₹800", img: "/images/cafe/MIX VEGETABLE SANDWICH.png" },
   ],
   "Fresh Juices": [
-    { n: "Watermelon Juice", d: "", img: "/images/cafe/20.png" },
-    { n: "Fresh Lime Juice", d: "", img: "/images/cafe/21.png" },
-    { n: "Pineapple Juice", d: "", img: "/images/cafe/22.png" },
-    { n: "Orange Juice", d: "", img: "/images/cafe/23.png" },
-    { n: "Detox Juice", d: "(Beet, Carrot, Spinach, Mint, Ginger)", img: "/images/cafe/24.png" },
+    { n: "Watermelon Juice", d: "", img: "/images/cafe/WATERMELON JUICE.png" },
+    { n: "Fresh Lime Juice", d: "", img: "/images/cafe/FRESH LIME JUICE.png" },
+    { n: "Pineapple Juice", d: "", img: "/images/cafe/PINEAPPLE JUICE.png" },
+    { n: "Orange Juice", d: "", img: "/images/cafe/ORANGE JUICE.png" },
+    { n: "Detox Juice", d: "(Beet, Carrot, Spinach, Mint, Ginger)", img: "/images/cafe/DETOX JUICE.png" },
   ],
   Matcha: [
-    { n: "Iced Matcha Latte", d: "Smooth matcha with milk served over ice", img: "/images/cafe/25.png" },
-    { n: "Hot Matcha Latte", d: "Warm, creamy matcha made with steamed milk", img: "/images/cafe/26.png" },
-    { n: "Matcha Espresso Fusion", d: "Matcha with a shot of espresso for the perfect balance", img: "/images/cafe/matcha_espresso_fusion.png" },
+    { n: "Iced Matcha Latte", d: "Smooth matcha with milk served over ice", img: "/images/cafe/ICED MATCHA LATTE.png" },
+    { n: "Hot Matcha Latte", d: "Warm, creamy matcha made with steamed milk", img: "/images/cafe/HOT MATCHA LATTE.png" },
+    { n: "Matcha Espresso Fusion", d: "Matcha with a shot of espresso for the perfect balance", img: "/images/cafe/MATCHA ESPRESSO FUSION.png" },
   ]
 };
 
@@ -130,10 +131,10 @@ export default function Cafe() {
           <div className="flex flex-col justify-center">
             {/* Plume Café branded lockup */}
             <div className="mb-8">
-              <img 
-                src="/images/logo-plume-transparent.png" 
-                alt="Plume Café" 
-                className="h-28 sm:h-36 w-auto object-contain -ml-4" 
+              <img
+                src="/images/logo-plume-transparent.png"
+                alt="Plume Café"
+                className="h-28 sm:h-36 w-auto object-contain -ml-4"
               />
             </div>
             <h1 className="font-display text-[clamp(2.8rem,7vw,6rem)] leading-[0.92] tracking-tight text-espresso">
@@ -152,9 +153,8 @@ export default function Cafe() {
                 key={src}
                 src={src}
                 alt="Plume Cafe"
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-                  idx === heroIdx ? "opacity-100" : "opacity-0"
-                }`}
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${idx === heroIdx ? "opacity-100" : "opacity-0"
+                  }`}
               />
             ))}
           </figure>
@@ -198,11 +198,10 @@ export default function Cafe() {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-3.5 py-1.5 rounded-full border text-xs transition-all duration-200 label tracking-[0.15em] shrink-0 ${
-                  activeCategory === cat
+                className={`px-3.5 py-1.5 rounded-full border text-xs transition-all duration-200 label tracking-[0.15em] shrink-0 ${activeCategory === cat
                     ? "bg-espresso text-ivory border-espresso"
                     : "border-espresso/15 text-espresso/50 hover:border-espresso/40 hover:text-espresso/85"
-                }`}
+                  }`}
               >
                 {cat}
               </button>
