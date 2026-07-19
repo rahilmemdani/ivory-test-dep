@@ -265,41 +265,37 @@ export default function Cafe() {
                   {items.map((item) => (
                     <div
                       key={item.n}
-                      className={`shrink-0 md:shrink snap-center group relative flex flex-col md:flex-row md:gap-5 md:p-5 rounded-[2rem] md:rounded-2xl hover:bg-white transition-all duration-500 items-center justify-between border border-espresso/5 hover:border-espresso/10 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] bg-white/60 md:bg-transparent shadow-[0_4px_20px_rgba(0,0,0,0.03)] md:shadow-none overflow-hidden ${
-                        item.img
-                          ? "w-[280px] md:w-auto gap-6 p-8 h-full"
-                          : "w-[210px] md:w-auto gap-3 p-5 h-fit md:h-full self-stretch md:self-auto my-auto md:my-0"
-                      }`}
+                      className="shrink-0 w-[210px] h-[270px] md:w-auto md:h-auto md:shrink snap-center group relative flex flex-col md:flex-row gap-3 md:gap-5 p-5 md:p-6 rounded-[1.5rem] md:rounded-2xl hover:bg-white transition-all duration-500 items-center justify-between border border-espresso/5 hover:border-espresso/10 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] bg-white/60 md:bg-transparent shadow-[0_4px_20px_rgba(0,0,0,0.03)] md:shadow-none overflow-hidden"
                     >
                       {/* Decorative background blob on hover */}
                       <div className="absolute inset-0 bg-gradient-to-br from-brass/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
                       {/* Transparent Drink Thumbnail */}
-                      <div className="w-36 h-36 md:w-20 md:h-20 shrink-0 relative flex items-center justify-center transition-transform duration-700 group-hover:scale-110 group-hover:-rotate-3 order-1 md:order-2">
+                      <div className="w-28 h-28 md:w-20 md:h-20 shrink-0 relative flex items-center justify-center transition-transform duration-700 group-hover:scale-110 group-hover:-rotate-3 order-1 md:order-2">
                         {/* Soft glow behind image */}
                         <div className="absolute inset-0 bg-brass/15 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         <Image
                           src={item.img}
                           alt={item.n}
                           fill
-                          sizes="(max-width: 768px) 144px, 80px"
+                          sizes="(max-width: 768px) 112px, 80px"
                           className="object-contain filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.15)] md:drop-shadow-[0_4px_12px_rgba(0,0,0,0.08)] relative z-10"
                         />
                       </div>
 
                       {/* Text details */}
-                      <div className="flex-1 min-w-0 w-full text-center md:text-left order-2 md:order-1 relative z-10">
+                      <div className="flex-1 min-w-0 w-full text-center md:text-left order-2 md:order-1 relative z-10 flex flex-col justify-start md:justify-center">
                         <div className="flex flex-col md:flex-row items-center md:items-baseline gap-1 md:gap-3 flex-wrap justify-center md:justify-start">
-                          <h3 className="font-display text-xl md:text-lg text-espresso group-hover:text-brass transition-colors duration-200">
+                          <h3 className="font-display text-xl md:text-lg text-espresso group-hover:text-brass transition-colors duration-200 line-clamp-2 leading-tight">
                             {item.n}
                           </h3>
                           {item.p && (
-                            <span className="font-sans text-[0.65rem] font-bold text-brass tracking-widest bg-brass/10 px-2.5 py-1 rounded-full uppercase mt-2 md:mt-0">
+                            <span className="font-sans text-[0.65rem] font-bold text-brass tracking-widest bg-brass/10 px-2.5 py-1 rounded-full uppercase mt-1 md:mt-0">
                               {item.p}
                             </span>
                           )}
                         </div>
-                        <p className="mt-2 md:mt-1 text-sm md:text-xs text-espresso/50 leading-relaxed">
+                        <p className="mt-2 md:mt-1 text-sm md:text-xs text-espresso/50 leading-snug line-clamp-2 md:line-clamp-none">
                           {item.d}
                         </p>
                       </div>
