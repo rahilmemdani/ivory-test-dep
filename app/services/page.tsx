@@ -32,7 +32,7 @@ const ALL_SERVICES: Service[] = [
   { name: "Gel Extensions", category: "Nails", subcategory: "Nail Extensions", img: "/services/gel extensions.jpeg" },
   { name: "Nail Art", category: "Nails", subcategory: "Gel Polish" },
   { name: "Builder Gel", category: "Nails", subcategory: "Nail Extensions", img: "/services/builder gel.png" },
-  { name: "Shellac", category: "Nails", subcategory: "Gel Polish" },
+  { name: "Shellac", category: "Nails", subcategory: "Gel Polish", img: "/services/nails.jpeg" },
   { name: "HydraFacial", category: "Skin Care", subcategory: "Facials", img: "/services/hydrafacial.png" },
   { name: "Anti-Aging Treatment", category: "Skin Care", subcategory: "Facials" },
   { name: "Signature Facial", category: "Skin Care", subcategory: "Facials", img: "/services/facial.jpeg" },
@@ -481,7 +481,7 @@ const SECTIONS = [
       "Gel Extensions",
       // "Nail Art", // 0 images
       "Builder Gel",
-      // "Shellac", // 0 images
+      "Shellac",
     ]
   },
   {
@@ -512,6 +512,7 @@ const SECTIONS = [
 export default function Services() {
   const [selected, setSelected] = useState<Service | null>(null);
   const [activeFilter, setActiveFilter] = useState("All");
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
   const FILTER_CATEGORIES = ["All", "Hair", "Nails", "Skin & Beauty", "Barber"];
 
   return (
@@ -526,7 +527,7 @@ export default function Services() {
             alt=""
             fill
             placeholder="blur"
-            quality={60}
+            quality={30}
             className="object-cover object-top scale-110"
             priority
           />
@@ -567,17 +568,19 @@ export default function Services() {
         </div>
       </section>
 
-      {/* ── Filter Controls ────────────────────────────────────────────────────── */}
-      <section className="bg-background border-y border-espresso/8 py-5 mb-16">
+      {/* ── Filter Controls (Desktop Only) ──────────────────────────────────── */}
+      <section className="hidden md:block bg-background/95 border-y border-espresso/10 py-4 md:py-5 transition-all duration-300 mb-16">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-10">
-          <div className="flex flex-wrap gap-2 overflow-x-auto pb-1 md:pb-0">
+          
+          {/* Category tabs */}
+          <div className="flex flex-wrap gap-2 overflow-x-auto pb-1 md:pb-0 [&::-webkit-scrollbar]:hidden w-full md:w-auto" style={{ scrollbarWidth: "none" }}>
             {FILTER_CATEGORIES.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveFilter(cat)}
-                className={`px-4 py-2 rounded-full border text-xs transition-all duration-200 label tracking-[0.15em] shrink-0 ${activeFilter === cat
-                    ? "bg-espresso text-ivory border-espresso"
-                    : "border-espresso/15 text-espresso/50 hover:border-espresso/40 hover:text-espresso/85"
+                className={`px-4 py-2 md:px-5 md:py-2.5 rounded-full border text-[0.65rem] md:text-xs transition-all duration-300 tracking-[0.15em] shrink-0 font-medium ${activeFilter === cat
+                    ? "bg-espresso text-ivory border-espresso shadow-lg shadow-espresso/20"
+                    : "border-espresso/10 text-espresso/60 hover:border-espresso/30 hover:text-espresso bg-white/50 hover:bg-white hover:shadow-sm"
                   }`}
               >
                 {cat}
@@ -602,7 +605,7 @@ export default function Services() {
                   placeholder="blur" 
                   fill 
                   sizes="(max-width: 768px) 100vw, 40vw" 
-                  quality={60}
+                  quality={30}
                   className="object-cover object-[50%_25%]" 
                 />
               </div>
@@ -617,7 +620,7 @@ export default function Services() {
                 >
                   {sectionServices.map((s) => (
                     <div key={`${s.category}/${s.name}`} className="shrink-0 w-[280px] sm:w-[320px] md:w-auto md:shrink h-full snap-center md:snap-align-none">
-                      <ServiceCard service={s} query="" onSelect={setSelected} />
+                      <ServiceCard service={s} query={query} onSelect={setSelected} />
                     </div>
                   ))}
                 </div>
@@ -675,6 +678,78 @@ export default function Services() {
           </a>
         </div>
       </section>
+
+      {/* ── Mobile Floating Filter Button ────────────────────────────────────── */}
+      <div className="fixed bottom-4 left-3 z-40 md:hidden pointer-events-none">
+        <button 
+          onClick={() => setIsFilterOpen(true)}
+          className="pointer-events-auto bg-espresso/95 backdrop-blur-md text-ivory px-3.5 py-2 rounded-full shadow-lg font-medium tracking-wide flex items-center gap-1.5 hover:bg-espresso transition-colors text-[0.8rem]"
+        >
+          <svg viewBox="0 0 24 24" fill="none" className="w-3.5 h-3.5">
+            <path d="M4 6h16M7 12h10M10 18h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          Filter
+        </button>
+      </div>
+
+      {/* ── Mobile Filter Bottom Sheet ───────────────────────────────────────── */}
+      {isFilterOpen && (
+        <div className="fixed inset-0 z-50 flex items-end md:hidden">
+          <style>{`
+            #global-book-btn {
+              display: none !important;
+            }
+          `}</style>
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-espresso/20 backdrop-blur-sm transition-opacity"
+            onClick={() => setIsFilterOpen(false)}
+          />
+          {/* Sheet */}
+          <div className="relative w-full bg-[#FAFAFA] rounded-t-3xl shadow-2xl p-6 pb-12 max-h-[85vh] overflow-y-auto animate-in slide-in-from-bottom duration-300">
+            <div className="flex justify-between items-center mb-8">
+              <h3 className="font-display text-2xl text-espresso tracking-tight">Services Filters</h3>
+              <button 
+                onClick={() => setIsFilterOpen(false)}
+                className="p-2 text-espresso/50 hover:text-espresso transition-colors rounded-full bg-espresso/5"
+              >
+                <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
+                  <path d="M6 18L18 6M6 6l12 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </div>
+
+            <div className="space-y-6">
+              {/* Categories */}
+              <div>
+                <p className="text-xs text-espresso/50 mb-3 font-semibold tracking-[0.15em] uppercase">Categories</p>
+                <div className="flex flex-wrap gap-2.5">
+                  {FILTER_CATEGORIES.map((cat) => (
+                    <button
+                      key={cat}
+                      onClick={() => setActiveFilter(cat)}
+                      className={`px-4 py-2.5 rounded-xl border text-sm transition-all duration-300 tracking-wide font-medium ${
+                        activeFilter === cat
+                          ? "bg-espresso text-ivory border-espresso shadow-md"
+                          : "border-espresso/10 text-espresso/70 hover:border-espresso/30 bg-white"
+                      }`}
+                    >
+                      {cat}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <button 
+                onClick={() => setIsFilterOpen(false)}
+                className="w-full bg-espresso text-ivory py-4 rounded-xl font-medium tracking-wide mt-4 shadow-lg hover:bg-espresso/90 transition-all active:scale-[0.98]"
+              >
+                View Services
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
