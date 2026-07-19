@@ -620,7 +620,7 @@ export default function Services() {
                 >
                   {sectionServices.map((s) => (
                     <div key={`${s.category}/${s.name}`} className="shrink-0 w-[280px] sm:w-[320px] md:w-auto md:shrink h-full snap-center md:snap-align-none">
-                      <ServiceCard service={s} query={query} onSelect={setSelected} />
+                      <ServiceCard service={s} query="" onSelect={setSelected} />
                     </div>
                   ))}
                 </div>
