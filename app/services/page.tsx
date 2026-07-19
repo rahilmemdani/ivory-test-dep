@@ -274,7 +274,7 @@ function ServiceCard({
       {/* Service Image */}
       {service.img ? (
         <div className="w-[84px] h-[84px] sm:w-[92px] sm:h-[92px] shrink-0 rounded-lg overflow-hidden border border-espresso/5 shadow-sm relative z-10">
-          <Image src={service.img} alt={service.name} fill sizes="92px" quality={60} className="object-cover transition-transform duration-500 group-hover:scale-110" />
+          <Image src={service.img} alt={service.name} fill sizes="92px" quality={20} className="object-cover transition-transform duration-500 group-hover:scale-110" />
         </div>
       ) : (
         <div className="w-[84px] h-[84px] sm:w-[92px] sm:h-[92px] shrink-0 rounded-lg bg-espresso/5 flex items-center justify-center border border-espresso/5 text-espresso/20 shadow-sm relative z-10">
@@ -526,8 +526,9 @@ export default function Services() {
             src={serviceHair}
             alt=""
             fill
+            sizes="100vw"
             placeholder="blur"
-            quality={30}
+            quality={20}
             className="object-cover object-top scale-110"
             priority
           />
@@ -605,7 +606,7 @@ export default function Services() {
                   placeholder="blur" 
                   fill 
                   sizes="(max-width: 768px) 100vw, 40vw" 
-                  quality={30}
+                  quality={20}
                   className="object-cover object-[50%_25%]" 
                 />
               </div>
@@ -654,8 +655,10 @@ export default function Services() {
             <div className="relative h-10 w-10 mb-5">
               <Image
                 src="/images/logo-icon.png"
-                alt="Ivory Atelier"
+                alt=""
                 fill
+                sizes="48px"
+                quality={20}
                 className="object-contain"
               />
             </div>

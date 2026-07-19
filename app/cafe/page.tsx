@@ -147,7 +147,7 @@ export default function Cafe() {
                 alt="Plume Café"
                 fill
                 sizes="(max-width: 640px) 192px, 256px"
-                quality={30}
+                quality={20}
                 className="object-contain"
                 priority
               />
@@ -170,7 +170,7 @@ export default function Cafe() {
                 alt="Plume Cafe"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                quality={30}
+                quality={20}
                 priority={idx === 0}
                 className={`object-cover transition-opacity duration-1000 ${idx === heroIdx ? "opacity-100" : "opacity-0"
                   }`}
@@ -234,7 +234,7 @@ export default function Cafe() {
         {filtered.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 text-center">
             <div className="relative h-12 w-12 mb-4 opacity-40">
-              <Image src="/images/logo-icon.png" alt="" fill quality={30} className="object-contain" />
+              <Image src="/images/logo-icon.png" alt="" fill quality={20} sizes="48px" className="object-contain" />
             </div>
             <p className="font-display text-2xl text-espresso/40">Nothing found on the menu.</p>
             <p className="mt-2 text-espresso/35 text-sm">
@@ -316,7 +316,7 @@ export default function Cafe() {
                               alt={item.n}
                               fill
                               sizes="(max-width: 640px) 96px, 128px"
-                              quality={30}
+                              quality={20}
                               className="object-cover rounded-lg drop-shadow-[0_8px_18px_rgba(51,38,29,0.18)] relative z-10"
                             />
                           </div>
