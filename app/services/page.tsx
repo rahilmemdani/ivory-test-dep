@@ -259,23 +259,33 @@ function ServiceCard({
   return (
     <button
       onClick={() => onSelect(service)}
-      className="group flex items-center text-left gap-4 rounded-md border border-espresso/10 bg-alabaster/60 p-3 hover:border-brass/30 hover:bg-white hover:shadow-[0_4px_20px_-4px_rgba(51,38,29,0.10)] active:scale-[0.98] transition-all duration-300 w-full"
+      className="group flex items-center text-left gap-4 rounded-xl border border-espresso/10 p-3 transition-all duration-400 w-full overflow-hidden hover:-translate-y-1 relative"
+      style={{
+        background: "linear-gradient(160deg, #fff 0%, #faf6f0 100%)",
+        boxShadow: "0 4px 20px rgba(51,38,29,0.03), inset 0 1px 0 rgba(255,255,255,1)",
+        border: "1px solid rgba(185,155,110,0.12)",
+      }}
     >
+      {/* Subtle hover warm wash */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse at 50% 100%, rgba(185,150,90,0.05) 0%, transparent 60%)" }}
+      />
+
       {/* Service Image */}
       {service.img ? (
-        <div className="w-[84px] h-[84px] sm:w-[92px] sm:h-[92px] shrink-0 rounded-sm overflow-hidden border border-espresso/5 shadow-sm relative">
-          <Image src={service.img} alt={service.name} fill sizes="92px" className="object-cover transition-transform duration-500 group-hover:scale-110" />
+        <div className="w-[84px] h-[84px] sm:w-[92px] sm:h-[92px] shrink-0 rounded-lg overflow-hidden border border-espresso/5 shadow-sm relative z-10">
+          <Image src={service.img} alt={service.name} fill sizes="92px" quality={60} className="object-cover transition-transform duration-500 group-hover:scale-110" />
         </div>
       ) : (
-        <div className="w-[84px] h-[84px] sm:w-[92px] sm:h-[92px] shrink-0 rounded-sm bg-espresso/5 flex items-center justify-center border border-espresso/5 text-espresso/20 shadow-sm">
-          <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+        <div className="w-[84px] h-[84px] sm:w-[92px] sm:h-[92px] shrink-0 rounded-lg bg-espresso/5 flex items-center justify-center border border-espresso/5 text-espresso/20 shadow-sm relative z-10">
+          <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
         </div>
       )}
 
       {/* Text Content */}
-      <div className="flex-1 flex flex-col justify-center min-w-0 pr-1">
-        <div className="flex items-start justify-between gap-2">
-          <p className="font-display text-lg sm:text-[1.1rem] leading-snug text-espresso group-hover:text-brass transition-colors duration-200">
+      <div className="flex-1 w-full relative z-10">
+        <div className="flex items-start justify-between gap-3">
+          <p className="font-display text-[1.1rem] sm:text-xl leading-tight text-espresso group-hover:text-brass transition-colors duration-300">
             <Highlighted text={service.name} query={query} />
           </p>
           <span className="shrink-0 mt-0.5 w-6 h-6 rounded-full border border-espresso/15 flex items-center justify-center text-espresso/25 group-hover:border-brass/40 group-hover:text-brass transition-all duration-200 bg-white/50">
@@ -285,11 +295,11 @@ function ServiceCard({
           </span>
         </div>
         {service.desc && (
-          <p className="text-[0.8rem] text-espresso/50 leading-relaxed line-clamp-1 mt-1">
+          <p className="text-[0.75rem] text-espresso/50 leading-relaxed line-clamp-2 mt-1.5 pr-2">
             <Highlighted text={service.desc} query={query} />
           </p>
         )}
-        <span className={`mt-2 label text-[0.58rem] tracking-[0.2em] uppercase ${CAT_ACCENT[service.category] ?? "text-espresso/30"}`}>
+        <span className={`mt-2.5 inline-block label text-[0.55rem] tracking-[0.2em] uppercase ${CAT_ACCENT[service.category] ?? "text-espresso/30"}`}>
           {service.subcategory}
         </span>
       </div>
@@ -369,7 +379,7 @@ function ServiceDrawer({
       {/* Drawer */}
       <div
         className="fixed inset-x-0 bottom-0 z-50 max-h-[85dvh] overflow-y-auto rounded-t-2xl bg-alabaster shadow-2xl"
-        style={{ 
+        style={{
           animation: "slideUp 0.28s cubic-bezier(0.32,0.72,0,1)",
           transform: dragY > 0 ? `translateY(${dragY}px)` : 'translateY(0)',
           transition: isDragging.current ? 'none' : 'transform 0.3s cubic-bezier(0.32,0.72,0,1)'
@@ -379,7 +389,7 @@ function ServiceDrawer({
         aria-label={service.name}
       >
         {/* Drag handle */}
-        <div 
+        <div
           className="sticky top-0 z-10 flex items-center justify-center pt-5 pb-4 bg-alabaster/95 backdrop-blur-md cursor-grab active:cursor-grabbing touch-none"
           onTouchStart={handleDragStart}
           onTouchMove={handleDragMove}
@@ -459,8 +469,8 @@ const SECTIONS = [
       "Hair Cutting & Styling",
       "Hair Color",
       "Korean Hair Treatment",
-      "Japanese Head Spa",
-      "Korean Glass Hair",
+      // "Japanese Head Spa", // 0 images
+      // "Korean Glass Hair", // 0 images
     ]
   },
   {
@@ -469,9 +479,9 @@ const SECTIONS = [
     signatures: [
       "Manicure & Pedicure",
       "Gel Extensions",
-      "Nail Art",
+      // "Nail Art", // 0 images
       "Builder Gel",
-      "Shellac",
+      // "Shellac", // 0 images
     ]
   },
   {
@@ -479,12 +489,12 @@ const SECTIONS = [
     img: serviceBeauty,
     signatures: [
       "HydraFacial",
-      "Anti-Aging Treatment",
+      // "Anti-Aging Treatment", // 0 images
       "Signature Facial",
       "Red Light Therapy",
       "Makeovers",
-      "Bridal Makeup",
-      "Makeup",
+      // "Bridal Makeup", // 0 images
+      // "Makeup", // 0 images
     ]
   },
   {
@@ -516,6 +526,7 @@ export default function Services() {
             alt=""
             fill
             placeholder="blur"
+            quality={60}
             className="object-cover object-top scale-110"
             priority
           />
@@ -533,7 +544,7 @@ export default function Services() {
               Hair, nails, beauty, and the signature rituals Ivory Atelier is known for.
             </p>
           </div>
-          
+
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 shrink-0 mt-8 md:mt-0">
             <a
               href="https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
@@ -564,11 +575,10 @@ export default function Services() {
               <button
                 key={cat}
                 onClick={() => setActiveFilter(cat)}
-                className={`px-4 py-2 rounded-full border text-xs transition-all duration-200 label tracking-[0.15em] shrink-0 ${
-                  activeFilter === cat
+                className={`px-4 py-2 rounded-full border text-xs transition-all duration-200 label tracking-[0.15em] shrink-0 ${activeFilter === cat
                     ? "bg-espresso text-ivory border-espresso"
                     : "border-espresso/15 text-espresso/50 hover:border-espresso/40 hover:text-espresso/85"
-                }`}
+                  }`}
               >
                 {cat}
               </button>
@@ -585,20 +595,33 @@ export default function Services() {
 
           return (
             <section key={sec.category} className={`grid md:grid-cols-[1fr_1.5fr] gap-8 md:gap-16 items-start ${isEven ? "" : "md:[direction:rtl]"}`}>
-              <div className="relative aspect-[4/3] md:aspect-[3/4] rounded-xl md:rounded-md overflow-hidden shadow-sm">
-                <Image src={sec.img} alt={sec.category} placeholder="blur" fill sizes="(max-width: 768px) 100vw, 40vw" className="object-cover object-[50%_25%]" />
+              <div className="relative aspect-[21/9] sm:aspect-[16/9] md:aspect-[3/4] rounded-2xl md:rounded-3xl overflow-hidden shadow-[0_8px_30px_rgba(51,38,29,0.08)] border border-espresso/5">
+                <Image 
+                  src={sec.img} 
+                  alt={sec.category} 
+                  placeholder="blur" 
+                  fill 
+                  sizes="(max-width: 768px) 100vw, 40vw" 
+                  quality={60}
+                  className="object-cover object-[50%_25%]" 
+                />
               </div>
-              <div className={isEven ? "" : "md:[direction:ltr]"}>
-                <div className="flex items-center gap-4 mb-8">
-                  <h2 className="font-display text-4xl text-espresso leading-none">{sec.category}</h2>
-                  <div className="flex-1 h-px bg-espresso/10" />
+              <div className={`min-w-0 ${isEven ? "" : "md:[direction:ltr]"}`}>
+                <div className="flex items-center gap-5 mb-10">
+                  <h2 className="font-display text-4xl sm:text-5xl text-espresso leading-none">{sec.category}</h2>
+                  <div className="flex-1 h-px bg-gradient-to-r from-espresso/15 via-brass/20 to-transparent" />
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div 
+                  className="flex md:grid overflow-x-auto md:overflow-visible pb-4 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 md:grid-cols-2 gap-4 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden"
+                  style={{ scrollbarWidth: "none" }}
+                >
                   {sectionServices.map((s) => (
-                    <ServiceCard key={`${s.category}/${s.name}`} service={s} query="" onSelect={setSelected} />
+                    <div key={`${s.category}/${s.name}`} className="shrink-0 w-[280px] sm:w-[320px] md:w-auto md:shrink h-full snap-center md:snap-align-none">
+                      <ServiceCard service={s} query="" onSelect={setSelected} />
+                    </div>
                   ))}
                 </div>
-                
+
                 <div className="mt-8 flex items-center justify-between border-t border-espresso/10 pt-5">
                   <p className="text-[0.8rem] text-espresso/40 italic">
                     Showing signature {sec.category.toLowerCase()} rituals.
