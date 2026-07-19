@@ -43,9 +43,9 @@ const CAFE_MENU: Record<string, CafeItem[]> = {
     { n: "Peach Mojito", d: "Peach, lime, mint & soda", img: "/images/cafe/PEACH MOJITO.png" },
   ],
   Sandwich: [
-    { n: "Avocado Sandwich", d: "Fresh avocado, cucumber, lettuce, tomato & mayo", p: "₹800", img: "/images/cafe/AVOCADO SANDWICH.png" },
-    { n: "Tandoori Paneer Sandwich", d: "Tandoori paneer, onions, bell peppers & mint chutney", p: "₹800", img: "/images/cafe/TANDOORI PANEER SANDWICH.png" },
-    { n: "Mix Vegetable Sandwich", d: "Assorted vegetables, lettuce, cucumber & mayo", p: "₹800", img: "/images/cafe/MIX VEGETABLE SANDWICH.png" },
+    { n: "Avocado Sandwich", d: "Fresh avocado, cucumber, lettuce, tomato & mayo", img: "/images/cafe/AVOCADO SANDWICH.png" },
+    { n: "Tandoori Paneer Sandwich", d: "Tandoori paneer, onions, bell peppers & mint chutney", img: "/images/cafe/TANDOORI PANEER SANDWICH.png" },
+    { n: "Mix Vegetable Sandwich", d: "Assorted vegetables, lettuce, cucumber & mayo", img: "/images/cafe/MIX VEGETABLE SANDWICH.png" },
   ],
   "Fresh Juices": [
     { n: "Watermelon Juice", d: "", img: "/images/cafe/WATERMELON JUICE.png" },
@@ -70,6 +70,15 @@ export default function Cafe() {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [heroIdx, setHeroIdx] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
+  const menuRef = useRef<HTMLElement>(null);
+
+  const handleCategoryClick = (cat: Cat) => {
+    setActiveCategory(cat);
+    setIsFilterOpen(false);
+    setTimeout(() => {
+      menuRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 100);
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -198,7 +207,7 @@ export default function Cafe() {
             {CATEGORIES.map((cat) => (
               <button
                 key={cat}
-                onClick={() => setActiveCategory(cat)}
+                onClick={() => handleCategoryClick(cat)}
                 className={`px-4 py-2 md:px-5 md:py-2.5 rounded-full border text-[0.65rem] md:text-xs transition-all duration-300 tracking-[0.15em] shrink-0 font-medium ${activeCategory === cat
                     ? "bg-espresso text-ivory border-espresso shadow-lg shadow-espresso/20"
                     : "border-espresso/10 text-espresso/60 hover:border-espresso/30 hover:text-espresso bg-white/50 hover:bg-white hover:shadow-sm"
@@ -212,7 +221,7 @@ export default function Cafe() {
       </section>
 
       {/* ── Menu List ───────────────────────────────────────────────────────── */}
-      <section className="mx-auto max-w-[1400px] px-5 sm:px-10 py-16">
+      <section ref={menuRef} className="mx-auto max-w-[1400px] px-5 sm:px-10 py-16 scroll-mt-24 md:scroll-mt-28">
         {filtered.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 text-center">
             <img src="/images/logo-icon.png" alt="" className="h-12 w-auto object-contain opacity-40 mb-4" />
@@ -304,10 +313,10 @@ export default function Cafe() {
       </section>
 
       {/* ── Mobile Floating Filter Button ────────────────────────────────────── */}
-      <div className="fixed bottom-6 inset-x-0 flex justify-center z-40 md:hidden pointer-events-none">
+      <div className="fixed bottom-6 left-5 z-40 md:hidden pointer-events-none">
         <button 
           onClick={() => setIsFilterOpen(true)}
-          className="pointer-events-auto bg-espresso/95 backdrop-blur-md text-ivory px-6 py-3.5 rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.15)] font-medium tracking-wide flex items-center gap-2.5 hover:bg-espresso transition-colors"
+          className="pointer-events-auto bg-espresso/95 backdrop-blur-md text-ivory px-5 py-3.5 rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.15)] font-medium tracking-wide flex items-center gap-2.5 hover:bg-espresso transition-colors"
         >
           <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
             <path d="M4 6h16M7 12h10M10 18h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -373,7 +382,7 @@ export default function Cafe() {
                   {CATEGORIES.map((cat) => (
                     <button
                       key={cat}
-                      onClick={() => setActiveCategory(cat)}
+                      onClick={() => handleCategoryClick(cat)}
                       className={`px-4 py-2.5 rounded-xl border text-sm transition-all duration-300 tracking-wide font-medium ${
                         activeCategory === cat
                           ? "bg-espresso text-ivory border-espresso shadow-md"
