@@ -67,6 +67,7 @@ type Cat = (typeof CATEGORIES)[number];
 export default function Cafe() {
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<Cat>("All");
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [heroIdx, setHeroIdx] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -161,13 +162,13 @@ export default function Cafe() {
         </div>
       </section>
 
-      {/* ── Search and Filter Controls (Non-Sticky) ─────────────────────────── */}
-      <section className="bg-background border-y border-espresso/8 py-6">
-        <div className="mx-auto max-w-[1400px] px-5 sm:px-10 flex flex-col md:flex-row md:items-center justify-between gap-5">
+      {/* ── Search and Filter Controls (Desktop Only) ───────────────────────── */}
+      <section className="hidden md:block bg-background/95 border-y border-espresso/10 py-4 md:py-5 transition-all duration-300">
+        <div className="mx-auto max-w-[1400px] px-5 sm:px-10 flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-6">
           {/* Search bar */}
-          <div className="relative w-full md:max-w-md">
-            <span className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-              <svg viewBox="0 0 20 20" fill="none" className="w-4 h-4 text-espresso/35">
+          <div className="relative w-full md:max-w-md group">
+            <span className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none transition-colors duration-300 group-focus-within:text-espresso text-espresso/40">
+              <svg viewBox="0 0 20 20" fill="none" className="w-4 h-4">
                 <circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" strokeWidth="1.5" />
                 <path d="M13 13l4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
               </svg>
@@ -178,12 +179,12 @@ export default function Cafe() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search cafe menu - latte, boba, sandwich…"
-              className="w-full pl-10 pr-10 py-3 bg-alabaster border border-espresso/15 rounded-sm text-espresso placeholder-espresso/30 focus:outline-none focus:border-brass transition-all duration-200 text-sm"
+              className="w-full pl-11 pr-10 py-3 bg-white/80 border border-espresso/10 rounded-full text-espresso placeholder-espresso/40 focus:outline-none focus:border-espresso/30 focus:ring-4 focus:ring-espresso/5 focus:bg-white transition-all duration-300 text-sm shadow-[0_2px_10px_rgba(0,0,0,0.02)]"
             />
             {query && (
               <button
                 onClick={() => { setQuery(""); inputRef.current?.focus(); }}
-                className="absolute inset-y-0 right-0 flex items-center pr-4 text-espresso/30 hover:text-espresso/70"
+                className="absolute inset-y-0 right-1 flex items-center px-4 text-espresso/40 hover:text-espresso transition-colors"
               >
                 <svg viewBox="0 0 16 16" fill="none" className="w-3.5 h-3.5">
                   <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -193,14 +194,14 @@ export default function Cafe() {
           </div>
 
           {/* Category tabs */}
-          <div className="flex flex-wrap gap-1.5 overflow-x-auto pb-1 md:pb-0">
+          <div className="flex flex-wrap gap-2 overflow-x-auto pb-1 md:pb-0 [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: "none" }}>
             {CATEGORIES.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-3.5 py-1.5 rounded-full border text-xs transition-all duration-200 label tracking-[0.15em] shrink-0 ${activeCategory === cat
-                    ? "bg-espresso text-ivory border-espresso"
-                    : "border-espresso/15 text-espresso/50 hover:border-espresso/40 hover:text-espresso/85"
+                className={`px-4 py-2 md:px-5 md:py-2.5 rounded-full border text-[0.65rem] md:text-xs transition-all duration-300 tracking-[0.15em] shrink-0 font-medium ${activeCategory === cat
+                    ? "bg-espresso text-ivory border-espresso shadow-lg shadow-espresso/20"
+                    : "border-espresso/10 text-espresso/60 hover:border-espresso/30 hover:text-espresso bg-white/50 hover:bg-white hover:shadow-sm"
                   }`}
               >
                 {cat}
@@ -246,14 +247,19 @@ export default function Cafe() {
                   {items.map((item) => (
                     <div
                       key={item.n}
-                      className="shrink-0 w-[260px] md:w-auto md:shrink snap-center group flex flex-col md:flex-row gap-6 md:gap-4 p-6 md:p-4 rounded-2xl md:rounded-sm hover:bg-sand/15 transition-all duration-300 items-center justify-between border border-espresso/10 md:border-transparent bg-white/50 md:bg-transparent shadow-[0_4px_20px_rgba(0,0,0,0.03)] md:shadow-none"
+                      className="shrink-0 w-[280px] md:w-auto md:shrink snap-center group relative flex flex-col md:flex-row gap-6 md:gap-5 p-8 md:p-5 rounded-[2rem] md:rounded-2xl hover:bg-white transition-all duration-500 items-center justify-between border border-espresso/5 hover:border-espresso/10 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] bg-white/60 md:bg-transparent shadow-[0_4px_20px_rgba(0,0,0,0.03)] md:shadow-none overflow-hidden"
                     >
+                      {/* Decorative background blob on hover */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-brass/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
                       {/* Transparent Drink Thumbnail */}
-                      <div className="w-32 h-32 md:w-16 md:h-16 shrink-0 relative flex items-center justify-center group-hover:scale-110 transition-all duration-500 order-1 md:order-2">
+                      <div className="w-36 h-36 md:w-20 md:h-20 shrink-0 relative flex items-center justify-center transition-transform duration-700 group-hover:scale-110 group-hover:-rotate-3 order-1 md:order-2">
+                        {/* Soft glow behind image */}
+                        <div className="absolute inset-0 bg-brass/15 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         <img
                           src={item.img}
                           alt={item.n}
-                          className="w-full h-full object-contain filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.12)] md:drop-shadow-[0_4px_8px_rgba(0,0,0,0.08)]"
+                          className="w-full h-full object-contain filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.15)] md:drop-shadow-[0_4px_12px_rgba(0,0,0,0.08)] relative z-10"
                           onError={(e) => {
                             e.currentTarget.style.display = "none";
                           }}
@@ -261,13 +267,13 @@ export default function Cafe() {
                       </div>
 
                       {/* Text details */}
-                      <div className="flex-1 min-w-0 w-full text-center md:text-left order-2 md:order-1">
+                      <div className="flex-1 min-w-0 w-full text-center md:text-left order-2 md:order-1 relative z-10">
                         <div className="flex flex-col md:flex-row items-center md:items-baseline gap-1 md:gap-3 flex-wrap justify-center md:justify-start">
                           <h3 className="font-display text-xl md:text-lg text-espresso group-hover:text-brass transition-colors duration-200">
                             {item.n}
                           </h3>
                           {item.p && (
-                            <span className="font-sans text-xs font-semibold text-brass tracking-wider">
+                            <span className="font-sans text-[0.65rem] font-bold text-brass tracking-widest bg-brass/10 px-2.5 py-1 rounded-full uppercase mt-2 md:mt-0">
                               {item.p}
                             </span>
                           )}
@@ -286,7 +292,7 @@ export default function Cafe() {
       </section>
 
       {/* ── Story Quote ──────────────────────────────────────────────────────── */}
-      <section className="bg-sand/20 border-t border-espresso/8 py-16 text-center">
+      <section className="bg-sand/20 border-t border-espresso/8 py-16 text-center pb-32 md:pb-16">
         <div className="mx-auto max-w-xl px-5">
           <p className="font-display text-2xl italic leading-relaxed text-espresso/70">
             "Take the afternoon. We'll take care of the rest."
@@ -296,6 +302,100 @@ export default function Cafe() {
           </p>
         </div>
       </section>
+
+      {/* ── Mobile Floating Filter Button ────────────────────────────────────── */}
+      <div className="fixed bottom-6 inset-x-0 flex justify-center z-40 md:hidden pointer-events-none">
+        <button 
+          onClick={() => setIsFilterOpen(true)}
+          className="pointer-events-auto bg-espresso/95 backdrop-blur-md text-ivory px-6 py-3.5 rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.15)] font-medium tracking-wide flex items-center gap-2.5 hover:bg-espresso transition-colors"
+        >
+          <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
+            <path d="M4 6h16M7 12h10M10 18h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          Filters & Search
+        </button>
+      </div>
+
+      {/* ── Mobile Filter Bottom Sheet ───────────────────────────────────────── */}
+      {isFilterOpen && (
+        <div className="fixed inset-0 z-50 flex items-end md:hidden">
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-espresso/20 backdrop-blur-sm transition-opacity"
+            onClick={() => setIsFilterOpen(false)}
+          />
+          {/* Sheet */}
+          <div className="relative w-full bg-[#FAFAFA] rounded-t-3xl shadow-2xl p-6 pb-12 max-h-[85vh] overflow-y-auto animate-in slide-in-from-bottom duration-300">
+            <div className="flex justify-between items-center mb-8">
+              <h3 className="font-display text-2xl text-espresso tracking-tight">Menu Filters</h3>
+              <button 
+                onClick={() => setIsFilterOpen(false)}
+                className="p-2 text-espresso/50 hover:text-espresso transition-colors rounded-full bg-espresso/5"
+              >
+                <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
+                  <path d="M6 18L18 6M6 6l12 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </div>
+
+            <div className="space-y-8">
+              {/* Search */}
+              <div className="relative w-full">
+                <span className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-espresso/40">
+                  <svg viewBox="0 0 20 20" fill="none" className="w-4 h-4">
+                    <circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" strokeWidth="1.5" />
+                    <path d="M13 13l4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                  </svg>
+                </span>
+                <input
+                  type="text"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  placeholder="Search cafe menu…"
+                  className="w-full pl-11 pr-10 py-3.5 bg-white border border-espresso/10 rounded-xl text-espresso placeholder-espresso/40 focus:outline-none focus:border-espresso/30 text-base shadow-sm"
+                />
+                {query && (
+                  <button
+                    onClick={() => setQuery("")}
+                    className="absolute inset-y-0 right-1 flex items-center px-4 text-espresso/40 hover:text-espresso"
+                  >
+                    <svg viewBox="0 0 16 16" fill="none" className="w-3.5 h-3.5">
+                      <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                    </svg>
+                  </button>
+                )}
+              </div>
+
+              {/* Categories */}
+              <div>
+                <p className="text-xs text-espresso/50 mb-3 font-semibold tracking-[0.15em] uppercase">Categories</p>
+                <div className="flex flex-wrap gap-2.5">
+                  {CATEGORIES.map((cat) => (
+                    <button
+                      key={cat}
+                      onClick={() => setActiveCategory(cat)}
+                      className={`px-4 py-2.5 rounded-xl border text-sm transition-all duration-300 tracking-wide font-medium ${
+                        activeCategory === cat
+                          ? "bg-espresso text-ivory border-espresso shadow-md"
+                          : "border-espresso/10 text-espresso/70 hover:border-espresso/30 bg-white"
+                      }`}
+                    >
+                      {cat}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <button 
+                onClick={() => setIsFilterOpen(false)}
+                className="w-full bg-espresso text-ivory py-4 rounded-xl font-medium tracking-wide mt-4 shadow-lg hover:bg-espresso/90 transition-all active:scale-[0.98]"
+              >
+                View Menu
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
