@@ -250,55 +250,81 @@ export default function Cafe() {
             {Array.from(grouped.entries()).map(([catName, items]) => (
               <div key={catName} className="space-y-8">
                 {/* Category Header */}
-                <div className="flex items-center gap-4">
-                  <h2 className="font-display text-2xl sm:text-3xl text-espresso tracking-tight">
+                <div className="flex items-center gap-4 mb-2">
+                  <h2 className="font-display text-2xl sm:text-3xl text-espresso tracking-tight shrink-0">
                     {catName}
                   </h2>
-                  <div className="flex-1 h-px bg-espresso/10" />
+                  <div className="flex-1 h-px bg-gradient-to-r from-espresso/15 to-transparent" />
+                  <span className="label text-[0.55rem] tracking-[0.25em] text-espresso/30 shrink-0 hidden sm:block">{items.length} items</span>
                 </div>
 
                 {/* Items grid / mobile horizontal scroll */}
                 <div 
-                  className="flex md:grid overflow-x-auto md:overflow-visible pb-8 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden"
+                  className="flex md:grid overflow-x-auto md:overflow-visible pb-8 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden"
                   style={{ scrollbarWidth: "none" }}
                 >
                   {items.map((item) => (
                     <div
                       key={item.n}
-                      className="shrink-0 w-[210px] h-[270px] md:w-auto md:h-auto md:shrink snap-center group relative flex flex-col md:flex-row gap-3 md:gap-5 p-5 md:p-6 rounded-[1.5rem] md:rounded-2xl hover:bg-white transition-all duration-500 items-center justify-between border border-espresso/5 hover:border-espresso/10 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] bg-white/60 md:bg-transparent shadow-[0_4px_20px_rgba(0,0,0,0.03)] md:shadow-none overflow-hidden"
+                      className="shrink-0 w-[175px] h-[245px] md:w-auto md:h-auto md:shrink snap-center group relative flex flex-col md:flex-row md:gap-5 md:p-6 md:rounded-2xl md:transition-all md:duration-500 md:items-start md:justify-between md:border-espresso/5 md:hover:border-espresso/10 md:hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] md:bg-transparent md:shadow-none overflow-hidden cursor-pointer"
+                      style={{
+                        borderRadius: "1.4rem",
+                        background: "linear-gradient(160deg, #fff 0%, #faf6f0 100%)",
+                        boxShadow: "0 4px 24px rgba(51,38,29,0.09), inset 0 1px 0 rgba(255,255,255,1)",
+                        border: "1px solid rgba(185,155,110,0.18)",
+                      }}
                     >
-                      {/* Decorative background blob on hover */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-brass/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                      {/* ── IMAGE ZONE (top 58% of card on mobile) ── */}
+                      <div className="md:hidden relative w-full flex-shrink-0" style={{ height: "142px" }}>
+                        {/* Warm gradient backdrop */}
+                        <div className="absolute inset-0 rounded-t-[1.3rem]" style={{
+                          background: "linear-gradient(135deg, #f9f0e1 0%, #f3ece0 50%, #efe6d5 100%)"
+                        }} />
 
-                      {/* Transparent Drink Thumbnail */}
-                      <div className="w-28 h-28 md:w-20 md:h-20 shrink-0 relative flex items-center justify-center transition-transform duration-700 group-hover:scale-110 group-hover:-rotate-3 order-1 md:order-2">
-                        {/* Soft glow behind image */}
-                        <div className="absolute inset-0 bg-brass/15 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                        <Image
-                          src={item.img}
-                          alt={item.n}
-                          fill
-                          sizes="(max-width: 768px) 112px, 80px"
-                          className="object-contain filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.15)] md:drop-shadow-[0_4px_12px_rgba(0,0,0,0.08)] relative z-10"
-                        />
-                      </div>
-
-                      {/* Text details */}
-                      <div className="flex-1 min-w-0 w-full text-center md:text-left order-2 md:order-1 relative z-10 flex flex-col justify-start md:justify-center">
-                        <div className="flex flex-col md:flex-row items-center md:items-baseline gap-1 md:gap-3 flex-wrap justify-center md:justify-start">
-                          <h3 className="font-display text-xl md:text-lg text-espresso group-hover:text-brass transition-colors duration-200 line-clamp-2 leading-tight">
-                            {item.n}
-                          </h3>
-                          {item.p && (
-                            <span className="font-sans text-[0.65rem] font-bold text-brass tracking-widest bg-brass/10 px-2.5 py-1 rounded-full uppercase mt-1 md:mt-0">
-                              {item.p}
-                            </span>
-                          )}
+                        {/* Category pill */}
+                        <div className="absolute top-2.5 left-3 z-20">
+                          <span className="label text-[0.48rem] tracking-[0.22em] text-espresso/50 uppercase bg-white/70 backdrop-blur-sm px-2 py-0.5 rounded-full border border-espresso/10">
+                            {catName}
+                          </span>
                         </div>
-                        <p className="mt-2 md:mt-1 text-sm md:text-xs text-espresso/50 leading-snug line-clamp-2 md:line-clamp-none">
-                          {item.d}
-                        </p>
+
+                        {/* Drink image */}
+                        <div className="absolute inset-0 flex items-center justify-center transition-transform duration-700 group-hover:scale-110 group-hover:-rotate-2">
+                          <div className="relative w-28 h-28">
+                            {/* Ambient glow */}
+                            <div className="absolute inset-0 rounded-full blur-2xl"
+                              style={{ background: "radial-gradient(circle, rgba(200,160,90,0.22) 0%, transparent 65%)" }}
+                            />
+                            <Image
+                              src={item.img}
+                              alt={item.n}
+                              fill
+                              sizes="112px"
+                              className="object-contain drop-shadow-[0_8px_18px_rgba(51,38,29,0.2)] relative z-10"
+                            />
+                          </div>
+                        </div>
                       </div>
+
+                      {/* ── DESKTOP: original image ── */}
+                      <div className="hidden md:flex w-20 h-20 shrink-0 relative items-center justify-center transition-transform duration-700 group-hover:scale-110 group-hover:-rotate-3 order-2">
+                        <Image src={item.img} alt={item.n} fill sizes="80px" className="object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.08)]" />
+                      </div>
+
+                      {/* ── TEXT PANEL ── */}
+                      <div className="flex flex-col items-center md:items-start justify-center px-4 py-3 md:p-0 flex-1 min-w-0 w-full md:text-left order-2 md:order-1 relative z-10">
+                        <h3 className="font-display text-[0.98rem] md:text-lg text-espresso text-center md:text-left group-hover:text-brass transition-colors duration-300 line-clamp-2 leading-snug w-full">
+                          {item.n}
+                        </h3>
+                        {item.d && (
+                          <p className="text-[0.68rem] text-espresso/45 leading-snug line-clamp-2 mt-1 text-center md:text-left">
+                            {item.d}
+                          </p>
+                        )}
+                      </div>
+
+                      {/* Bottom shimmer */}
+                      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brass/20 to-transparent md:hidden pointer-events-none" />
                     </div>
                   ))}
                 </div>
