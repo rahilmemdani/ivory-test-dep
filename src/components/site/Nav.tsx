@@ -49,11 +49,11 @@ export function Nav() {
     <header
       className={`fixed inset-x-0 top-0 z-40 transition-all duration-700 ${
         scrolled
-          ? "bg-ivory/70 backdrop-blur-xl border-b border-espresso/10"
+          ? "bg-ivory/80 backdrop-blur-2xl shadow-[0_1px_0_0_rgba(51,38,29,0.12)]"
           : "bg-transparent"
       } ${hidden ? "-translate-y-full" : "translate-y-0"}`}
     >
-      <div className="mx-auto flex max-w-[1400px] items-center justify-between px-5 py-4 sm:px-10 sm:py-6">
+      <div className="mx-auto flex max-w-[1400px] items-center justify-between px-5 py-4 sm:px-10 sm:py-5">
         <Link
           href="/"
           className="flex items-center gap-3 text-espresso"
@@ -62,25 +62,28 @@ export function Nav() {
           <img 
             src="/images/logo-icon.png" 
             alt="Ivory Atelier" 
-            className="h-14 w-auto object-contain -ml-1" 
+            className="h-16 w-auto object-contain -ml-1" 
           />
           <span className="flex flex-col leading-none">
-            <span className="font-display text-lg tracking-[0.32em] uppercase text-brass">
+            <span className="font-display text-xl tracking-[0.36em] uppercase text-brass font-semibold">
               Ivory Atelier
             </span>
-            <span className="label mt-1 text-[0.55rem] text-espresso/60">
+            <span className="label mt-1.5 text-[0.6rem] tracking-[0.22em] text-espresso/70">
               Hair · Nails · Beauty · Café
             </span>
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-9 lg:flex">
+        <nav className="hidden items-center gap-8 lg:flex">
           {links.map((l) => (
             <Link
               key={l.to}
               href={l.to}
-              className="label text-espresso/70 transition-colors hover:text-brass"
-              
+              className={`relative text-[0.72rem] font-sans font-medium uppercase tracking-[0.26em] transition-colors hover:text-brass ${
+                pathname === l.to
+                  ? "text-espresso after:absolute after:inset-x-0 after:-bottom-1 after:h-px after:bg-brass"
+                  : "text-espresso/80"
+              }`}
             >
               {l.label}
             </Link>
@@ -88,7 +91,7 @@ export function Nav() {
           <a
             href="https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
             target="_blank" rel="noopener noreferrer"
-            className="label rounded-full border border-espresso/60 px-5 py-2.5 text-espresso transition-colors hover:border-brass hover:bg-espresso hover:text-alabaster"
+            className="text-[0.72rem] font-sans font-medium uppercase tracking-[0.26em] rounded-full border border-espresso px-5 py-2.5 text-espresso transition-all hover:border-brass hover:bg-espresso hover:text-alabaster"
           >
             Book
           </a>
