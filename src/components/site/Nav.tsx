@@ -46,11 +46,10 @@ export function Nav() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-40 transition-all duration-700 ${
-        scrolled || open
+      className={`fixed inset-x-0 top-0 z-40 transition-all duration-700 ${scrolled || open
           ? "bg-ivory/95 backdrop-blur-2xl shadow-[0_1px_0_0_rgba(51,38,29,0.12)]"
           : "bg-transparent"
-      } ${hidden ? "-translate-y-full" : "translate-y-0"}`}
+        } ${hidden ? "-translate-y-full" : "translate-y-0"}`}
     >
       {/* Top bar */}
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-5 py-3 sm:px-10 sm:py-5">
@@ -82,17 +81,16 @@ export function Nav() {
             <Link
               key={l.to}
               href={l.to}
-              className={`relative text-[0.72rem] font-sans font-medium uppercase tracking-[0.26em] transition-colors hover:text-brass ${
-                pathname === l.to
+              className={`relative text-[0.72rem] font-sans font-medium uppercase tracking-[0.26em] transition-colors hover:text-brass ${pathname === l.to
                   ? "text-espresso after:absolute after:inset-x-0 after:-bottom-1 after:h-px after:bg-brass"
                   : "text-espresso/80"
-              }`}
+                }`}
             >
               {l.label}
             </Link>
           ))}
           <a
-            href="https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
+            href="https://dingg.app/booking/florian-hurel-hair-couture-juhu-juhu"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[0.72rem] font-sans font-medium uppercase tracking-[0.26em] rounded-full border border-espresso px-5 py-2.5 text-espresso transition-all hover:border-brass hover:bg-espresso hover:text-alabaster"
@@ -111,19 +109,16 @@ export function Nav() {
           {/* Three lines → X */}
           <span className="flex flex-col gap-[5px] w-[18px]">
             <span
-              className={`block h-px w-full bg-current origin-center transition-all duration-300 ${
-                open ? "translate-y-[7px] rotate-45" : ""
-              }`}
+              className={`block h-px w-full bg-current origin-center transition-all duration-300 ${open ? "translate-y-[7px] rotate-45" : ""
+                }`}
             />
             <span
-              className={`block h-px w-full bg-current transition-all duration-300 ${
-                open ? "opacity-0 scale-x-0" : ""
-              }`}
+              className={`block h-px w-full bg-current transition-all duration-300 ${open ? "opacity-0 scale-x-0" : ""
+                }`}
             />
             <span
-              className={`block h-px w-full bg-current origin-center transition-all duration-300 ${
-                open ? "-translate-y-[7px] -rotate-45" : ""
-              }`}
+              className={`block h-px w-full bg-current origin-center transition-all duration-300 ${open ? "-translate-y-[7px] -rotate-45" : ""
+                }`}
             />
           </span>
         </button>
@@ -131,9 +126,8 @@ export function Nav() {
 
       {/* Mobile drawer */}
       <div
-        className={`overflow-hidden transition-[max-height,opacity] duration-500 ease-in-out lg:hidden ${
-          open ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
-        }`}
+        className={`overflow-hidden transition-[max-height,opacity] duration-500 ease-in-out lg:hidden ${open ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
+          }`}
       >
         <nav className="flex flex-col px-5 pb-8 pt-1 sm:px-10">
           {links.map((l) => {
@@ -143,17 +137,15 @@ export function Nav() {
                 key={l.to}
                 href={l.to}
                 onClick={() => setOpen(false)}
-                className={`flex items-center justify-between border-t py-4 transition-colors ${
-                  isActive
+                className={`flex items-center justify-between border-t py-4 transition-colors ${isActive
                     ? "border-brass/30 text-brass"
                     : "border-espresso/10 text-espresso hover:text-brass"
-                }`}
+                  }`}
               >
                 <span className="font-display text-2xl">{l.label}</span>
                 <span
-                  className={`text-base transition-colors ${
-                    isActive ? "text-brass" : "text-espresso/30"
-                  }`}
+                  className={`text-base transition-colors ${isActive ? "text-brass" : "text-espresso/30"
+                    }`}
                 >
                   →
                 </span>
@@ -163,7 +155,7 @@ export function Nav() {
 
           {/* Book CTA */}
           <a
-            href="https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
+            href="https://dingg.app/booking/florian-hurel-hair-couture-juhu-juhu"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setOpen(false)}

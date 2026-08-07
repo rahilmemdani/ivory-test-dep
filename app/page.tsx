@@ -19,7 +19,7 @@ const services = [
     bullets: ["Signature Cut & Styling", "Global Colour & Highlights", "Balayage", "Bridal Hair Do", "The Ritual Blow-dry"],
     img: serviceHair,
     cta: "Book a consultation",
-    ctaLink: "https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
+    ctaLink: "https://dingg.app/booking/florian-hurel-hair-couture-juhu-juhu"
   },
   {
     tag: "02",
@@ -28,7 +28,7 @@ const services = [
     bullets: ["Atelier Manicure", "Atelier Pedicure", "Gel Finish", "Nail Art, Restrained"],
     img: serviceNails,
     cta: "Book a consultation",
-    ctaLink: "https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
+    ctaLink: "https://dingg.app/booking/florian-hurel-hair-couture-juhu-juhu"
   },
   {
     tag: "03",
@@ -37,7 +37,7 @@ const services = [
     bullets: ["Ivory Signature Facial", "AI-Enhanced HydraFacial", "Red Light Therapy", "Face Gym", "Brow Architecture", "Occasion Make-up"],
     img: serviceBeauty,
     cta: "Book a consultation",
-    ctaLink: "https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
+    ctaLink: "https://dingg.app/booking/florian-hurel-hair-couture-juhu-juhu"
   },
   {
     tag: "04",
@@ -76,7 +76,7 @@ export default function Home() {
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start w-full sm:w-auto gap-6 lg:gap-6 animate-fade-up [animation-delay:600ms]">
               <a
-                href="https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
+                href="https://dingg.app/booking/florian-hurel-hair-couture-juhu-juhu"
                 className="group/btn relative inline-flex w-full sm:w-auto justify-center items-center gap-4 md:gap-6 rounded-none bg-espresso px-8 py-5 text-ivory transition-all duration-500 hover:bg-ink hover:text-brass shadow-lg hover:shadow-[0_10px_30px_-10px_rgba(168,138,86,0.2)] border border-transparent hover:border-brass/30"
               >
                 <span className="font-display text-xl italic tracking-wide">Book a consultation</span>
@@ -248,10 +248,10 @@ export default function Home() {
           <div className="order-2 md:order-1">
             {/* Plume Café branded lockup */}
             <div className="mb-4">
-              <img 
-                src="/images/logo-plume-transparent.png" 
-                alt="Plume Café" 
-                className="h-24 sm:h-32 w-auto object-contain -ml-4" 
+              <img
+                src="/images/logo-plume-transparent.png"
+                alt="Plume Café"
+                className="h-24 sm:h-32 w-auto object-contain -ml-4"
               />
             </div>
             <h2 className="mt-4 font-display text-5xl leading-tight text-espresso sm:text-6xl">
@@ -292,9 +292,9 @@ export default function Home() {
       <section className="relative flex flex-col items-center justify-center overflow-hidden py-20 sm:py-28 min-h-[500px] w-full">
         {/* Background Image with Blur */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src={serviceHair.src} 
-            alt="Ivory Atelier Testimonials" 
+          <img
+            src={serviceHair.src}
+            alt="Ivory Atelier Testimonials"
             className="w-full h-full object-cover brightness-[0.5] sepia-[0.2] blur-md scale-110"
           />
           <div className="absolute inset-0 bg-espresso/60 mix-blend-multiply" />
@@ -311,10 +311,10 @@ export default function Home() {
 
       {/* PROMISE + CLOSING — merged */}
       <section className="relative flex flex-col items-center justify-center overflow-hidden gradient-ivory px-5 py-16 text-center sm:px-10 sm:py-20">
-        <img 
-          src="/images/logo-icon.png" 
-          alt="Plume Graphic" 
-          className="mx-auto h-24 w-auto object-contain animate-float" 
+        <img
+          src="/images/logo-icon.png"
+          alt="Plume Graphic"
+          className="mx-auto h-24 w-auto object-contain animate-float"
         />
 
         <blockquote className="relative mt-12 max-w-4xl font-display text-4xl leading-[1.15] text-espresso sm:text-6xl tracking-tight">
@@ -334,8 +334,8 @@ export default function Home() {
           <br />
           <span className="italic text-brass">We'll take care of the rest.</span>
         </h2>
-        <a
-          href="https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
+        <a target="_blank"
+          href="https://dingg.app/booking/florian-hurel-hair-couture-juhu-juhu"
           className="group/btn relative mt-14 inline-flex items-center gap-6 rounded-none bg-espresso px-10 py-5 text-ivory transition-all duration-500 hover:bg-ink hover:text-brass shadow-xl hover:shadow-[0_15px_40px_-10px_rgba(168,138,86,0.25)] border border-transparent hover:border-brass/30"
         >
           <span className="font-display text-xl italic tracking-wide">Book a consultation</span>

@@ -436,7 +436,7 @@ function ServiceDrawer({
 
           {/* CTA */}
           <a
-            href="https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
+            href="https://dingg.app/booking/florian-hurel-hair-couture-juhu-juhu"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-6 flex items-center justify-between gap-4 bg-espresso text-ivory px-7 py-5 hover:bg-ink transition-colors duration-300 group"
@@ -549,7 +549,7 @@ export default function Services() {
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 shrink-0 mt-8 md:mt-0">
             <a
-              href="https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
+              href="https://dingg.app/booking/florian-hurel-hair-couture-juhu-juhu"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center justify-center gap-3 bg-espresso text-ivory px-7 py-4 hover:bg-ink transition-colors duration-300"
@@ -572,7 +572,7 @@ export default function Services() {
       {/* ── Filter Controls (Desktop Only) ──────────────────────────────────── */}
       <section className="hidden md:block bg-background/95 border-y border-espresso/10 py-4 md:py-5 transition-all duration-300 mb-16">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-10">
-          
+
           {/* Category tabs */}
           <div className="flex flex-wrap gap-2 overflow-x-auto pb-1 md:pb-0 [&::-webkit-scrollbar]:hidden w-full md:w-auto" style={{ scrollbarWidth: "none" }}>
             {FILTER_CATEGORIES.map((cat) => (
@@ -580,8 +580,8 @@ export default function Services() {
                 key={cat}
                 onClick={() => setActiveFilter(cat)}
                 className={`px-4 py-2 md:px-5 md:py-2.5 rounded-full border text-[0.65rem] md:text-xs transition-all duration-300 tracking-[0.15em] shrink-0 font-medium ${activeFilter === cat
-                    ? "bg-espresso text-ivory border-espresso shadow-lg shadow-espresso/20"
-                    : "border-espresso/10 text-espresso/60 hover:border-espresso/30 hover:text-espresso bg-white/50 hover:bg-white hover:shadow-sm"
+                  ? "bg-espresso text-ivory border-espresso shadow-lg shadow-espresso/20"
+                  : "border-espresso/10 text-espresso/60 hover:border-espresso/30 hover:text-espresso bg-white/50 hover:bg-white hover:shadow-sm"
                   }`}
               >
                 {cat}
@@ -600,14 +600,14 @@ export default function Services() {
           return (
             <section key={sec.category} className={`grid md:grid-cols-[1fr_1.5fr] gap-8 md:gap-16 items-start ${isEven ? "" : "md:[direction:rtl]"}`}>
               <div className="relative aspect-[21/9] sm:aspect-[16/9] md:aspect-[3/4] rounded-2xl md:rounded-3xl overflow-hidden shadow-[0_8px_30px_rgba(51,38,29,0.08)] border border-espresso/5">
-                <Image 
-                  src={sec.img} 
-                  alt={sec.category} 
-                  placeholder="blur" 
-                  fill 
-                  sizes="(max-width: 768px) 100vw, 40vw" 
+                <Image
+                  src={sec.img}
+                  alt={sec.category}
+                  placeholder="blur"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 40vw"
                   quality={20}
-                  className="object-cover object-[50%_25%]" 
+                  className="object-cover object-[50%_25%]"
                 />
               </div>
               <div className={`min-w-0 ${isEven ? "" : "md:[direction:ltr]"}`}>
@@ -615,7 +615,7 @@ export default function Services() {
                   <h2 className="font-display text-4xl sm:text-5xl text-espresso leading-none">{sec.category}</h2>
                   <div className="flex-1 h-px bg-gradient-to-r from-espresso/15 via-brass/20 to-transparent" />
                 </div>
-                <div 
+                <div
                   className="flex md:grid overflow-x-auto md:overflow-visible pb-4 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 md:grid-cols-2 gap-4 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden"
                   style={{ scrollbarWidth: "none" }}
                 >
@@ -671,7 +671,7 @@ export default function Services() {
             </p>
           </div>
           <a
-            href="https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
+            href="https://dingg.app/booking/florian-hurel-hair-couture-juhu-juhu"
             target="_blank"
             rel="noopener noreferrer"
             className="shrink-0 group inline-flex items-center gap-4 bg-espresso border border-espresso px-8 sm:px-10 py-5 text-ivory hover:bg-ink hover:border-brass/30 hover:text-brass transition-all duration-300"
@@ -684,7 +684,7 @@ export default function Services() {
 
       {/* ── Mobile Floating Filter Button ────────────────────────────────────── */}
       <div className="fixed bottom-4 left-3 z-40 md:hidden pointer-events-none">
-        <button 
+        <button
           onClick={() => setIsFilterOpen(true)}
           className="pointer-events-auto bg-espresso/95 backdrop-blur-md text-ivory px-3.5 py-2 rounded-full shadow-lg font-medium tracking-wide flex items-center gap-1.5 hover:bg-espresso transition-colors text-[0.8rem]"
         >
@@ -704,7 +704,7 @@ export default function Services() {
             }
           `}</style>
           {/* Backdrop */}
-          <div 
+          <div
             className="absolute inset-0 bg-espresso/20 backdrop-blur-sm transition-opacity"
             onClick={() => setIsFilterOpen(false)}
           />
@@ -712,7 +712,7 @@ export default function Services() {
           <div className="relative w-full bg-[#FAFAFA] rounded-t-3xl shadow-2xl p-6 pb-12 max-h-[85vh] overflow-y-auto animate-in slide-in-from-bottom duration-300">
             <div className="flex justify-between items-center mb-8">
               <h3 className="font-display text-2xl text-espresso tracking-tight">Services Filters</h3>
-              <button 
+              <button
                 onClick={() => setIsFilterOpen(false)}
                 className="p-2 text-espresso/50 hover:text-espresso transition-colors rounded-full bg-espresso/5"
               >
@@ -731,11 +731,10 @@ export default function Services() {
                     <button
                       key={cat}
                       onClick={() => setActiveFilter(cat)}
-                      className={`px-4 py-2.5 rounded-xl border text-sm transition-all duration-300 tracking-wide font-medium ${
-                        activeFilter === cat
+                      className={`px-4 py-2.5 rounded-xl border text-sm transition-all duration-300 tracking-wide font-medium ${activeFilter === cat
                           ? "bg-espresso text-ivory border-espresso shadow-md"
                           : "border-espresso/10 text-espresso/70 hover:border-espresso/30 bg-white"
-                      }`}
+                        }`}
                     >
                       {cat}
                     </button>
@@ -743,7 +742,7 @@ export default function Services() {
                 </div>
               </div>
 
-              <button 
+              <button
                 onClick={() => setIsFilterOpen(false)}
                 className="w-full bg-espresso text-ivory py-4 rounded-xl font-medium tracking-wide mt-4 shadow-lg hover:bg-espresso/90 transition-all active:scale-[0.98]"
               >

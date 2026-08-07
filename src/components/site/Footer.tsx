@@ -8,10 +8,10 @@ export function Footer() {
         <div className="grid gap-14 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-3 text-alabaster">
-              <img 
-                src="/images/logo-icon.png" 
-                alt="Ivory Atelier" 
-                className="h-12 w-auto object-contain brightness-0 invert opacity-90 -ml-1" 
+              <img
+                src="/images/logo-icon.png"
+                alt="Ivory Atelier"
+                className="h-12 w-auto object-contain brightness-0 invert opacity-90 -ml-1"
               />
               <span className="font-display text-xl tracking-[0.32em] uppercase">
                 Ivory Atelier
@@ -44,7 +44,7 @@ export function Footer() {
                 <li><Link href="/services" className="hover:text-brass">Hair</Link></li>
                 <li><Link href="/services" className="hover:text-brass">Nails</Link></li>
                 <li><Link href="/services" className="hover:text-brass">Beauty</Link></li>
-                <li><a href="https://ivoryatelier.zohobookings.com.au/#/ivoryatelier" target="_blank" rel="noopener noreferrer" className="hover:text-brass">Book a Consultation</a></li>
+                <li><a href="https://dingg.app/booking/florian-hurel-hair-couture-juhu-juhu" target="_blank" rel="noopener noreferrer" className="hover:text-brass">Book a Consultation</a></li>
               </ul>
             </div>
           </div>
@@ -57,7 +57,7 @@ export function Footer() {
                 <p>10th Gulmohar Cross Rd</p>
                 <p>Juhu, Mumbai 400049</p>
               </a>
-              <a href="mailto:hello@ivoryatelier.in" className="block pt-3 hover:text-brass transition-colors">hello@ivoryatelier.in</a>
+              <a href="mailto:juhumanagement@ivoryatelierbeauty.com" className="block pt-3 hover:text-brass transition-colors">juhumanagement@ivoryatelierbeauty.com</a>
               <a href="tel:+919920631414" className="block hover:text-brass transition-colors">+91 99206 31414</a>
             </address>
           </div>

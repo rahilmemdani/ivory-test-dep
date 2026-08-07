@@ -13,7 +13,7 @@ import { Plume } from "@/components/site/Plume";
  */
 const BOOKING_URL =
   (process.env.NEXT_PUBLIC_BOOKING_URL as string | undefined) ??
-  "https://ivoryatelier.zohobookings.com.au/#/ivoryatelier";
+  "https://dingg.app/booking/florian-hurel-hair-couture-juhu-juhu";
 
 export default function Book() {
   return (
@@ -50,10 +50,10 @@ export default function Book() {
           <p className="label mt-10 text-espresso/50">
             Prefer to write? {" "}
             <a
-              href="mailto:hello@ivoryatelier.in"
+              href="mailto:juhumanagement@ivoryatelierbeauty.com"
               className="border-b border-espresso/40 pb-0.5 text-espresso hover:border-brass hover:text-brass"
             >
-              hello@ivoryatelier.in
+              juhumanagement@ivoryatelierbeauty.com
             </a>
           </p>
         </aside>
@@ -61,9 +61,9 @@ export default function Book() {
         {/* Right — external link */}
         <div className="relative flex flex-col items-center justify-center rounded-sm gradient-ivory p-12 text-center shadow-[0_40px_80px_-40px_rgba(51,38,29,0.2)] min-h-[500px] border border-espresso/10 overflow-hidden group">
           <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none mix-blend-overlay"></div>
-          
+
           <Plume className="mx-auto h-16 w-16 text-brass/80 mb-8 animate-float" />
-          
+
           <h2 className="font-display text-4xl text-espresso mb-4 font-medium tracking-tight">Schedule Your Visit</h2>
           <p className="text-espresso/70 mb-10 max-w-sm leading-relaxed text-lg">
             You will be redirected to our secure booking portal to select your preferred service and time.

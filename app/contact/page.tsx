@@ -11,7 +11,7 @@ export default function Contact() {
             Visit us.
           </h1>
           <a
-            href="https://ivoryatelier.zohobookings.com.au/#/ivoryatelier"
+            href="https://dingg.app/booking/florian-hurel-hair-couture-juhu-juhu"
             className="group mt-10 inline-flex items-center gap-4 rounded-none bg-espresso px-8 py-4 text-ivory transition-all duration-500 hover:bg-ink hover:text-brass shadow-lg hover:shadow-[0_10px_30px_-10px_rgba(168,138,86,0.2)] border border-transparent hover:border-brass/30"
           >
             <span className="font-display text-lg italic tracking-wide">Book a consultation</span>
