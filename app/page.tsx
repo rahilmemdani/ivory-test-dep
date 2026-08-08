@@ -19,7 +19,7 @@ const services = [
     bullets: ["Signature Cut & Styling", "Global Colour & Highlights", "Balayage", "Bridal Hair Do", "The Ritual Blow-dry"],
     img: serviceHair,
     cta: "Book a consultation",
-    ctaLink: "https://dingg.app/booking/florian-hurel-hair-couture-juhu-juhu"
+    ctaLink: "https://dingg.app/booking/ivory-atelier-juhu"
   },
   {
     tag: "02",
@@ -28,7 +28,7 @@ const services = [
     bullets: ["Atelier Manicure", "Atelier Pedicure", "Gel Finish", "Nail Art, Restrained"],
     img: serviceNails,
     cta: "Book a consultation",
-    ctaLink: "https://dingg.app/booking/florian-hurel-hair-couture-juhu-juhu"
+    ctaLink: "https://dingg.app/booking/ivory-atelier-juhu"
   },
   {
     tag: "03",
@@ -37,7 +37,7 @@ const services = [
     bullets: ["Ivory Signature Facial", "AI-Enhanced HydraFacial", "Red Light Therapy", "Face Gym", "Brow Architecture", "Occasion Make-up"],
     img: serviceBeauty,
     cta: "Book a consultation",
-    ctaLink: "https://dingg.app/booking/florian-hurel-hair-couture-juhu-juhu"
+    ctaLink: "https://dingg.app/booking/ivory-atelier-juhu"
   },
   {
     tag: "04",
@@ -76,7 +76,7 @@ export default function Home() {
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start w-full sm:w-auto gap-6 lg:gap-6 animate-fade-up [animation-delay:600ms]">
               <a
-                href="https://dingg.app/booking/florian-hurel-hair-couture-juhu-juhu"
+                href="https://dingg.app/booking/ivory-atelier-juhu"
                 className="group/btn relative inline-flex w-full sm:w-auto justify-center items-center gap-4 md:gap-6 rounded-none bg-espresso px-8 py-5 text-ivory transition-all duration-500 hover:bg-ink hover:text-brass shadow-lg hover:shadow-[0_10px_30px_-10px_rgba(168,138,86,0.2)] border border-transparent hover:border-brass/30"
               >
                 <span className="font-display text-xl italic tracking-wide">Book a consultation</span>
@@ -335,7 +335,7 @@ export default function Home() {
           <span className="italic text-brass">We'll take care of the rest.</span>
         </h2>
         <a target="_blank"
-          href="https://dingg.app/booking/florian-hurel-hair-couture-juhu-juhu"
+          href="https://dingg.app/booking/ivory-atelier-juhu"
           className="group/btn relative mt-14 inline-flex items-center gap-6 rounded-none bg-espresso px-10 py-5 text-ivory transition-all duration-500 hover:bg-ink hover:text-brass shadow-xl hover:shadow-[0_15px_40px_-10px_rgba(168,138,86,0.25)] border border-transparent hover:border-brass/30"
         >
           <span className="font-display text-xl italic tracking-wide">Book a consultation</span>

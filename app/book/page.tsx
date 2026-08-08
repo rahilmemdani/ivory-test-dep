@@ -13,7 +13,7 @@ import { Plume } from "@/components/site/Plume";
  */
 const BOOKING_URL =
   (process.env.NEXT_PUBLIC_BOOKING_URL as string | undefined) ??
-  "https://dingg.app/booking/florian-hurel-hair-couture-juhu-juhu";
+  "https://dingg.app/booking/ivory-atelier-juhu";
 
 export default function Book() {
   return (

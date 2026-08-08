@@ -47,8 +47,8 @@ export function Nav() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-40 transition-all duration-700 ${scrolled || open
-          ? "bg-ivory/95 backdrop-blur-2xl shadow-[0_1px_0_0_rgba(51,38,29,0.12)]"
-          : "bg-transparent"
+        ? "bg-ivory/95 backdrop-blur-2xl shadow-[0_1px_0_0_rgba(51,38,29,0.12)]"
+        : "bg-transparent"
         } ${hidden ? "-translate-y-full" : "translate-y-0"}`}
     >
       {/* Top bar */}
@@ -82,15 +82,15 @@ export function Nav() {
               key={l.to}
               href={l.to}
               className={`relative text-[0.72rem] font-sans font-medium uppercase tracking-[0.26em] transition-colors hover:text-brass ${pathname === l.to
-                  ? "text-espresso after:absolute after:inset-x-0 after:-bottom-1 after:h-px after:bg-brass"
-                  : "text-espresso/80"
+                ? "text-espresso after:absolute after:inset-x-0 after:-bottom-1 after:h-px after:bg-brass"
+                : "text-espresso/80"
                 }`}
             >
               {l.label}
             </Link>
           ))}
           <a
-            href="https://dingg.app/booking/florian-hurel-hair-couture-juhu-juhu"
+            href="https://dingg.app/booking/ivory-atelier-juhu"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[0.72rem] font-sans font-medium uppercase tracking-[0.26em] rounded-full border border-espresso px-5 py-2.5 text-espresso transition-all hover:border-brass hover:bg-espresso hover:text-alabaster"
@@ -138,8 +138,8 @@ export function Nav() {
                 href={l.to}
                 onClick={() => setOpen(false)}
                 className={`flex items-center justify-between border-t py-4 transition-colors ${isActive
-                    ? "border-brass/30 text-brass"
-                    : "border-espresso/10 text-espresso hover:text-brass"
+                  ? "border-brass/30 text-brass"
+                  : "border-espresso/10 text-espresso hover:text-brass"
                   }`}
               >
                 <span className="font-display text-2xl">{l.label}</span>
@@ -155,7 +155,7 @@ export function Nav() {
 
           {/* Book CTA */}
           <a
-            href="https://dingg.app/booking/florian-hurel-hair-couture-juhu-juhu"
+            href="https://dingg.app/booking/ivory-atelier-juhu"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setOpen(false)}

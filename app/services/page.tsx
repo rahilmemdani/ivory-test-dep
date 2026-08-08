@@ -436,7 +436,7 @@ function ServiceDrawer({
 
           {/* CTA */}
           <a
-            href="https://dingg.app/booking/florian-hurel-hair-couture-juhu-juhu"
+            href="https://dingg.app/booking/ivory-atelier-juhu"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-6 flex items-center justify-between gap-4 bg-espresso text-ivory px-7 py-5 hover:bg-ink transition-colors duration-300 group"
@@ -549,7 +549,7 @@ export default function Services() {
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 shrink-0 mt-8 md:mt-0">
             <a
-              href="https://dingg.app/booking/florian-hurel-hair-couture-juhu-juhu"
+              href="https://dingg.app/booking/ivory-atelier-juhu"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center justify-center gap-3 bg-espresso text-ivory px-7 py-4 hover:bg-ink transition-colors duration-300"
@@ -671,7 +671,7 @@ export default function Services() {
             </p>
           </div>
           <a
-            href="https://dingg.app/booking/florian-hurel-hair-couture-juhu-juhu"
+            href="https://dingg.app/booking/ivory-atelier-juhu"
             target="_blank"
             rel="noopener noreferrer"
             className="shrink-0 group inline-flex items-center gap-4 bg-espresso border border-espresso px-8 sm:px-10 py-5 text-ivory hover:bg-ink hover:border-brass/30 hover:text-brass transition-all duration-300"
@@ -732,8 +732,8 @@ export default function Services() {
                       key={cat}
                       onClick={() => setActiveFilter(cat)}
                       className={`px-4 py-2.5 rounded-xl border text-sm transition-all duration-300 tracking-wide font-medium ${activeFilter === cat
-                          ? "bg-espresso text-ivory border-espresso shadow-md"
-                          : "border-espresso/10 text-espresso/70 hover:border-espresso/30 bg-white"
+                        ? "bg-espresso text-ivory border-espresso shadow-md"
+                        : "border-espresso/10 text-espresso/70 hover:border-espresso/30 bg-white"
                         }`}
                     >
                       {cat}
