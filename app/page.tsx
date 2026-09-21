@@ -62,7 +62,7 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative isolate flex flex-col justify-center overflow-hidden min-h-[100dvh] pt-28 sm:pt-32 pb-16">
+      <section className="relative isolate flex flex-col justify-center overflow-hidden min-h-[100dvh] pt-28 sm:pt-32 pb-10">
         <div className="mx-auto w-full max-w-[1400px] flex flex-col lg:grid gap-12 px-5 sm:px-10 lg:grid-cols-[1.1fr_1fr] lg:gap-20 lg:items-center">
           <div className="flex flex-col justify-center items-center text-center lg:items-start lg:text-left order-1 lg:order-1">
             <h1 className="font-display text-5xl sm:text-6xl lg:text-[clamp(2.5rem,5vw,4.5rem)] leading-[0.95] tracking-[-0.02em] text-espresso animate-fade-up [animation-delay:200ms]">
@@ -116,8 +116,64 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FILM */}
+      <section className="relative isolate flex h-[100dvh] flex-col items-center justify-center overflow-hidden gradient-espresso px-5 py-8 text-ivory sm:px-10 sm:py-10">
+        {/* brass hairlines top & bottom */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brass/40 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-brass/40 to-transparent" />
+        {/* soft brass glow + vignette */}
+        <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[60vh] w-[60vw] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brass/10 blur-[120px]" />
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,transparent_55%,rgba(0,0,0,0.45)_100%)]" />
+
+        <header className="text-center animate-fade-up">
+          <img
+            src="/images/logo-icon.png"
+            alt=""
+            aria-hidden="true"
+            className="mx-auto mb-4 h-8 w-auto object-contain opacity-70"
+          />
+          <p className="label text-brass tracking-[0.3em] uppercase">The Film</p>
+          <h2 className="mt-3 font-display text-3xl leading-tight sm:text-5xl tracking-tight">
+            Step inside the house.{" "}
+            <span className="italic text-brass">A few quiet minutes.</span>
+          </h2>
+        </header>
+
+        <figure className="mt-6 w-full max-w-[min(1200px,calc((100dvh-15rem)*16/9))] sm:mt-8 animate-fade-up [animation-delay:200ms]">
+          <div className="relative aspect-video w-full overflow-hidden rounded-sm bg-ink ring-1 ring-ivory/10 shadow-[0_40px_90px_-30px_rgba(0,0,0,0.8),0_0_0_1px_rgba(168,138,86,0.15)]">
+            {/* brass corner accents */}
+            <span className="pointer-events-none absolute left-3 top-3 z-10 h-6 w-6 border-l border-t border-brass/70" />
+            <span className="pointer-events-none absolute right-3 top-3 z-10 h-6 w-6 border-r border-t border-brass/70" />
+            <span className="pointer-events-none absolute bottom-3 left-3 z-10 h-6 w-6 border-b border-l border-brass/70" />
+            <span className="pointer-events-none absolute bottom-3 right-3 z-10 h-6 w-6 border-b border-r border-brass/70" />
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/ZW_s3BHfisg?rel=0&modestbranding=1&color=white"
+              title="Ivory Atelier - The Film"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="absolute inset-0 h-full w-full"
+            />
+          </div>
+          <figcaption className="mt-4 flex items-center justify-between gap-4">
+            <span className="flex items-center gap-3">
+              <span className="h-px w-10 bg-brass/40" />
+              <span className="label text-ivory/50 tracking-[0.25em]">Ivory Atelier · Juhu</span>
+            </span>
+            <a
+              href="https://youtu.be/ZW_s3BHfisg"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="label border-b border-ivory/30 pb-1 text-ivory/60 transition-colors hover:border-brass hover:text-brass"
+            >
+              Watch on YouTube →
+            </a>
+          </figcaption>
+        </figure>
+      </section>
+
       {/* SERVICES */}
-      <section className="mx-auto flex max-w-[1400px] flex-col justify-center px-5 py-12 sm:px-10 sm:py-16">
+      <section className="mx-auto flex max-w-[1400px] flex-col justify-center px-5 py-10 sm:px-10 sm:py-14">
         <header className="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
           <div>
             <p className="label text-brass tracking-[0.3em] uppercase">01 · Services</p>
